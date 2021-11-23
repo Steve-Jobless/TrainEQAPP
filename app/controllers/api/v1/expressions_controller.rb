@@ -10,7 +10,8 @@ class Api::V1::ExpressionsController < Api::V1::BaseController
 
   def create
     @expression = expression.new(expression_params)
-    @expression.user = current_user
+    participant = Participant.find(params[:participant_id])
+    @expression.participant = participant
     authorize @expression
     if @expression.save
       render :show, status: :created
