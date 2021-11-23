@@ -20,7 +20,12 @@
         "matches": [
           "<all_urls>"
         ],
-        "js": ["scripts/main.js"]
+        "js": [
+          "vendors/face-api.min.js",
+          "vendors/html2canvas.min.js",
+          "scripts/main.js",
+          "scripts/monitoring.js"
+        ]
       }
     ]
 }
