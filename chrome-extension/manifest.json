@@ -24,7 +24,7 @@
           "vendors/face-api.min.js",
           "vendors/html2canvas.min.js",
           "scripts/main.js",
-          "scripts/monitoring.js"
+          "monitoring.js"
         ]
       }
     ]

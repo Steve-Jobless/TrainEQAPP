@@ -1,5 +1,7 @@
 const input = document.getElementById('myImg')
-console.log("HellO!")
+console.log("Hello!")
+
+
 
 
 //load models
