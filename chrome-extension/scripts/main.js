@@ -1,25 +1,22 @@
-function sendMeetingData(data) {
+function createMeeting() {
   const url = 'https://www.traineq.site/meetings';
   fetch(url, {
     method: 'POST',
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      // "meeting": {starts_at: }
-    })
   })
 }
 
-function sendExpressionData(data) {
+function createExpression({emotion, confidence, participantId}) {
   const url = 'https://www.traineq.site/expressions';
   fetch(url, {
     method: 'POST',
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      // "expressions": {angry: 0.22, }
+      "expression": { emotion, confidence, participant_id: participantId　}
     })
   })
 }
 
 
-sendMeetingData();
-sendExpressionData();
+createMeeting();
+createExpression();
