@@ -2,18 +2,18 @@
     "manifest_version": 2,
     "name": "TrainEQ extension",
     "description": "Chrome extension for TrainEQ",
-    "author": "Your name",
+    "author": "Etienne Worham, Galym Parpiyev, Hirofumi Jinno, Mai Mouri",
     "version": "1",
     "permissions": ["tabs"],
     "icons": {
-      "16": "images/icon16.png",
-      "32": "images/icon32.png",
-      "48": "images/icon48.png",
-      "128": "images/icon128.png"
+      "16": "images/trainEQ_icon.png",
+      "32": "images/trainEQ_icon.png",
+      "48": "images/trainEQ_icon.png",
+      "128": "images/trainEQ_icon.png"
     },
     "browser_action": {
       "default_popup": "popup.html",
-      "default_title": "My first Chrome Extension"
+      "default_title": "TrainEQ Extension"
     },
     "content_scripts": [
       {
