@@ -10,10 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_22_094346) do
+ActiveRecord::Schema.define(version: 2021_11_22_120355) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "expressions", force: :cascade do |t|
+    t.bigint "participant_id", null: false
+    t.integer "engagement_score", default: 0
+    t.decimal "confidence", precision: 20, scale: 19
+    t.string "emotion"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["participant_id"], name: "index_expressions_on_participant_id"
+  end
+
+  create_table "meetings", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_meetings_on_user_id"
+  end
+
+  create_table "participants", force: :cascade do |t|
+    t.string "name"
+    t.bigint "meeting_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["meeting_id"], name: "index_participants_on_meeting_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +54,7 @@ ActiveRecord::Schema.define(version: 2021_11_22_094346) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "expressions", "participants"
+  add_foreign_key "meetings", "users"
+  add_foreign_key "participants", "meetings"
 end
