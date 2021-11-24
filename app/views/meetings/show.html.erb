@@ -1,0 +1,28 @@
+<h1>Meeting room#<%= @meeting.id %></h1>
+
+<div id="expressions" data-meeting-id="<%= @meeting.id %>">
+  <!--<p>start: <%= @meeting.start_at.strftime("%a %b %e at %l:%M%p") %><br>
+  end: <%= @meeting.end_at.strftime("%a %b %e at %l:%M%p") %></p>-->
+    <% @meeting.expressions.each do |expression| %>
+      <div class="expression-container" data-expressions-target="content" id="expression-<%= expression.id %>">
+        <i class="author">
+          <span><%= expression.participant.name %></span>
+          <small><%= expression.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+        </i>
+        <p><strong><%= expression.emotion %></strong></p>
+      </div>
+    <% end %>
+</div>
+
+
+<style>
+body {
+   background-color: #b2dbf3;
+  font-size: 12px;
+}
+
+.expression-container {
+  background-color: white;
+  box-shadow: 0 1px 10px #bbb;
+}
+</style>

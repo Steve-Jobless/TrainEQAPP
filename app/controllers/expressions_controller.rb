@@ -1,4 +1,4 @@
-class Api::V1::ExpressionsController < Api::V1::BaseController
+class ExpressionsController < ApplicationController
   def index
     @expressions = policy_scope(Expression)
   end
@@ -6,6 +6,8 @@ class Api::V1::ExpressionsController < Api::V1::BaseController
   def show
     @expression = Expression.find(params[:id])
     authorize @expression
+    @participant = Participant.find(params[:id])
+    @meeting = Meeting.find(params[:id])
   end
 
   def create
@@ -13,14 +15,13 @@ class Api::V1::ExpressionsController < Api::V1::BaseController
     @participant = Participant.find(params[:participant_id])
     @meeting = Meeting.find(@participant.meeting_id)
     @expression.participant = @participant
-    authorize @expression
+    # authorize @expression
     if @expression.save
-      # render :show, status: :created
-
-    MeetingChannel.broadcast_to(
-      @meeting,
-      render_to_string(partial: "expression", locals: { expression: @expression })
-    )
+      MeetingChannel.broadcast_to(
+        @meeting,
+        render_to_string(partial: "expressions", locals: { expression: @expression })
+      )
+      redirect_to meeting_path(@meeting, anchor: "expression-#{@expression.id}")
     else
       render_error
     end
@@ -36,4 +37,6 @@ class Api::V1::ExpressionsController < Api::V1::BaseController
   def expression_params
     params.require(:expression).permit(:confidence, :emotion)
   end
+
+
 end

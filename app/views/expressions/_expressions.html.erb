@@ -1,0 +1,7 @@
+<div class="expression-container" data-expressions-target="content" id="expression-<%= expression.id %>">
+  <i class="author">
+    <span><%= expression.participant.name %></span>
+    <small><%= expression.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+  </i>
+  <p><strong><%= expression.emotion %></strong></p>
+</div>
