@@ -12,9 +12,12 @@ Rails.application.routes.draw do
   resources :participants, only: :show do
     resources :expressions, only: :create
   end
+
   resources :meetings, only: :show do
     resources :participants, only: :show do
         resources :expressions, only: :create
     end
   end
+  
+  get "/dashboard", to: "users#dashboard", as: :dashboard
 end
