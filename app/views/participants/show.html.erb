@@ -1,0 +1,6 @@
+
+<%= simple_form_for [@participant, @expression] do |f| %>
+<%= f.input :emotion,  class: 'start_date form-control' %>
+<%= f.input :confidence,  class: 'start_date form-control' %>
+<%= f.submit class: 'btn btn-secondary btn-submit py-3 my-3', "data-target":"#exampleModalCenter" %>
+<% end %>
