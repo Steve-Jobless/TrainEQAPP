@@ -4,7 +4,7 @@
     "description": "Chrome extension for TrainEQ",
     "author": "Etienne Worham, Galym Parpiyev, Hirofumi Jinno, Mai Mouri",
     "version": "1",
-    "permissions": ["tabs"],
+    "permissions": ["tabs", "<all_urls>"],
     "icons": {
       "16": "images/trainEQ_icon.png",
       "32": "images/trainEQ_icon.png",
@@ -24,7 +24,7 @@
           "vendors/face-api.min.js",
           "vendors/html2canvas.min.js",
           "scripts/main.js",
-          "scripts/monitoring.js"
+          "monitoring.js"
         ]
       }
     ]
