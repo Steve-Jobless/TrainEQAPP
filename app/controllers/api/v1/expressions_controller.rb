@@ -15,12 +15,12 @@ class Api::V1::ExpressionsController < Api::V1::BaseController
     @expression.participant = @participant
     authorize @expression
     if @expression.save
-      # render :show, status: :created
+      render :show, status: :created
 
-    MeetingChannel.broadcast_to(
-      @meeting,
-      render_to_string(partial: "expression", locals: { expression: @expression })
-    )
+    # MeetingChannel.broadcast_to(
+    #   @meeting,
+    #   render_to_string(partial: "expression", locals: { expression: @expression })
+    # )
     else
       render_error
     end
