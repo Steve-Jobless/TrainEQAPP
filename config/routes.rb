@@ -7,4 +7,13 @@ Rails.application.routes.draw do
       resources :expressions, only: [ :index, :show, :create ]
     end
   end
+
+  resources :participants, only: :show do
+    resources :expressions, only: :create
+  end
+  resources :meetings, only: :show do
+    resources :participants, only: :show do
+        resources :expressions, only: :create
+    end
+  end
 end

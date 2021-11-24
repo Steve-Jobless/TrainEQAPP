@@ -21,12 +21,12 @@ ActiveStorage.start()
 // External imports
 import "bootstrap";
 
+import "controllers"
 // Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
+import { initMeetingCable } from '../channels/meeting_channel';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  initMeetingCable();
 });
-
-import "controllers"
