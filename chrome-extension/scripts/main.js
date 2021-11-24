@@ -6,16 +6,16 @@ function createMeeting() {
   })
 }
 
-function createExpression({ emotion, confidence, participantId }) {
+function createExpression({ emotion, confidence }) {
   const url = 'https://www.traineq.site/api/v1/expressions';
   fetch(url, {
     method: 'POST',
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      "expression": { emotion, confidence, participant_id: participantId }
+      "expression": { emotion, confidence }
     })
   })
 }
 
-createMeeting();
-createExpression();
+// createMeeting();
+// createExpression();
