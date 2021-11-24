@@ -7,7 +7,11 @@ setTimeout(() => {
   port = chrome.runtime.connect({ name: "emotionDetector" });
   port.onMessage.addListener(function (msg) {
     console.log(msg)
-
+    const emotions = msg.result
+    console.log(emotions)
+    const display_message = logResultsToBE(emotions)
+    console.log(display_message)
+    displayResults(display_message)
   });
 }, 1000);
 
@@ -47,9 +51,28 @@ const startMonitoring =  () => {
   }, 10000)
 }
 
-const displayResults = () => {
+const displayResults = (display_message) => {
   const screen_location = document.querySelector(".CpPRrf")
-  screen_location.insertAdjacentHTML("beforeend", "<h1 style='text-align:center;'>Happy</h1>")
+
+const insertedContent = document.querySelector(".insertedContent");
+if(insertedContent) {
+    insertedContent.parentNode.removeChild(insertedContent);
+}
+screen_location.insertAdjacentHTML('beforeend', `<h1 class ='insertedContent'>${display_message}</h1>`);
+
 }
 
 startMonitoring()
+
+const logResultsToBE = (emotions) => {
+  emotions.forEach((emotion) => {
+    // Object.entries(emotion.expressions).forEach((key, value) =>{
+    // })
+    const max_emotion = (Object.keys(emotion.expressions).reduce(function (a, b) { return emotion.expressions[a] > emotion.expressions[b] ? a : b }))
+    // const max_emotion_value = (Object.values(emotion.expressions).reduce(function (a, b) { return emotion.expressions[a] > emotion.expressions[b] ? a : b }))
+    // console.log(max_emotion)
+    return (max_emotion)
+    // console.log(max_emotion_value)
+  })
+
+}

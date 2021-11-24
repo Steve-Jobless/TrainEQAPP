@@ -7,9 +7,10 @@ chrome.runtime.onConnect.addListener(function (port) {
     image.onload = async () => {
       const canvas = faceapi.createCanvasFromMedia(image)
       const result = await analyzeEmotions(canvas)
-      console.log(result)
+
       // return result
-      logResultsToBE(result)
+      port.postMessage({ result: result });
+      console.log(logResultsToBE(result))
     }
 
   });
@@ -37,9 +38,11 @@ const logResultsToBE = (emotions) => {
   emotions.forEach((emotion) => {
     // Object.entries(emotion.expressions).forEach((key, value) =>{
     // })
-    console.log(Object.keys(emotion.expressions).reduce(function (a, b) { return emotion.expressions[a] > emotion.expressions[b] ? a : b }))
-    // console.log(Math.max(Object.values(emotion.expressions)))
+    const max_emotion = (Object.keys(emotion.expressions).reduce(function (a, b) { return emotion.expressions[a] > emotion.expressions[b] ? a : b }))
+    // const max_emotion_value = (Object.values(emotion.expressions).reduce(function (a, b) { return emotion.expressions[a] > emotion.expressions[b] ? a : b }))
+    console.log(max_emotion)
+    // return (max_emotion)
+    // console.log(max_emotion_value)
   })
-
 
  }
