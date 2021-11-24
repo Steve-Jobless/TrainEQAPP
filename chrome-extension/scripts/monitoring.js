@@ -30,7 +30,7 @@ const startMonitoring =  () => {
   console.log("The start monitor is being called")
   //create a meeting
 
-  //every 30 seconds:
+  //every 10 seconds:
   setInterval(async () => {
     console.log("inside of the interval")
     //take screenshot of the canvas
@@ -42,10 +42,14 @@ const startMonitoring =  () => {
 
     //display the feedback
     // displayResults(emotions)
-  }, 3000)
+    displayResults()
+
+  }, 10000)
 }
 
-
-const displayResults = (emotions) => {}
+const displayResults = () => {
+  const screen_location = document.querySelector(".CpPRrf")
+  screen_location.insertAdjacentHTML("beforeend", "<h1 style='text-align:center;'>Happy</h1>")
+}
 
 startMonitoring()
