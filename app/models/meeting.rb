@@ -4,5 +4,5 @@ class Meeting < ApplicationRecord
   has_many :expressions, through: :participants
 
   validates :start_at, presence: true
-  validates :end_at, presence: true
+  # validates :end_at, presence: true
 end
