@@ -14,7 +14,11 @@ class Api::V1::MeetingsController < Api::V1::BaseController
   end
 
   def create
-    @meeting = Meeting.new(meeting_params)
+    if params[:meeting].present?
+      @meeting = Meeting.new(meeting_params)
+    else
+      @meeting = Meeting.new
+    end
     @meeting.user = current_user
     authorize @meeting
     if @meeting.save
