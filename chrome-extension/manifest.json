@@ -9,10 +9,10 @@
     "<all_urls>"
   ],
   "icons": {
-    "16": "images/trainEQ_icon.png",
-    "32": "images/trainEQ_icon.png",
-    "48": "images/trainEQ_icon.png",
-    "128": "images/trainEQ_icon.png"
+    "16": "images/traineqlogo@8x.png",
+    "32": "images/traineqlogo@8x.png",
+    "48": "images/traineqlogo@8x.png",
+    "128": "images/traineqlogo@8x.png"
   },
   "browser_action": {
     "default_popup": "popup.html",

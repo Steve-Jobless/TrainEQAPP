@@ -2,7 +2,7 @@
 body {
   width: 200px;
   height: 200px;
-  background: linear-gradient(135deg,#7daef8, #f8f8fd);
+  background: linear-gradient(135deg,#83b1f7, #f8f8fd);
 }
 
 .btn-container {
@@ -12,6 +12,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-content: center;
 }
 
 .btn-container h1 {
@@ -30,4 +31,26 @@ body {
  padding: 10px 0px;
  border-radius: 5px;
  box-shadow: 1px 1px 1px rgba(10, 10, 10, 0.5);
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+}
+
+.icon-container h1 {
+  color:rgba(60, 60, 60);
+  text-shadow: 1px 1px 1px rgba(60, 60, 60);
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center
+}
+
+#eq-logo {
+  height: 40px;
+  width: 40px;
 }
