@@ -13,6 +13,10 @@ class Api::V1::MeetingsController < Api::V1::BaseController
     end
   end
 
+  def report
+    redirect_to dashboard_path(@emotions)
+  end
+
   def create
     if params[:meeting].present?
       @meeting = Meeting.new(meeting_params)
