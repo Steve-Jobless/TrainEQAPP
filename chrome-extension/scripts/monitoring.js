@@ -58,4 +58,22 @@ screen_location.insertAdjacentHTML('beforeend', `<h1 class ='insertedContent' st
 
 }
 
+
+function createMeeting() {
+  const url = 'http://localhost:3000/api/v1/meetings';
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json",
+      "X-User-Email": "etiennewortham@gmail.com",
+      "X-User-Token": "YdzYQscnTHDzWpuY9_zi"
+    },
+  }).then(response => response.json())
+    .then((data) => {
+      console.log({ data });
+    })
+}
+
+
+createMeeting()
 startMonitoring()
