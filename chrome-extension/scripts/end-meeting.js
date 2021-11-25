@@ -1,7 +1,10 @@
 let time_date = new Date
 
-function endMeeting(end_time) {
-  const url = `http://localhost:3000/api/v1/meetings/${}`;
+
+async function endMeeting(end_time) {
+  const screen_location = document.querySelector(".CpPRrf")
+  const meeting_id = screen_location.getAttribute("data-meeting-id")
+  const url = `http://localhost:3000/api/v1/meetings/${meeting_id}`;
   const test = await fetch(url, {
     method: 'POST',
     headers: {
@@ -10,12 +13,8 @@ function endMeeting(end_time) {
       "X-User-Token": "_XNbsrvpVFHKXuXv19zk"
     },
     body: JSON.stringify({
-      "end_at": {
+      "end_at":
         end_time,
-      },
-       "meeting_id": {
-          end_time,
-        },
       "participant_id": 1
     })
   })

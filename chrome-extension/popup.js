@@ -16,11 +16,10 @@ function listenClick() {
     // execute a file, which send end post request to rails
    else {
       chrome.tabs.executeScript({
-        file: 'scripts/end_meeting.js'
+        file: 'scripts/end-meeting.js'
       });
       event.target.innerText = 'Start'
     }
   })
 }
-
 listenClick();
