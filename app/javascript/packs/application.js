@@ -13,7 +13,6 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-
 // ----------------------------------------------------
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
@@ -21,8 +20,10 @@ ActiveStorage.start()
 import { Application } from "stimulus"
 import Chart from "stimulus-chartjs"
 
+
 const application = Application.start()
 application.register("chart", Chart)
+
 
 
 // External imports
