@@ -3,13 +3,16 @@ console.log("Hello!")
 // console.log(screenShot)
 
 let port
+let port_two
 setTimeout(() => {
   port = chrome.runtime.connect({ name: "emotionDetector" });
-  port.onMessage.addListener(function (msg) {
-    console.log(msg)
-
+  port.onMessage.addListener(function ({ emotion }) {
+    console.log(emotion)
+    displayResults(emotion)
   });
 }, 1000);
+
+
 
 
 const takeScreenShot = () => {
@@ -30,7 +33,7 @@ const startMonitoring =  () => {
   console.log("The start monitor is being called")
   //create a meeting
 
-  //every 30 seconds:
+  //every 10 seconds:
   setInterval(async () => {
     console.log("inside of the interval")
     //take screenshot of the canvas
@@ -41,11 +44,18 @@ const startMonitoring =  () => {
     //output sent to the api at the back
 
     //display the feedback
-    // displayResults(emotions)
-  }, 3000)
+  }, 10000)
 }
 
+const displayResults = (display_message) => {
+  const screen_location = document.querySelector(".CpPRrf")
 
-const displayResults = (emotions) => {}
+const insertedContent = document.querySelector(".insertedContent");
+if(insertedContent) {
+    insertedContent.parentNode.removeChild(insertedContent);
+}
+screen_location.insertAdjacentHTML('beforeend', `<h1 class ='insertedContent' style="margin:0px;">${display_message}</h1>`);
+
+}
 
 startMonitoring()

@@ -7,12 +7,17 @@ chrome.runtime.onConnect.addListener(function (port) {
     image.onload = async () => {
       const canvas = faceapi.createCanvasFromMedia(image)
       const result = await analyzeEmotions(canvas)
-      console.log(result)
-      // logResultsToBE(emotions)
-    }
+
+      // return result
+      if (result.length > 0) {
+      const emotion = logResultsToBE(result)
+      port.postMessage({ emotion: emotion });
+      // sendExpressionData(emotion)
+    }}
 
   });
 });
+
 
 //load models
 console.log("loading models...")
@@ -32,4 +37,21 @@ const analyzeEmotions = async (screenShot) => {
     .withFaceExpressions()
 }
 
-const logResultsToBE = (emotions) => { }
+const logResultsToBE = (emotions) => {
+  const emotion = emotions[0]
+    const max_emotion = (Object.keys(emotion.expressions).reduce(function (a, b) { return emotion.expressions[a] > emotion.expressions[b] ? a : b }))
+    return max_emotion
+ }
+
+
+//  function sendExpressionData(emotion) {
+//   const url = 'https://www.traineq.site/expressions';
+//   fetch(url, {
+//     method: 'POST',
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify({
+//       "expressions": emotion,
+//       "confidence": 1
+//     })
+//   })
+// }
