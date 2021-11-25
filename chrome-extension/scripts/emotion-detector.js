@@ -12,6 +12,7 @@ chrome.runtime.onConnect.addListener(function (port) {
       if (result.length > 0) {
       const emotion = logResultsToBE(result)
       port.postMessage({ emotion: emotion });
+      console.log(createExpression(emotion))
       createExpression(emotion)
     }}
 
@@ -51,8 +52,8 @@ async function createExpression(emotion) {
     method: 'POST',
     headers: {
       "Content-Type": "application/json",
-      "X-User-Email": "etiennewortham@gmail.com",
-      "X-User-Token": "YdzYQscnTHDzWpuY9_zi"
+      "X-User-Email": "example@example.com",
+      "X-User-Token": "_XNbsrvpVFHKXuXv19zk"
     },
     body: JSON.stringify({
       "expression": {

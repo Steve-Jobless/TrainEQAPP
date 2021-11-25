@@ -2,11 +2,10 @@
 console.log("Hello!")
 // console.log(screenShot)
 
-let port
-let port_two
+let port_emotion
 setTimeout(() => {
-  port = chrome.runtime.connect({ name: "emotionDetector" });
-  port.onMessage.addListener(function ({ emotion }) {
+  port_emotion = chrome.runtime.connect({ name: "emotionDetector" });
+  port_emotion.onMessage.addListener(function ({ emotion }) {
     console.log(emotion)
     displayResults(emotion)
   });
@@ -39,7 +38,7 @@ const startMonitoring =  () => {
     //take screenshot of the canvas
     const screenShot = await takeScreenShot()
     //feed the screenshot into the emotion-detector
-    port.postMessage({ screenShot: screenShot.toDataURL() });
+    port_emotion.postMessage({ screenShot: screenShot.toDataURL() });
 
     //output sent to the api at the back
 
@@ -65,15 +64,14 @@ function createMeeting() {
     method: 'POST',
     headers: {
       "Content-Type": "application/json",
-      "X-User-Email": "etiennewortham@gmail.com",
-      "X-User-Token": "YdzYQscnTHDzWpuY9_zi"
+      "X-User-Email": "example@example.com",
+      "X-User-Token": "_XNbsrvpVFHKXuXv19zk"
     },
   }).then(response => response.json())
     .then((data) => {
       console.log({ data });
     })
 }
-
 
 createMeeting()
 startMonitoring()
