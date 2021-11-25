@@ -99,13 +99,15 @@ function createMeeting() {
     headers: {
       "Content-Type": "application/json",
       "X-User-Email": "etiennewortham@gmail.com",
-      "X-User-Token": "YdzYQscnTHDzWpuY9_zi"
+      "X-User-Token": "1x-4VvjAzyatcQuhb8iG"
     },
   }).then(response => response.json())
+    .then(window.localStorage.setItem('meeting_id', 1))
     .then((data) => {
       console.log({ data });
     })
 }
+
 
 async function createExpression(emotion) {
   const url = 'http://localhost:3000/api/v1/expressions';
@@ -126,4 +128,3 @@ async function createExpression(emotion) {
   })
   console.log(test);
 }
-
