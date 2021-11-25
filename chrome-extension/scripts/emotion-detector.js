@@ -9,8 +9,9 @@ chrome.runtime.onConnect.addListener(function (port) {
       const result = await analyzeEmotions(canvas)
 
       // return result
-      port.postMessage({ result: result });
-      console.log(logResultsToBE(result))
+      if (result.length > 0) {
+      const emotion = logResultsToBE(result)
+      port.postMessage({ emotion: emotion });}
     }
 
   });
@@ -35,14 +36,15 @@ const analyzeEmotions = async (screenShot) => {
 }
 
 const logResultsToBE = (emotions) => {
-  emotions.forEach((emotion) => {
+  let returning_emotion = ""
+  const emotion = emotions[0]
     // Object.entries(emotion.expressions).forEach((key, value) =>{
     // })
     const max_emotion = (Object.keys(emotion.expressions).reduce(function (a, b) { return emotion.expressions[a] > emotion.expressions[b] ? a : b }))
     // const max_emotion_value = (Object.values(emotion.expressions).reduce(function (a, b) { return emotion.expressions[a] > emotion.expressions[b] ? a : b }))
-    console.log(max_emotion)
-    // return (max_emotion)
+    // console.log(max_emotion)
+    return max_emotion
     // console.log(max_emotion_value)
-  })
+
 
  }

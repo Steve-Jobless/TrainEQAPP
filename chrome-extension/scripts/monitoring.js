@@ -7,11 +7,11 @@ setTimeout(() => {
   port = chrome.runtime.connect({ name: "emotionDetector" });
   port.onMessage.addListener(function (msg) {
     console.log(msg)
-    const emotions = msg.result
-    console.log(emotions)
-    const display_message = logResultsToBE(emotions)
-    console.log(display_message)
-    displayResults(display_message)
+    // const emotions = msg.result
+    // console.log(emotions)
+    // const display_message = logResultsToBE(emotions)
+    // console.log(display_message)
+    displayResults(msg.emotion)
   });
 }, 1000);
 
@@ -46,8 +46,6 @@ const startMonitoring =  () => {
 
     //display the feedback
     // displayResults(emotions)
-    displayResults()
-
   }, 10000)
 }
 
@@ -58,21 +56,21 @@ const insertedContent = document.querySelector(".insertedContent");
 if(insertedContent) {
     insertedContent.parentNode.removeChild(insertedContent);
 }
-screen_location.insertAdjacentHTML('beforeend', `<h1 class ='insertedContent'>${display_message}</h1>`);
+screen_location.insertAdjacentHTML('beforeend', `<h1 class ='insertedContent' style="margin:0px;">${display_message}</h1>`);
 
 }
 
 startMonitoring()
 
-const logResultsToBE = (emotions) => {
-  emotions.forEach((emotion) => {
-    // Object.entries(emotion.expressions).forEach((key, value) =>{
-    // })
-    const max_emotion = (Object.keys(emotion.expressions).reduce(function (a, b) { return emotion.expressions[a] > emotion.expressions[b] ? a : b }))
-    // const max_emotion_value = (Object.values(emotion.expressions).reduce(function (a, b) { return emotion.expressions[a] > emotion.expressions[b] ? a : b }))
-    // console.log(max_emotion)
-    return (max_emotion)
-    // console.log(max_emotion_value)
-  })
+// const logResultsToBE = (emotions) => {
+//   emotions.forEach((emotion) => {
+//     // Object.entries(emotion.expressions).forEach((key, value) =>{
+//     // })
+//     const max_emotion = (Object.keys(emotion.expressions).reduce(function (a, b) { return emotion.expressions[a] > emotion.expressions[b] ? a : b }))
+//     // const max_emotion_value = (Object.values(emotion.expressions).reduce(function (a, b) { return emotion.expressions[a] > emotion.expressions[b] ? a : b }))
+//     // console.log(max_emotion)
+//     return max_emotion
+//     // console.log(max_emotion_value)
+//   })
 
-}
+// }
