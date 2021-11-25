@@ -1,4 +1,24 @@
 <div class="container p-3 my-3">
+  <div class="tab">
+    <button class="tablinks" onclick="openCity(event, 'London')">London</button>
+    <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
+    <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+  </div>
+
+  <div id="London" class="tabcontent">
+    <h3>London</h3>
+    <p>London is the capital city of England.</p>
+  </div>
+
+  <div id="Paris" class="tabcontent">
+    <h3>Paris</h3>
+    <p>Paris is the capital of France.</p>
+  </div>
+
+  <div id="Tokyo" class="tabcontent">
+    <h3>Tokyo</h3>
+    <p>Tokyo is the capital of Japan.</p>
+  </div>
 test <%= @emotions %>
   <canvas
     data-controller="chart"
@@ -7,7 +27,7 @@ test <%= @emotions %>
                             "datasets": [{ "label": "Zoom participant emotions",
                             "backgroundColor": ["rgba(255, 99, 132, 0.7)", "rgba(255, 159, 64, 0.7)", "rgba(255, 205, 86, 0.7)", "rgba(75, 192, 192, 0.7)", "rgba(54, 162, 235, 0.7)", "rgba(153, 102, 255, 0.7)", "rgba(153, 132, 131, 0.7)"],
                             "borderColor": "#3B82F6",
-                            "data": [37, 13, 78, 54, 12, 5, 40] }] }'
+                            "data": <%= @emotions %> }] }'
   ></canvas>
   <canvas
     data-controller="chart"
@@ -16,7 +36,7 @@ test <%= @emotions %>
                             "datasets": [{ "label": "Zoom participant emotions",
                             "backgroundColor": ["rgba(255, 99, 132, 0.5)", "rgba(255, 159, 64, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(153, 132, 131, 0.2)"],
                             "borderColor": "rgba(54, 162, 235, 0.2)",
-                            "data": [37, 13, 23, 34, 12, 5, 40] }] }'
+                            "data": <%= @emotions %> }] }'
   ></canvas>
   <canvas
     data-controller="chart"
@@ -25,7 +45,7 @@ test <%= @emotions %>
                             "datasets": [{ "label": "Zoom participant emotions",
                             "backgroundColor": ["rgba(255, 99, 132, 0.9)", "rgba(255, 159, 64, 0.9)", "rgba(255, 205, 86, 0.9)", "rgba(75, 192, 192, 0.9)", "rgba(54, 162, 235, 0.9)", "rgba(153, 102, 255, 0.9)", "rgba(153, 132, 131, 0.9)"],
                             <%# "borderColor": "rgba(54, 162, 235, 0.2)", %>
-                            "data": [37, 13, 78, 54, 12, 5, 40] }] }'
+                            "data":<%= @emotions %> }] }'
   ></canvas>
   <div class="row">
     <div class="col-md-6 border">

@@ -14,13 +14,13 @@ class UsersController < ApplicationController
     # @fearful = Expression.all.where(participant_id:1).where(emotion:"fearful").count
     # @emotions = [ @happy, @sad, @neutral, @angry, @disgusted, @surprised, @fearful]
     @emotions = [
-      Expression.all.where(participant_id:1).where(emotion:"happy").count,
-      Expression.all.where(participant_id:1).where(emotion:"sad").count,
-      Expression.all.where(participant_id:1).where(emotion:"neutral").count,
-      Expression.all.where(participant_id:1).where(emotion:"angry").count,
-      Expression.all.where(participant_id:1).where(emotion:"disgusted").count,
-      Expression.all.where(participant_id:1).where(emotion:"surprised").count,
-      Expression.all.where(participant_id:1).where(emotion:"fearful").count
+      Expression.all.where(participant_id:13).where(emotion:"happy").count,
+      Expression.all.where(participant_id:13).where(emotion:"sad").count,
+      Expression.all.where(participant_id:13).where(emotion:"neutral").count,
+      Expression.all.where(participant_id:13).where(emotion:"angry").count,
+      Expression.all.where(participant_id:13).where(emotion:"disgusted").count,
+      Expression.all.where(participant_id:13).where(emotion:"surprised").count,
+      Expression.all.where(participant_id:13).where(emotion:"fearful").count
     ]
 
   end

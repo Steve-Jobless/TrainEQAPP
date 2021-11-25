@@ -13,17 +13,21 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-
 // ----------------------------------------------------
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 import { Application } from "stimulus"
 import Chart from "stimulus-chartjs"
+import { openCity } from '../components/tab';
 
 const application = Application.start()
 application.register("chart", Chart)
 
+document.addEventListener('turbolinks:load', () => {
+  // Call your JS functions here
+  openCity();
+});
 
 // External imports
 import "bootstrap";
