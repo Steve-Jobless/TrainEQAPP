@@ -1,5 +1,6 @@
 // const screenShot = document.getElementsByTagName('img')[0]
 console.log("Hello!")
+// console.log($test)
 // console.log(screenShot)
 
 let port_emotion
@@ -69,7 +70,9 @@ function createMeeting() {
     },
   }).then(response => response.json())
     .then((data) => {
-      console.log({ data });
+      const screen_location = document.querySelector(".CpPRrf")
+      screen_location.setAttribute("data-meeting-id", data.id)
+
     })
 }
 
