@@ -45,7 +45,6 @@ const logResultsToBE = (emotions) => {
  }
 
 
-
 async function createExpression(emotion) {
   const url = 'http://localhost:3000/api/v1/expressions';
   const test = await fetch(url, {

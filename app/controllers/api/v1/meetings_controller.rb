@@ -6,15 +6,13 @@ class Api::V1::MeetingsController < Api::V1::BaseController
   end
 
   def update
-    if @meeting.update(meeting_params)
-      render :show
-    else
+    @user = current_user
+    @meeting.end_at = Time.new
+     if @meeting.save!
+       redirect_to dashboard_path
+     else
       render_error
     end
-  end
-
-  def report
-    redirect_to dashboard_path(@emotions)
   end
 
   def create
