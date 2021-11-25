@@ -1,12 +1,12 @@
 // const screenShot = document.getElementsByTagName('img')[0]
 console.log("Hello!")
+// console.log($test)
 // console.log(screenShot)
 
-let port
-let port_two
+let port_emotion
 setTimeout(() => {
-  port = chrome.runtime.connect({ name: "emotionDetector" });
-  port.onMessage.addListener(function ({ emotion }) {
+  port_emotion = chrome.runtime.connect({ name: "emotionDetector" });
+  port_emotion.onMessage.addListener(function ({ emotion }) {
     console.log(emotion)
     displayResults(emotion)
   });
@@ -39,7 +39,7 @@ const startMonitoring =  () => {
     //take screenshot of the canvas
     const screenShot = await takeScreenShot()
     //feed the screenshot into the emotion-detector
-    port.postMessage({ screenShot: screenShot.toDataURL() });
+    port_emotion.postMessage({ screenShot: screenShot.toDataURL() });
 
     //output sent to the api at the back
 
@@ -54,8 +54,27 @@ const insertedContent = document.querySelector(".insertedContent");
 if(insertedContent) {
     insertedContent.parentNode.removeChild(insertedContent);
 }
-screen_location.insertAdjacentHTML('beforeend', `<h1 class ='insertedContent' style="margin:0px;">${display_message}</h1>`);
+  screen_location.insertAdjacentHTML('beforeend', `<h1 class ='insertedContent' style="margin:0px; color:white; text-align: center;">${display_message[0].toUpperCase() + display_message.substring(1)}</h1>`);
 
 }
 
+
+function createMeeting() {
+  const url = 'http://localhost:3000/api/v1/meetings';
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json",
+      "X-User-Email": "example@example.com",
+      "X-User-Token": "_XNbsrvpVFHKXuXv19zk"
+    },
+  }).then(response => response.json())
+    .then((data) => {
+      const screen_location = document.querySelector(".CpPRrf")
+      screen_location.setAttribute("data-meeting-id", data.id)
+
+    })
+}
+
+createMeeting()
 startMonitoring()

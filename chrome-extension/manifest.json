@@ -24,8 +24,7 @@
         "<all_urls>"
       ],
       "js": [
-        "/scripts/main.js",
-        "/scripts/monitoring.js",
+        // "/scripts/monitoring.js",
         "/vendors/html2canvas.min.js"
       ]
     }
