@@ -1,5 +1,6 @@
 // const screenShot = document.getElementsByTagName('img')[0]
 console.log("Hello!")
+console.log($test)
 // console.log(screenShot)
 
 let port_emotion
