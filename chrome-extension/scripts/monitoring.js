@@ -3,17 +3,16 @@ console.log("Hello!")
 // console.log(screenShot)
 
 let port
+let port_two
 setTimeout(() => {
   port = chrome.runtime.connect({ name: "emotionDetector" });
-  port.onMessage.addListener(function (msg) {
-    console.log(msg)
-    // const emotions = msg.result
-    // console.log(emotions)
-    // const display_message = logResultsToBE(emotions)
-    // console.log(display_message)
-    displayResults(msg.emotion)
+  port.onMessage.addListener(function ({ emotion }) {
+    console.log(emotion)
+    displayResults(emotion)
   });
 }, 1000);
+
+
 
 
 const takeScreenShot = () => {
@@ -45,7 +44,6 @@ const startMonitoring =  () => {
     //output sent to the api at the back
 
     //display the feedback
-    // displayResults(emotions)
   }, 10000)
 }
 
@@ -61,16 +59,3 @@ screen_location.insertAdjacentHTML('beforeend', `<h1 class ='insertedContent' st
 }
 
 startMonitoring()
-
-// const logResultsToBE = (emotions) => {
-//   emotions.forEach((emotion) => {
-//     // Object.entries(emotion.expressions).forEach((key, value) =>{
-//     // })
-//     const max_emotion = (Object.keys(emotion.expressions).reduce(function (a, b) { return emotion.expressions[a] > emotion.expressions[b] ? a : b }))
-//     // const max_emotion_value = (Object.values(emotion.expressions).reduce(function (a, b) { return emotion.expressions[a] > emotion.expressions[b] ? a : b }))
-//     // console.log(max_emotion)
-//     return max_emotion
-//     // console.log(max_emotion_value)
-//   })
-
-// }
