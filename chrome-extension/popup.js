@@ -7,7 +7,7 @@ function listenClick() {
       chrome.tabs.executeScript({
         file: 'scripts/monitoring.js'
       });
-      event.target.innerText = 'End'
+      // event.target.innerText = 'End'
     }
 
     // starting things
@@ -18,7 +18,7 @@ function listenClick() {
       chrome.tabs.executeScript({
         file: 'scripts/end-meeting.js'
       });
-      event.target.innerText = 'Start'
+      // event.target.innerText = 'Start'
     }
   })
 }
