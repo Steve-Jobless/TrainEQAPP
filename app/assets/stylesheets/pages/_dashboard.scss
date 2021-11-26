@@ -1,0 +1,55 @@
+.subtitle {
+  color:rgb(126, 110, 110);
+  padding-bottom: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.title {
+  padding-top: 20px;
+  font-size: 30px;
+}
+
+.chart {
+  width: 40px;
+  height: 40px;
+}
+
+.chTitle {
+  padding: 20px 0 5px 220px;
+  color:rgb(126, 110, 110);
+}
+
+.chsubTitle {
+  padding: 20px 0 0 0;
+  color:rgb(126, 110, 110);
+}
+
+.chsubTitle1 {
+  padding: 0 0 20px 0;
+  color:rgb(126, 110, 110);
+}
+
+.tabs-underlined {
+  display: flex;
+  align-items: center;
+}
+.tabs-underlined {
+  .tab-underlined {
+    color: black;
+    padding: 8px;
+    margin: 8px 16px;
+    opacity: .4;
+    cursor: pointer;
+    text-decoration: none;
+    border-bottom: 4px solid transparent;
+    display: block;
+  }
+  .tab-underlined:hover {
+    opacity: 0.5;
+  }
+  .tab-underlined.active {
+    opacity: 1;
+    border-bottom: 3px solid #555555;
+  }
+}
