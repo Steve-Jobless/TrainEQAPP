@@ -48,7 +48,7 @@ const startMonitoring =  () => {
 }
 
 const displayResults = (display_message) => {
-  const screen_location = document.querySelector(".CpPRrf")
+  const screen_location = document.querySelector(".pHsCke")
 
 const insertedContent = document.querySelector(".insertedContent");
 if(insertedContent) {
@@ -70,7 +70,7 @@ function createMeeting() {
     },
   }).then(response => response.json())
     .then((data) => {
-      const screen_location = document.querySelector(".CpPRrf")
+      const screen_location = document.querySelector(".pHsCke")
       screen_location.setAttribute("data-meeting-id", data.id)
 
     })
