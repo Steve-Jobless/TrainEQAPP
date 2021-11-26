@@ -33,6 +33,17 @@ body {
  box-shadow: 1px 1px 1px rgba(10, 10, 10, 0.5);
 }
 
+#end-btn {
+ background-color: #99A1A6;
+ min-width: 100px;
+ align-self: center;
+ padding: 10px 0px;
+ border-radius: 5px;
+ box-shadow: 1px 1px 1px rgba(10, 10, 10, 0.5);
+ margin-top: 10px;
+ color: white;
+}
+
 .icon-container {
   display: flex;
   justify-content: center;
