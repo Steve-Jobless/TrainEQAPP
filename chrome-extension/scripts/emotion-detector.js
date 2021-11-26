@@ -1,7 +1,6 @@
 chrome.runtime.onConnect.addListener(function (port) {
   console.assert(port.name === "emotionDetector");
   port.onMessage.addListener(function (msg) {
-    console.log({msg})
     const image = document.createElement('img')
     image.src = msg.screenShot
     image.onload = async () => {
@@ -45,11 +44,12 @@ const logResultsToBE = (emotions) => {
 
 
 async function createExpression(emotion) {
-
+  let meeting_id;
+  chrome.storage.local.get(['meeting_id'], async function(result) {
+  meeting_id = result.meeting_id;
+  console.log(meeting_id)
 
   const url = 'http://localhost:3000/api/v1/expressions';
-  console.log(12345)
-
   const response = await fetch(url, {
     method: 'POST',
     headers: {
@@ -66,4 +66,8 @@ async function createExpression(emotion) {
     })
   })
   console.log({ response })
+
+});
+
+
 }

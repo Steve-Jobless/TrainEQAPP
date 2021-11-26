@@ -11,7 +11,11 @@ class Api::V1::ExpressionsController < Api::V1::BaseController
   def create
     @participant = Participant.create!(meeting_id: params[:meeting_id])
     @meeting = Meeting.find(@participant.meeting_id)
-    @expression = Expression.new(expression_params)
+    puts expression_params
+     @expression = Expression.new(
+      confidence: expression_params[:expression][:confidence],
+      emotion: expression_params[:expression][:emotion]
+    )
     @expression.participant = @participant
     authorize @expression
 
@@ -35,6 +39,9 @@ class Api::V1::ExpressionsController < Api::V1::BaseController
   end
 
   def expression_params
-    params.require(:expression).permit(:confidence, :emotion)
+    params.permit(
+      :meeting_id,
+      expression: [ :confidence, :emotion ]
+    )
   end
 end

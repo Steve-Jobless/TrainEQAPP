@@ -14,7 +14,7 @@ setTimeout(() => {
     displayResults(emotion)
     console.log(1212, meeting_id)
 
-    port.postMessage({ meeting_id: meeting_id });
+    port_emotion.postMessage({ meeting_id: localStorage.meeting_id });
 
   });
 }, 1000);
@@ -79,6 +79,8 @@ function createMeeting() {
     .then((data) => {
       console.log(data)
       const screen_location = document.querySelector(".CpPRrf")
+      chrome.storage.local.set({ meeting_id: data.id }, function () {
+      });
       meeting_id = data.id
     })
 }
