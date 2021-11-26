@@ -54,7 +54,7 @@ const insertedContent = document.querySelector(".insertedContent");
 if(insertedContent) {
     insertedContent.parentNode.removeChild(insertedContent);
 }
-  screen_location.insertAdjacentHTML('beforeend', `<h1 class ='insertedContent' style="margin:0px; color:white; text-align: center; z-index: 9999">${display_message[0].toUpperCase() + display_message.substring(1)}</h1>`);
+  screen_location.insertAdjacentHTML('beforeend', `<h1 class ='insertedContent' style="margin:15px 15px 0 0; color:white; text-align: center; z-index: 9999">${display_message[0].toUpperCase() + display_message.substring(1)}</h1>`);
 
 }
 
