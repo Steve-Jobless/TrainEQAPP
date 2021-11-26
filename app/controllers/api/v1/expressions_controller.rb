@@ -9,11 +9,12 @@ class Api::V1::ExpressionsController < Api::V1::BaseController
   end
 
   def create
-    @expression = Expression.new(expression_params)
-    @participant = Participant.find(params[:participant_id])
+    @participant = Participant.create!(meeting_id: params[:meeting_id])
     @meeting = Meeting.find(@participant.meeting_id)
+    @expression = Expression.new(expression_params)
     @expression.participant = @participant
     authorize @expression
+
     if @expression.save
       render :show, status: :created
 

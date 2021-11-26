@@ -4,11 +4,18 @@ console.log("Hello!")
 // console.log(screenShot)
 
 let port_emotion
+const screen_location = document.querySelector(".CpPRrf")
+let meeting_id = null
+
 setTimeout(() => {
   port_emotion = chrome.runtime.connect({ name: "emotionDetector" });
   port_emotion.onMessage.addListener(function ({ emotion }) {
     console.log(emotion)
     displayResults(emotion)
+    console.log(1212, meeting_id)
+
+    port.postMessage({ meeting_id: meeting_id });
+
   });
 }, 1000);
 
@@ -70,9 +77,9 @@ function createMeeting() {
     },
   }).then(response => response.json())
     .then((data) => {
+      console.log(data)
       const screen_location = document.querySelector(".CpPRrf")
-      screen_location.setAttribute("data-meeting-id", data.id)
-
+      meeting_id = data.id
     })
 }
 
