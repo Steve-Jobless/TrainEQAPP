@@ -6,12 +6,13 @@ chrome.runtime.onConnect.addListener(function (port) {
     image.onload = async () => {
       const canvas = faceapi.createCanvasFromMedia(image)
       const result = await analyzeEmotions(canvas)
-
       // return result
       if (result.length > 0) {
-      const emotion = logResultsToBE(result)
-      port.postMessage({ emotion: emotion });
-      await createExpression(emotion)
+      console.log(result)
+      const emotion = getMax(result[0])
+      console.log(emotion)
+      port.postMessage({ participantId: msg.participantId, emotion: emotion });
+        await createExpression({ emotion, participantId: msg.participantId})
     }}
 
   });
@@ -36,14 +37,13 @@ const analyzeEmotions = async (screenShot) => {
     .withFaceExpressions()
 }
 
-const logResultsToBE = (emotions) => {
-  const emotion = emotions[0]
-    const max_emotion = (Object.keys(emotion.expressions).reduce(function (a, b) { return emotion.expressions[a] > emotion.expressions[b] ? a : b }))
+const getMax = ({ expressions }) => {
+    const max_emotion = (Object.keys(expressions).reduce(function (a, b) { return expressions[a] > expressions[b] ? a : b }))
     return max_emotion
  }
 
 
-async function createExpression(emotion) {
+async function createExpression({emotion, participantId}) {
   let meeting_id;
   chrome.storage.local.get(['meeting_id'], async function(result) {
   meeting_id = result.meeting_id;
@@ -62,7 +62,7 @@ async function createExpression(emotion) {
         emotion,
         "confidence": 0.7
       },
-      "meeting_id": meeting_id
+      "participant_id": participantId
     })
   })
   console.log({ response })

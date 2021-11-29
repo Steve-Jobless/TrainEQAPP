@@ -9,8 +9,9 @@ class Api::V1::ExpressionsController < Api::V1::BaseController
   end
 
   def create
-    @participant = Participant.create!(meeting_id: params[:meeting_id])
-    @meeting = Meeting.find(@participant.meeting_id)
+    # @participant = Participant.create!(meeting_id: params[:meeting_id])
+    # @meeting = Meeting.find(@participant.meeting_id)
+    @participant = Participant.find(params[:participant_id])
     puts expression_params
      @expression = Expression.new(
       confidence: expression_params[:expression][:confidence],
@@ -23,7 +24,7 @@ class Api::V1::ExpressionsController < Api::V1::BaseController
       render :show, status: :created
 
     MeetingChannel.broadcast_to(
-      @meeting,
+      @participant.meeting,
       render_to_string(partial: "expressions/expressions.html.erb", locals: { expression: @expression }, formats: [:html])
     )
     else
