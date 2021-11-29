@@ -1,19 +1,21 @@
   <!-- code a Hero / Banner section -->
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(images/background.png);">
+<%# <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(images/background.png);"> %>
+<div class='banner' style="background-image: url(<%= "background.png" %>) no-repeat">
   <div class="container">
 
-    <span id="ityped" style="font-size: 3.5em; font-family: 'Space Mono', monospace;"></span>
-    <!-- <h1>Communication tool for the ambitious professional</h1> -->
+    <%# <span id="ityped" style="font-size: 3.5em; font-family: 'Space Mono', monospace;"></span> %>
+    <h1>Tool for the ambitious professional who needs a little communication advice</h1>
     <p>Instantly understand your online team more clearly and more deeply to get ahead.
     </p>
-
-    <a href="https://www.lewagon.com/" class="btn btn-green">Download</a>
-    <div class="img-float">
+    <a href="https://www.lewagon.com/" class="btn btn-blue">Download</a>
+    <div>
       <%# <img src="../../assets/images/screen.png" alt="" class="mac"> %>
-      <%= image_tag "screen.png", class:"mac" %>
+      <%= image_tag "combined_images.png", class:"mac" %>
     </div>
   </div>
 </div>
+
+
 
   <!-- code a "How it works" section -->
   <div class="container">

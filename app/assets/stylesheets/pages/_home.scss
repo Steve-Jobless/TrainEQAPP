@@ -5,7 +5,9 @@ body {
 }
 
 h1, h2, h3, h4 {
-font-family: 'Space Mono', monospace;
+font-family: 'Fugaz One', cursive;
+font-size: 32px;
+color: black;
 }
 
 a {
@@ -43,12 +45,13 @@ a {
 .banner h1 {
   text-align: center;
   font-size: 32px;
+  color: black;
 }
 
 .banner p {
   text-align: center;
   font-size: 18px;
-  color: white;
+  color: black;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
@@ -68,7 +71,7 @@ a {
 
 .mac {
   position: relative;
-  width: 100%;
+  width: 70%;
   top: 90px;
 }
 
