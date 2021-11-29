@@ -4,11 +4,18 @@ console.log("Hello!")
 // console.log(screenShot)
 
 let port_emotion
+const screen_location = document.querySelector(".CpPRrf")
+let meeting_id = null
+
 setTimeout(() => {
   port_emotion = chrome.runtime.connect({ name: "emotionDetector" });
   port_emotion.onMessage.addListener(function ({ emotion }) {
     console.log(emotion)
     displayResults(emotion)
+    console.log(1212, meeting_id)
+
+    port_emotion.postMessage({ meeting_id: localStorage.meeting_id });
+
   });
 }, 1000);
 
@@ -70,8 +77,12 @@ function createMeeting() {
     },
   }).then(response => response.json())
     .then((data) => {
-      const screen_location = document.querySelector(".pHsCke")
-      screen_location.setAttribute("data-meeting-id", data.id)
+
+      console.log(data)
+      const screen_location = document.querySelector(".CpPRrf")
+      chrome.storage.local.set({ meeting_id: data.id }, function () {
+      });
+      meeting_id = data.id
 
     })
 }

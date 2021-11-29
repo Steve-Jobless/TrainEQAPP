@@ -11,7 +11,10 @@ class ExpressionsController < ApplicationController
   end
 
   def create
-    @expression = Expression.new(expression_params)
+    @expression = Expression.new(
+      confidence: expression_params[:confidence],
+      expression: expression_params[:expression]
+    )
     @participant = Participant.find(params[:participant_id])
     @meeting = Meeting.find(@participant.meeting_id)
     @expression.participant = @participant

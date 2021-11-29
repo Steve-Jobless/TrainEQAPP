@@ -1,7 +1,6 @@
 chrome.runtime.onConnect.addListener(function (port) {
   console.assert(port.name === "emotionDetector");
   port.onMessage.addListener(function (msg) {
-
     const image = document.createElement('img')
     image.src = msg.screenShot
     image.onload = async () => {
@@ -12,8 +11,7 @@ chrome.runtime.onConnect.addListener(function (port) {
       if (result.length > 0) {
       const emotion = logResultsToBE(result)
       port.postMessage({ emotion: emotion });
-      console.log(createExpression(emotion))
-      createExpression(emotion)
+      await createExpression(emotion)
     }}
 
   });
@@ -46,8 +44,13 @@ const logResultsToBE = (emotions) => {
 
 
 async function createExpression(emotion) {
+  let meeting_id;
+  chrome.storage.local.get(['meeting_id'], async function(result) {
+  meeting_id = result.meeting_id;
+  console.log(meeting_id)
+
   const url = 'http://localhost:3000/api/v1/expressions';
-  const test = await fetch(url, {
+  const response = await fetch(url, {
     method: 'POST',
     headers: {
       "Content-Type": "application/json",
@@ -59,8 +62,12 @@ async function createExpression(emotion) {
         emotion,
         "confidence": 0.7
       },
-      "participant_id": 1
+      "meeting_id": meeting_id
     })
   })
-  console.log(test);
+  console.log({ response })
+
+});
+
+
 }

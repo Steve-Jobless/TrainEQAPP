@@ -6,7 +6,8 @@
   "version": "1",
   "permissions": [
     "tabs",
-    "<all_urls>"
+    "<all_urls>",
+    "storage"
   ],
   "icons": {
     "16": "images/traineqlogo@8x.png",
