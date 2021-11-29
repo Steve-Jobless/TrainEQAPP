@@ -1,1 +1,122 @@
 // Specific CSS for your home-page
+body {
+  margin: 0;
+  font-family: Open Sans;
+}
+
+h1, h2, h3, h4 {
+font-family: 'Space Mono', monospace;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Custom design below! */
+
+.container {
+  width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.sub-section {
+  padding: 150px 0 20px 0;
+  text-align: center;
+  font-size: 32px;
+}
+#works {
+  padding: 10px 0 50px 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.banner {
+  /* background-image: url(../images/background.png); */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 100px 0 0 0;
+}
+
+.banner h1 {
+  text-align: center;
+  font-size: 32px;
+}
+
+.banner p {
+  text-align: center;
+  font-size: 18px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.img-float {
+  position: relative;
+  width: 650px;
+  height: auto;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.img-float img {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.6);
+  border-radius: 4px;
+}
+
+.mac {
+  position: relative;
+  width: 100%;
+  top: 90px;
+}
+
+.footer {
+  padding: 100px;
+  background-color:slategray;
+  color: white;
+  text-align: center;
+}
+
+.links a{
+  font-size: 32px;
+  color: #80c044;
+}
+
+@media (max-width: 960px) {
+  .container {
+    width: 700px;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 720px) {
+  .container {
+    width: 500px;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 540px) {
+  .container {
+    width: 300px;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 960px) {
+  .container {
+    width: 700px;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 720px) {
+  .container {
+    width: 500px;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 540px) {
+  .container {
+    width: 300px;
+    margin: 0 auto;
+  }
+}
