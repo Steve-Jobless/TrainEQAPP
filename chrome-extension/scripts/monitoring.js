@@ -4,7 +4,7 @@ console.log("Hello!")
 // console.log(screenShot)
 
 let port_emotion
-const screen_location = document.querySelector(".CpPRrf")
+const screen_location = document.querySelector(".pHsCke")
 let meeting_id = null
 
 setTimeout(() => {
@@ -19,17 +19,18 @@ setTimeout(() => {
   });
 }, 1000);
 
-
-
+let canvas_height = window.screen.height;
+let canvas_width = window.screen.width;
 
 const takeScreenShot = () => {
   // return html2canvas(document.querySelector("#test"))
   var canvas = document.createElement('canvas');
-  canvas.width = 640;
-  canvas.height = 480;
+  canvas.width = canvas_width;
+  canvas.height = canvas_height;
   var ctx = canvas.getContext('2d');
   const video = document.querySelectorAll("video")[0]
   ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+  // document.body.appendChild(canvas) <--to check the what is being displayed on the canvas
   return canvas
 }
 
@@ -66,6 +67,7 @@ if(insertedContent) {
 }
 
 
+
 function createMeeting() {
   const url = 'http://localhost:3000/api/v1/meetings';
   fetch(url, {
@@ -79,7 +81,7 @@ function createMeeting() {
     .then((data) => {
 
       console.log(data)
-      const screen_location = document.querySelector(".CpPRrf")
+      const screen_location = document.querySelector(".pHsCke")
       chrome.storage.local.set({ meeting_id: data.id }, function () {
       });
       meeting_id = data.id
