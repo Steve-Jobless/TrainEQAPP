@@ -1,2 +1,94 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+  <!-- code a Hero / Banner section -->
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(images/background.png);">
+  <div class="container">
+
+    <span id="ityped" style="font-size: 3.5em; font-family: 'Space Mono', monospace;"></span>
+    <!-- <h1>Communication tool for the ambitious professional</h1> -->
+    <p>Instantly understand your online team more clearly and more deeply to get ahead.
+    </p>
+
+    <a href="https://www.lewagon.com/" class="btn btn-green">Download</a>
+    <div class="img-float">
+      <%# <img src="../../assets/images/screen.png" alt="" class="mac"> %>
+      <%= image_tag "screen.png", class:"mac" %>
+    </div>
+  </div>
+</div>
+
+  <!-- code a "How it works" section -->
+  <div class="container">
+  <h2 class="sub-section">How it works</h2>
+  <div id="works">
+    <div class="card-trip">
+      <%# <img src="images/tech.png" alt="mone" class="trip-img"> %>
+      <%= image_tag "tech.png", class:"trip-img" %>
+      <div class="card-trip-infos">
+        <div>
+          <h2>Real time</h2>
+          <p>You can see it during the meeting.</p>
+        </div>
+        <%# <img src="images/check.png" class="card-trip-user avatar-bordered"> %>
+        <%= image_tag "check.png", class:"card-trip-user avatar-bordered" %>
+      </div>
+    </div>
+    <div class="card-trip">
+      <%# <img src="images/map.png" alt="mone" class="trip-img"> %>
+      <%= image_tag "map.png", class:"trip-img" %>
+      <div class="card-trip-infos">
+        <div>
+          <h2>Intuitive</h2>
+          <p>No stressful color indicator.</p>
+        </div>
+        <!-- <h2 class="card-trip-pricing">£99.99</h2> -->
+        <%# <img src="images/check.png" class="card-trip-user avatar-bordered"> %>
+        <%= image_tag "check.png", class:"card-trip-user avatar-bordered" %>
+      </div>
+    </div>
+    <div class="card-trip">
+      <img src="images/people.png" alt="mone" class="trip-img">
+      <%= image_tag "people.png", class:"trip-img" %>
+      <div class="card-trip-infos">
+        <div>
+          <h2>Report</h2>
+          <p>Check the improvements of your performance.</p>
+        </div>
+        <!-- <h2 class="card-trip-pricing">£99.99</h2> -->
+        <%# <img src="images/check.png" class="card-trip-user avatar-bordered"> %>
+        <%= image_tag "check.png", class:"card-trip-user avatar-bordered" %>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- code a "How to use" section -->
+  <div class="container">
+    <h2 class="sub-section">How to use</h2>
+    <div class="row">
+      <div class="box-image col-lg-6">
+        <span>Here you can put image</span>
+          <%# <img src="images/image_tech.png" alt="" style="width: 100%;"> %>
+          <%= image_tag "image_tech.png", style:"width: 100%;" %>
+      </div>
+      <div class="box-description col-lg-6">
+        <span>Here you can put description</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- code a footer -->
+  <div class="footer">
+    <div class="links">
+      <a href="#"><i class="fab fa-fw fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-fw fa-github"></i></a>
+      <a href="#"><i class="fab fa-fw fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-fw fa-instagram"></i></a>
+      <p>This website was coded with <i class="fas fa-feather-alt"></i> by trainEQ.</p>
+    </div>
+  </div>
+
+
+  <script>
+    ityped.init(document.querySelector("#ityped"), {
+    strings: ['Communication tool', 'for the ambitious professional', 'Welcome to Into the Program!']
+    })
+  </script>

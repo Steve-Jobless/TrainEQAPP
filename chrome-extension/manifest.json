@@ -2,8 +2,8 @@
   "manifest_version": 2,
   "name": "TrainEQ extension",
   "description": "Chrome extension for TrainEQ",
-  "author": "Etienne Worham, Galym Parpiyev, Hirofumi Jinno, Mai Mouri",
-  "version": "1",
+  "author": "Etienne Wortham, Galym Parpiyev, Hirofumi Jinno, Mai Mouri",
+  "version": "1.1",
   "permissions": [
     "tabs",
     "<all_urls>",
