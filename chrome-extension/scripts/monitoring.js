@@ -68,18 +68,12 @@ if(insertedContent) {
 
 function createMeeting() {
   const url = 'http://localhost:3000/api/v1/meetings';
-  const email = chrome.storage.local.get( "email", function (email_result) {
-    console.log(email_result);
-  });
-  const token = chrome.storage.local.get( "token", function (value) {
-    console.log(value);
-  });
   fetch(url, {
     method: 'POST',
     headers: {
       "Content-Type": "application/json",
-      "X-User-Email": email,
-      "X-User-Token": token
+      "X-User-Email": "example@example.com",
+      "X-User-Token": "_XNbsrvpVFHKXuXv19zk"
     },
   }).then(response => response.json())
     .then((data) => {

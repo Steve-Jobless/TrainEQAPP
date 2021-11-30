@@ -23,15 +23,14 @@
         console.log(data)
         const email = data.data.email
         const token = data.data.authentication_token
-        console.log(token, window, window.localStorage);
-        window.localStorage.setItem("token", token)
+        console.log(token, email, window, window.localStorage);
         chrome.storage.local.set({ email: email }, function () {
         });
         chrome.storage.local.set({ token: token }, function () {
         });
       });
-    window.location.href = '../popup.html';
-  });
+    });
+  window.location.href = '../popup.html';
 // }
 
 // function submitForm() {
