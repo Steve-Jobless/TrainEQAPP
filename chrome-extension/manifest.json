@@ -10,10 +10,10 @@
     "storage"
   ],
   "icons": {
-    "16": "images/traineqlogo@8x.png",
-    "32": "images/traineqlogo@8x.png",
-    "48": "images/traineqlogo@8x.png",
-    "128": "images/traineqlogo@8x.png"
+    "16": "images/trainEQ_logo_16x.png",
+    "32": "images/trainEQ_logo_16x.png",
+    "48": "images/trainEQ_logo_16x.png",
+    "128": "images/trainEQ_logo_16x.png"
   },
   "browser_action": {
 
