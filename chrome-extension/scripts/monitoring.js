@@ -110,7 +110,7 @@ const startMonitoring =  () => {
     //output sent to the api at the back
 
     //display the feedback
-  }, 1000)
+  }, 3000)
 }
 
 const displayResults = (emotion, participantId) => {
@@ -126,13 +126,11 @@ const displayResults = (emotion, participantId) => {
       insertedContent.parentNode.removeChild(insertedContent);
     }
 
-
-
   const emojiVar = `<span id='emotion-participant-${participantId}' class ='insertedContent' style="top:10px; left:10px; font-size:4rem; color:black; z-index: 9999; position: absolute;">${tipsHash[emotion].emoji}</span>`
 
   screen_location.parentNode.insertAdjacentHTML('afterend', emojiVar);
+  // old code below changed as of November 30:
   // screen_location.insertAdjacentHTML('afterend', emojiVar);
-
 }
 
 
@@ -143,8 +141,8 @@ function createMeeting() {
     method: 'POST',
     headers: {
       "Content-Type": "application/json",
-      "X-User-Email": "etiennewortham@gmail.com",
-      "X-User-Token": "YdzYQscnTHDzWpuY9_zi"
+      "X-User-Email": "example@example.com",
+      "X-User-Token": "_XNbsrvpVFHKXuXv19zk"
     },
     body: JSON.stringify({
       "number_of_participants": document.querySelectorAll("video").length
