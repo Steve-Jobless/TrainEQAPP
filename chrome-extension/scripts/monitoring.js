@@ -2,7 +2,7 @@
 console.log("Hello!")
 // console.log($test)
 // console.log(screenShot)
-
+let platform = 'Meet'
 let port_emotion
 
 setTimeout(() => {
@@ -20,9 +20,9 @@ let canvas_width = window.screen.width;
 
 const takeScreenShots = () => {
   // return html2canvas(document.querySelector("#test"))
-
-  const videos = document.querySelectorAll("video")
-  return Array.from(videos).map(video => {
+  if (platform === "Meet"){
+    const videos = document.querySelectorAll("video")
+    return Array.from(videos).map(video => {
     var canvas = document.createElement('canvas');
     canvas.setAttribute("data-participant-id", video.dataset.participantId)
     canvas.width = canvas_width;
@@ -30,10 +30,16 @@ const takeScreenShots = () => {
     var ctx = canvas.getContext('2d');
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
     return canvas
-  });
+
+  });}
   // document.body.appendChild(canvas) //<--to check the what is being displayed on the canvas
   // return canvas
-
+  else {
+  // .gallery - video - container__video - frame react - draggable
+const canvas = document.getElementById('speak-view-video')
+canvas.setAttribute("data-participant-id", 1425)
+return [canvas]
+}
 }
 
 

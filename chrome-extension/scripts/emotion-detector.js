@@ -6,6 +6,7 @@ chrome.runtime.onConnect.addListener(function (port) {
     image.onload = async () => {
       const canvas = faceapi.createCanvasFromMedia(image)
       const result = await analyzeEmotions(canvas)
+      console.log(result)
       // return result
       if (result.length > 0) {
       const emotion = getMax(result[0])
