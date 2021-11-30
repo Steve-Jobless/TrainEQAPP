@@ -5,10 +5,14 @@
     <div class="row">
       <%# <span id="ityped" style="font-size: 3.5em; font-family: 'Space Mono', monospace;"></span> %>
       <div class="col-md-5">
-        <h1>For ambitious professionals having trouble feeling all the feels</h1>
-        <p>Instantly understand your online team more clearly and more deeply to get ahead.
-        </p>
-        <a href="https://www.lewagon.com/" class="btn btn-blue">Download</a>
+        <div class="pic">
+          <%= image_tag "trainEQ_logotype_128x.png" %>
+        </div>
+        <div class="text">
+          <h1>For ambitious professionals having trouble feeling all the feels</h1>
+          <p>Instantly understand your online team more clearly and more deeply to get ahead and boost your communication skills.</p>
+          <a href="https://www.lewagon.com/" class="btn btn-blue">Download</a>
+        </div>
       </div>
       <div class="col-md-7">
         <div>
@@ -31,8 +35,8 @@
       <%= image_tag "uspeed.svg", class:"trip-img" %>
       <div class="card-trip-infos">
         <div>
-          <h2>In real time</h2>
-          <p>Get useful feedback during meetings.</p>
+          <h2>Real-time</h2>
+          <p>Provides useful in-meeting feedback</p>
         </div>
         <%# <img src="images/check.png" class="card-trip-user avatar-bordered"> %>
         <%= image_tag "check.png", class:"card-trip-user avatar-bordered" %>
@@ -44,7 +48,7 @@
       <div class="card-trip-infos">
         <div>
           <h2>Intuitive</h2>
-          <p>Super easy to understand.</p>
+          <p>Super easy to understand</p>
         </div>
         <!-- <h2 class="card-trip-pricing">£99.99</h2> -->
         <%# <img src="images/check.png" class="card-trip-user avatar-bordered"> %>
@@ -57,7 +61,7 @@
       <div class="card-trip-infos">
         <div>
           <h2>Stat-keeping</h2>
-          <p>Track improvements in your performance.</p>
+          <p>Track your communication progress over time</p>
         </div>
         <!-- <h2 class="card-trip-pricing">£99.99</h2> -->
         <%# <img src="images/check.png" class="card-trip-user avatar-bordered"> %>
@@ -68,19 +72,19 @@
   </div>
 
   <!-- code a "How to use" section -->
-  <div class="container">
+  <%# <div class="container">
     <h2 class="sub-section">How to use</h2>
     <div class="row">
       <div class="box-image col-lg-6">
-        <span>Here you can put image</span>
+        <span>Here you can put image</span> %>
           <%# <img src="images/image_tech.png" alt="" style="width: 100%;"> %>
-          <%= image_tag "image_tech.png", style:"width: 100%;" %>
-      </div>
+          <%# <%= image_tag "image_tech.png", style:"width: 100%;" %>
+      <%# </div>
       <div class="box-description col-lg-6">
-        <span>Here you can put description</span>
-      </div>
+        <span>Here you can put description</span> %>
+      <%# </div>
     </div>
-  </div>
+  </div> %>
 
   <!-- code a footer -->
   <%# <div class="footer">
