@@ -28,6 +28,4 @@ async function endMeeting(end_time) {
 
 }
 
-
-
 endMeeting(time_date)
