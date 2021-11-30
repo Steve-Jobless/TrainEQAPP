@@ -52,8 +52,8 @@ async function createExpression({emotion, participantId}) {
     method: 'POST',
     headers: {
       "Content-Type": "application/json",
-      "X-User-Email": "example@example.com",
-      "X-User-Token": "_XNbsrvpVFHKXuXv19zk"
+      "X-User-Email": "etiennewortham@gmail.com",
+      "X-User-Token": "YdzYQscnTHDzWpuY9_zi"
     },
     body: JSON.stringify({
       "expression": {
