@@ -1,8 +1,11 @@
+@import url("./slider-switch.css");
 
 body {
   width: 200px;
   height: 200px;
-  background: linear-gradient(135deg,#83b1f7, #f8f8fd);
+  background-image: linear-gradient(0deg, rgba(241,241,241,1) 0%, rgba(255,255,255,0) 50%), url("../images/video-meeting.jpg");
+  background-size: cover;
+  margin: 0px;
 }
 
 .btn-container {
@@ -18,10 +21,6 @@ body {
 .btn-container h1 {
   font-size: xx-large;
   margin: none;
-}
-
-.btn-container p {
-  font-style: oblique;
 }
 
 #power-btn {
@@ -64,4 +63,17 @@ body {
 #eq-logo {
   height: 40px;
   width: 40px;
+}
+
+.footer {
+  background-color: white;
+  text-align: center;
+  font-style: oblique;
+  /* width: 100%; */
+  padding: 5px 0px;
+  min-width: 100%;
+}
+
+.footer p {
+  margin: 0px;
 }
