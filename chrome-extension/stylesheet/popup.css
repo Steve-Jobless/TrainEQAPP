@@ -1,8 +1,13 @@
+@import url("./slider-switch.css");
+
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 
 body {
   width: 200px;
   height: 200px;
-  background: linear-gradient(135deg,#83b1f7, #f8f8fd);
+  background-image: linear-gradient(0deg, rgba(241,241,241,1) 0%, rgba(255,255,255,0) 50%), url("../images/video-meeting.jpg");
+  background-size: cover;
+  margin: 0px;
 }
 
 .btn-container {
@@ -18,10 +23,6 @@ body {
 .btn-container h1 {
   font-size: xx-large;
   margin: none;
-}
-
-.btn-container p {
-  font-style: oblique;
 }
 
 #power-btn {
@@ -49,11 +50,6 @@ body {
   justify-content: center;
 }
 
-.icon-container h1 {
-  color:rgba(60, 60, 60);
-  text-shadow: 1px 1px 1px rgba(60, 60, 60);
-}
-
 .icon-container {
   display: flex;
   justify-content: center;
@@ -62,6 +58,22 @@ body {
 }
 
 #eq-logo {
-  height: 40px;
-  width: 40px;
+  height: auto;
+  width: 100px;
+  margin-bottom: 16px;
+}
+
+.footer {
+  background-color: white;
+  text-align: center;
+  font-style: oblique;
+  /* width: 100%; */
+  padding: 8px 0px;
+  min-width: 100%;
+}
+
+.footer p {
+  margin: 0px;
+  font-size: 16px;
+  font-family: 'Questrial', sans-serif;
 }
