@@ -24,6 +24,17 @@ class Api::V1::MeetingsController < Api::V1::BaseController
     @meeting.user = current_user
     authorize @meeting
     if @meeting.save
+
+      #get number of participants from params
+      #create participants
+      number_of_participants = params[:number_of_participants]
+      number_of_participants.times do
+        Participant.create(meeting: @meeting)
+        
+      end
+      #store ids of participants
+      #render the ids in the show
+
       render :show
     else
       render_error
