@@ -17,7 +17,7 @@
   },
   "browser_action": {
 
-    "default_popup": "signup.html",
+    "default_popup": "popup.html",
     "default_title": "TrainEQ Extension"
   },
   "content_scripts": [
