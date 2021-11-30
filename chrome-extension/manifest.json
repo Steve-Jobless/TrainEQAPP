@@ -6,8 +6,8 @@
   "version": "1.1",
   "permissions": [
     "tabs",
-    "meet.google.com",
-    "storage"
+    "storage",
+    "<all_urls>"
   ],
   "icons": {
     "16": "images/trainEQ_logo_16x.png",

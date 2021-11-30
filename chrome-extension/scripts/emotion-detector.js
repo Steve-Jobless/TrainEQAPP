@@ -8,9 +8,7 @@ chrome.runtime.onConnect.addListener(function (port) {
       const result = await analyzeEmotions(canvas)
       // return result
       if (result.length > 0) {
-      console.log(result)
       const emotion = getMax(result[0])
-      console.log(emotion)
       port.postMessage({ participantId: msg.participantId, emotion: emotion });
         await createExpression({ emotion, participantId: msg.participantId})
     }}

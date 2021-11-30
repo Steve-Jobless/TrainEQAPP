@@ -4,17 +4,12 @@ console.log("Hello!")
 // console.log(screenShot)
 
 let port_emotion
-const screen_location = document.querySelector(".pHsCke")
-let meeting_id = null
 
 setTimeout(() => {
   port_emotion = chrome.runtime.connect({ name: "emotionDetector" });
-  port_emotion.onMessage.addListener(function ({ emotion }) {
-    console.log(emotion)
-    displayResults(emotion)
-    console.log(1212, meeting_id)
-
-    port_emotion.postMessage({ meeting_id: localStorage.meeting_id });
+  port_emotion.onMessage.addListener(function ({ emotion, participantId }) {
+    console.log(emotion, participantId)
+    displayResults(emotion, participantId)
 
   });
 }, 1000);
@@ -29,7 +24,7 @@ const takeScreenShots = () => {
   const videos = document.querySelectorAll("video")
   return Array.from(videos).map(video => {
     var canvas = document.createElement('canvas');
-    canvas.setAttribute("participant-id", video.dataset.participantId)
+    canvas.setAttribute("data-participant-id", video.dataset.participantId)
     canvas.width = canvas_width;
     canvas.height = canvas_height;
     var ctx = canvas.getContext('2d');
@@ -65,18 +60,19 @@ const startMonitoring =  () => {
   }, 3000)
 }
 
-const displayResults = (display_message) => {
-  const screen_location = document.querySelector(".ZY8hPc gtgjre pZFrDd")
+const displayResults = (emotion, participantId) => {
+  const video = document.querySelector(`video[data-participant-id='${participantId}']`)
+  console.log(`video[data-participant-id='${participantId}']`, video)
+  console.log(video)
 
-  screen_location.forEach(element => {
 
+  const screen_location = video
 
-  });
-const insertedContent = document.querySelector(".insertedContent");
-if(insertedContent) {
-    insertedContent.parentNode.removeChild(insertedContent);
-}
-  screen_location.insertAdjacentHTML('beforeend', `<h1 class ='insertedContent' style="font-size: 16px; color:white; text-align: center; z-index: 9999">${display_message[0].toUpperCase() + display_message.substring(1)}</h1>`);
+  const insertedContent = document.querySelector(`#emotion-participant-${participantId}`);
+    if (insertedContent) {
+      insertedContent.parentNode.removeChild(insertedContent);
+    }
+  screen_location.insertAdjacentHTML('afterend', `<h1 id='emotion-participant-${participantId}' class ='insertedContent' style="font-size: 28; color:black; z-index: 9999; position: absolute;">${emotion}</h1>`);
 
 }
 
@@ -106,7 +102,7 @@ function createMeeting() {
 
 
       data.participants.forEach((participantId, index)=> {
-        videos[index].setAttribute("participant-id", participantId)
+        videos[index].setAttribute("data-participant-id", participantId)
       });
     })
 }
