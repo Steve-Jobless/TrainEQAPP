@@ -16,6 +16,7 @@
     "128": "images/traineqlogo@8x.png"
   },
   "browser_action": {
+
     "default_popup": "popup.html",
     "default_title": "TrainEQ Extension"
   },
@@ -33,7 +34,8 @@
   "background": {
     "scripts": [
       "/vendors/face-api.min.js",
-      "/scripts/emotion-detector.js"
+      "/scripts/emotion-detector.js",
+      "/scripts/signup.js"
     ],
     "persistent": false
   }
