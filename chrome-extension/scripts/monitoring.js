@@ -1,7 +1,74 @@
+const tipsHash = {
+  "sad": {
+    "title": "sadness",
+    "emoji": "🥲",
+    "backgroundcolor": "rgba(88,88,255,0.25)",
+    "tips": [
+      "Signs of disappointment? Would you like to hear what is on their mind?",
+      "Did something make this participant unhappy? Would you like to ask what is bothering them?",
+      "Perhaps you need to say something encouraging."
+    ],
+    "animation": "https://emojis.slackmojis.com/emojis/images/1542340461/4964/cry.gif?1542340461"
+  },
+  "angry": {
+    "title": "anger",
+    "emoji": "😡",
+    "backgroundcolor": "rgba(255,0,0,0.25)",
+    "tips": [
+      "Did you say something provocative? Maybe qualify your statement.",
+      "Did anyone say something upsetting? Perhaps identify the conflict and address it.",
+      "Maybe ask what is on their mind."
+    ],
+    "animation": "https://emojis.slackmojis.com/emojis/images/1542340458/4962/anger.gif?1542340458"
+  },
+  "fearful": {
+    "title": "fear",
+    "emoji": "😟",
+    "backgroundcolor": "rgba(135,0,135,0.25)",
+    "tips": [
+      "Did your posture intimidate them? Maybe adjust your posture.",
+      "Did you scare them? Pay attention to the tone of your voice.",
+      "Maybe be friendlier! Being a kind person helps you with doing business, too."
+    ],
+    "animation": "https://files.slack.com/files-pri/T02NE0241-F02NE8H54ET/giphy-scream.gif"
+  },
+  "disgusted": {
+    "title": "disgust",
+    "emoji": "🤮",
+    "backgroundcolor": "rgba(0,255,0,0.25)",
+    "tips": [
+      "Did you say something uncomfortable? Maybe clarify your intent.",
+      "Did they get offended? Maybe you need to apologize for their discomfort.",
+      "Perhaps you need to change the topic of conversation."],
+      "animation": "https://emojis.slackmojis.com/emojis/images/1542340473/4983/yuck.gif?1542340473"
+  },
+  "happy": {
+    "title": "happiness",
+    "emoji": "🤩",
+    "tips": [],
+    "animation": "https://emojis.slackmojis.com/emojis/images/1542340468/4973/lol.gif?1542340468"
+  },
+  "neutral": {
+    "title": "no siginificant emotions",
+    "emoji": "😶",
+    "tips": [],
+    "animation": "https://emojis.slackmojis.com/emojis/images/1542340471/4979/thinking.gif?1542340471"
+  },
+  "surprised": {
+    "title": "surprise",
+    "emoji": "🤯",
+    "tips": [],
+    "animation": "https://emojis.slackmojis.com/emojis/images/1542340471/4978/surprise.gif?1542340471"
+  }
+}
+
 // const screenShot = document.getElementsByTagName('img')[0]
 console.log("Hello!")
 // console.log($test)
 // console.log(screenShot)
+// console.log(tipsHash);
+// console.log(tipsHash.sad);
+// console.log(tipsHash.sad.emoji);
 
 let port_emotion
 
@@ -40,7 +107,7 @@ const takeScreenShots = () => {
 
 
 
-const startMonitoring =  () => {
+const startMonitoring = () => {
   console.log("The start monitor is being called")
   //create a meeting
 
@@ -70,42 +137,73 @@ const displayResults = (emotion, participantId) => {
   const screen_location = video
 
   const insertedContent = document.querySelector(`#emotion-participant-${participantId}`);
-    if (insertedContent) {
-      insertedContent.parentNode.removeChild(insertedContent);
-    }
-  screen_location.insertAdjacentHTML('afterend', `<h1 id='emotion-participant-${participantId}' class ='insertedContent' style="font-size: 28; color:black; z-index: 9999; position: absolute;">${emotion}</h1>`);
+  if (insertedContent) {
+    insertedContent.parentNode.removeChild(insertedContent);
+  }
+  // const emojiVar = `<span id='emotion-participant-${participantId}' class ='insertedContent' style="top:10px; left:10px; font-size:4rem; color:black; z-index: 9999; position: absolute;">${tipsHash[emotion].emoji}</span>`
+  const numberOfAvailableTips = tipsHash[emotion].tips.length
+  const tipsMessage = tipsHash[emotion].tips[Math.floor(Math.random() * (numberOfAvailableTips))]
+  const tipsEmoji = tipsHash[emotion].emoji
+  const backgroundColor = tipsHash[emotion].backgroundcolor
 
+  const emojiVar = `<span>${tipsEmoji}</span>`
+  const animatedEmoji = `<div><img src="${tipsHash[emotion].animation}" style="width: 35px; height: 35px"></div>`
+  // console.log(animatedEmoji);
+  const messageVar = `<p style="width: 150px; word-break: normal; white-space: normal; overflow-wrap: normal; font-size:12px; margin=0px"><span id="displayed-message">${tipsMessage}</p>`;
+
+
+  const negativeEmotion = ["sad", "angry", "disgusted", "fearful"]
+  const commonStyle = `top:10px; left:10px; font-size:2rem; color:black; z-index: 9999; position: absolute;`
+  const negativeEmotionStyle = `padding: 5px; border-radius: 5px; border: 0.5px solid grey; background-color:${backgroundColor}; min-width:250px; min-height:70px; display:flex; justify-content:space-around; align-items: center;`
+
+  // console.log(negativeEmotion.includes(emotion));
+
+  if (negativeEmotion.includes(emotion)) {
+    const displayDiv = `<div id='emotion-participant-${participantId}' class='insertedContent' style="${commonStyle} ${negativeEmotionStyle}">${animatedEmoji} ${messageVar}</div>`
+    screen_location.parentNode.insertAdjacentHTML('afterend', displayDiv);
+  } else {
+    const displayDiv = `<div id='emotion-participant-${participantId}' class='insertedContent' style="${commonStyle}">${animatedEmoji}</div>`
+    screen_location.parentNode.insertAdjacentHTML('afterend', displayDiv);
+  }
+  // screen_location.parentNode.insertAdjacentHTML('afterend', displayDiv);
 }
 
 
 
-function createMeeting() {
+async function createMeeting() {
   const url = 'http://localhost:3000/api/v1/meetings';
-  fetch(url, {
-    method: 'POST',
-    headers: {
-      "Content-Type": "application/json",
-      "X-User-Email": "example@example.com",
-      "X-User-Token": "_XNbsrvpVFHKXuXv19zk"
-    },
-    body: JSON.stringify({
-      "number_of_participants": document.querySelectorAll("video").length
-    }) ,
-  }).then(response => response.json())
-    .then((data) => {
+  await chrome.storage.local.get(['email', 'token'], async function (result) {
+    console.log('Email is ' + result.email);
+    console.log('Token is ' + result.token);
+    const email = result.email;
+    const token = result.token;
+    // const email = '20@gmail.com';
+    // const token = 'uZopBdGrsuk4-wNxGJBg';
 
-      console.log(data)
-      // const screen_location = document.querySelector(".pHsCke")
-      // chrome.storage.local.set({ meeting_id: data.id, participant_id: data.meeting.participant  }, function () {
-      // });
-      // meeting_id = data.id
-      const videos = document.querySelectorAll("video")
-
-
-      data.participants.forEach((participantId, index)=> {
-        videos[index].setAttribute("data-participant-id", participantId)
-      });
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        "X-User-Email": email,
+        "X-User-Token": token
+      },
+      body: JSON.stringify({
+        "number_of_participants": document.querySelectorAll("video").length
+      }),
     })
+    const data = await response.json()
+    console.log(data)
+    // const screen_location = document.querySelector(".pHsCke")
+    // chrome.storage.local.set({ meeting_id: data.id, participant_id: data.meeting.participant  }, function () {
+    // });
+    // meeting_id = data.id
+    const videos = document.querySelectorAll("video")
+
+
+    data.participants.forEach((participantId, index) => {
+      videos[index].setAttribute("data-participant-id", participantId)
+    });
+  })
 }
 
 createMeeting()

@@ -4,42 +4,111 @@
   <%#  %>
   <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
-      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Simple</a>
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Engagement</a>
     </li>
     <li class="nav-item" role="presentation">
-      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Compare</a>
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Comparison</a>
     </li>
     <li class="nav-item" role="presentation">
-      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Detailed (👷‍♀️ under construction 🚧)</a>
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Advice</a>
     </li>
   </ul>
   <%#  %>
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
     <%#  %>
-      <div class="chTitle">Your meeting results!</div>
-      <canvas
-        data-controller="chart"
-        data-chart-type-value="doughnut"
-        data-chart-data-value='{ "labels": ["Happy", "Surprised", "Neutral", "Angry", "Disgusted", "Sad", "Fearful"],
-                                "datasets": [{ "label": "Zoom participant emotions",
-                                "backgroundColor": [
-                                                    "rgba(75, 192, 192, 0.9)",
-                                                    "rgba(255, 159, 64, 0.9)",
-                                                    "rgba(255, 205, 86, 0.9)",
-                                                    "rgba(255, 99, 132, 0.9)",
-                                                    "rgba(54, 162, 235, 0.9)",
-                                                    "rgba(153, 102, 255, 0.9)",
-                                                    "rgba(153, 132, 131, 0.9)"],
-                                "data": [27, 8, 20, 3, 2, 15, 1] }] }'
-      ></canvas>
+      <div class="chTitle">Engagement VS Disengagement in your meeting!</div>
+        <div class="row">
+          <div class="col-md-4 border">
+            <canvas
+              data-controller="chart"
+              data-chart-type-value="bar"
+              data-chart-data-value='{ "labels": ["Engaged", "Disengaged"],
+                                      "datasets": [{ "label": "participant #1 engagement",
+                                      "backgroundColor": ["rgba(143, 100, 197, 0.7)",
+                                                          "rgba(229, 8, 144, 0.7)"],
+                                      "borderColor": "#3B82F6",
+                                      "data": [63, 37] }] }'
+            ></canvas>
+          </div>
+          <div class="col-md-4 border">
+            <canvas
+              data-controller="chart"
+              data-chart-type-value="bar"
+              data-chart-data-value='{ "labels": ["Engaged", "Disengaged"],
+                                      "datasets": [{ "label": "participant #1 engagement",
+                                      "backgroundColor": ["rgba(143, 100, 197, 0.7)",
+                                                          "rgba(229, 8, 144, 0.7)"],
+                                      "borderColor": "#3B82F6",
+                                      "data": [66, 34] }] }'
+            ></canvas>
+          </div>
+          <div class="col-md-4 border">
+            <canvas
+              data-controller="chart"
+              data-chart-type-value="bar"
+              data-chart-data-value='{ "labels": ["Engaged", "Disengaged"],
+                                      "datasets": [{ "label": "participant #1 engagement",
+                                      "backgroundColor": ["rgba(143, 100, 197, 0.7)",
+                                                          "rgba(229, 8, 144, 0.7)"],
+                                      "borderColor": "#3B82F6",
+                                      "data": [71, 29] }] }'
+            ></canvas>
+          </div>
+        </div>
     </div>
     <%# first parent tab end %>
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-      <div class="chsubTitle">Let's compare with your previous few meetings!</div>
-      <div class="chsubTitle1">Take a look!</div>
-      <%#  %>
-      <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <div class="chsubTitle">Let's compare engagement with your previous few meetings!</div>
+        <canvas
+          data-controller="chart"
+          data-chart-type-value="bar"
+          data-chart-data-value='{ "labels": ["11/18", "11/24", "11/27", "Current Meeting"],
+                                  "datasets": [{ "label": "Comparison",
+                                  "backgroundColor": ["rgba(75, 174, 239, 0.7)",
+                                                      "rgba(143, 100, 197, 0.7)",
+                                                      "rgba(229, 8, 144, 0.7)"],
+                                  "borderColor": "#3B82F6",
+                                  "data": [62, 64, 67, 71] }] }'
+        ></canvas>
+    </div>
+    <%# second parent tab end %>
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+      <div class="chsubTitle">Your participants' emotions and advice!</div>
+        <canvas
+          data-controller="chart"
+          data-chart-type-value="bar"
+          data-chart-data-value='{ "labels": ["Happy", "Sad", "Neutral", "Angry", "Disgusted", "Surprised", "Fearful"],
+                                  "datasets": [{ "label": "Zoom participant emotions and advice",
+                                  "backgroundColor": ["rgba(255, 99, 132, 0.9)", "rgba(255, 159, 64, 0.9)", "rgba(255, 205, 86, 0.9)", "rgba(75, 192, 192, 0.9)", "rgba(54, 162, 235, 0.9)", "rgba(153, 102, 255, 0.9)", "rgba(153, 132, 131, 0.9)"],
+                                  "borderColor": "rgba(54, 162, 235, 0.2)",
+                                  "data": [62, 64, 67, 71, 14, 25, 35] }] }'
+      ></canvas>
+    </div>
+  <%# third parent tab end %>
+</div>
+
+
+        <%# <h3 class="emotions">Neutral participants: Some participants seemed uninterested. Try to keep everyone involved in meetings. blah blahb la h blahbla hblahb lahblah</h3>
+        <h3 class="emotions">Sad: Some participants seemed sad. Be mindful of what you discuss in meetings and try to understand how your words could affect others.</h3>
+        <h3 class="emotions">Angry: Some participants seemed angry. Try to make sure others are being listened to by you.</h3>
+        <h3 class="emotions">Fearful: No participants seemed fearful! Good work 👏</h3>
+        <h3 class="emotions">Disgusted: No participants seemed disgusted! Good work 👏</h3>
+    </div> %>
+
+
+<%# "data":<%= @emotions }] }' %>
+      <%# <canvas
+        data-controller="chart"
+        data-chart-type-value="doughnut"
+        data-chart-data-value='{ "labels": ["Happy", "Sad", "Neutral", "Angry", "Disgusted", "Surprised", "Fearful"],
+                                "datasets": [{ "label": "Zoom participant emotions",
+                                "backgroundColor": ["rgba(255, 99, 132, 0.9)", "rgba(255, 159, 64, 0.9)", "rgba(255, 205, 86, 0.9)", "rgba(75, 192, 192, 0.9)", "rgba(54, 162, 235, 0.9)", "rgba(153, 102, 255, 0.9)", "rgba(153, 132, 131, 0.9)"],
+                                <%# "borderColor": "rgba(54, 162, 235, 0.2)", %>
+                                <%# "data":<%= @emotions }] }' %>
+      <%# ></canvas> %>
+
+      <%# <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
           <a class="nav-link active" id="happy-tab" data-toggle="tab" href="#happy" role="tab" aria-controls="happy" aria-selected="true">Happy</a>
         </li>
@@ -61,30 +130,10 @@
         <li class="nav-item" role="presentation">
           <a class="nav-link" id="fearful-tab" data-toggle="tab" href="#fearful" role="tab" aria-controls="fearful" aria-selected="false">Fearful</a>
         </li>
-      </ul>
-        <%# individual emotions list end %>
-      <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="happy" role="tabpanel" aria-labelledby="happy-tab">
-          <canvas
-            data-controller="chart"
-            data-chart-type-value="bar"
-            data-chart-data-value='{ "labels": ["10/26", "11/2", "11/17", "11/22", "Today"],
-                                    "datasets": [{ "label": "Zoom participant emotions",
-                                    "backgroundColor": [
-                                                        "rgba(75, 192, 192, 0.9)",
-                                                        "rgba(255, 159, 64, 0.9)",
-                                                        "rgba(255, 205, 86, 0.9)",
-                                                        "rgba(255, 99, 132, 0.9)",
-                                                        "rgba(54, 162, 235, 0.9)",
-                                    "borderColor": "rgba(54, 162, 235, 0.2)",
-                                    "data": [17, 15, 24, 23, 27,] }] }'
-          ></canvas>
-        </div>
-        <div class="tab-pane fade show active" id="surprised" role="tabpanel" aria-labelledby="surprised-tab">
-          <div>hi</div>
-        </div>
+      </ul> %>
+
         <%# first nested emotion tab end%>
-        <div class="tab-pane fade show active" id="neutral" role="tabpanel" aria-labelledby="neutral-tab">
+        <%# <div class="tab-pane fade show active" id="neutral" role="tabpanel" aria-labelledby="neutral-tab">
           <div>hi</div>
         </div>
         <div class="tab-pane fade show active" id="angry" role="tabpanel" aria-labelledby="angry-tab">
@@ -98,61 +147,4 @@
         </div>
         <div class="tab-pane fade show active" id="fearful" role="tabpanel" aria-labelledby="fearful-tab">
           <div>hi</div>
-        </div>
-      </div>
-      <canvas
-        data-controller="chart"
-        data-chart-type-value="bar"
-        data-chart-data-value='{ "labels": ["10/26", "11/2", "11/17", "11/22", "Today"],
-                                "datasets": [{ "label": "Zoom participant emotions",
-                                "backgroundColor": [
-                                                    "rgba(75, 192, 192, 0.9)",
-                                                    "rgba(255, 159, 64, 0.9)",
-                                                    "rgba(255, 205, 86, 0.9)",
-                                                    "rgba(255, 99, 132, 0.9)",
-                                                    "rgba(54, 162, 235, 0.9)",
-                                "borderColor": "rgba(54, 162, 235, 0.2)",
-                                "data": [17, 15, 24, 23, 27,] }] }'
-      ></canvas>
-      <%# second nested emotion tab end %>
-    </div>
-    <%# second parent tab end %>
-    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-      <canvas
-        data-controller="chart"
-        data-chart-type-value="doughnut"
-        data-chart-data-value='{ "labels": ["Happy", "Sad", "Neutral", "Angry", "Disgusted", "Surprised", "Fearful"],
-                                "datasets": [{ "label": "Zoom participant emotions",
-                                "backgroundColor": ["rgba(255, 99, 132, 0.9)", "rgba(255, 159, 64, 0.9)", "rgba(255, 205, 86, 0.9)", "rgba(75, 192, 192, 0.9)", "rgba(54, 162, 235, 0.9)", "rgba(153, 102, 255, 0.9)", "rgba(153, 132, 131, 0.9)"],
-                                <%# "borderColor": "rgba(54, 162, 235, 0.2)", %>
-                                "data":<%= @emotions %> }] }'
-      ></canvas>
-    </div>
-  <%# third parent tab end %>
-</div>
-
-
-
-
-  <%# <div class="row">
-    <div class="col-md-6 border">
-      <canvas
-        data-controller="chart"
-        data-chart-type-value="radar"
-        data-chart-data-value='{ "labels": ["Happy", "Sad", "Neutral", "Angry", "Disgusted", "Surprised", "Fearful"],
-                                "datasets": [{ "label": "Zoom participant emotions",
-                                "backgroundColor": ["rgba(255, 99, 132, 0.2)", "rgba(255, 159, 64, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(153, 132, 131, 0.2)"],
-                                "borderColor": "#3B82F6", "data": [37, 13, 78, 54, 12, 5, 40] }] }'
-      ></canvas>
-    </div>
-    <div class="col-md-6 border">
-      <canvas
-        data-controller="chart"
-        data-chart-type-value="radar"
-        data-chart-data-value='{ "labels": ["Happy", "Sad", "Neutral", "Angry", "Disgusted", "Surprised", "Fearful"],
-                                "datasets": [{ "label": "Zoom participant emotions",
-                                "backgroundColor": ["rgba(255, 99, 132, 0.2)", "rgba(255, 159, 64, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(153, 132, 131, 0.2)"],
-                                "borderColor": "rgba(54, 162, 235, 0.2)", "data": [37, 13, 78, 54, 12, 5, 40] }] }'
-      ></canvas>
-    </div> %>
-  </div>
+        </div> %>

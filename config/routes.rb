@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :expressions, only: [ :index, :show, :create ]
       resources :meetings, only: [ :create, :update, :show ]
+      mount_devise_token_auth_for 'User', at: 'auth', controllers: {
+          registrations: 'api/v1/auth/registrations',
+          sessions: 'api/v1/auth/sessions'
+        }
     end
   end
 
@@ -18,6 +22,6 @@ Rails.application.routes.draw do
         resources :expressions, only: :create
     end
   end
-  
+
   get "/dashboard", to: "users#dashboard", as: :dashboard
 end
