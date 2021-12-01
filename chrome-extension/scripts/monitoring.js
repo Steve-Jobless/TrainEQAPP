@@ -8,7 +8,7 @@ const tipsHash = {
       "Did something make this participant unhappy? Would you like to ask what is bothering them?",
       "Perhaps you need to say something encouraging."
     ],
-    // "animation": "file_path"
+    "animation": "https://emojis.slackmojis.com/emojis/images/1542340461/4964/cry.gif?1542340461"
   },
   "angry": {
     "title": "anger",
@@ -18,7 +18,8 @@ const tipsHash = {
       "Did you say something provocative? Maybe qualify your statement.",
       "Did anyone say something upsetting? Perhaps identify the conflict and address it.",
       "Maybe ask what is on their mind."
-    ]
+    ],
+    "animation": "https://emojis.slackmojis.com/emojis/images/1542340458/4962/anger.gif?1542340458"
   },
   "fearful": {
     "title": "fear",
@@ -28,7 +29,8 @@ const tipsHash = {
       "Did your posture intimidate them? Maybe adjust your posture.",
       "Did you scare them? Pay attention to the tone of your voice.",
       "Maybe be friendlier! Being a kind person helps you with doing business, too."
-    ]
+    ],
+    "animation": "https://files.slack.com/files-pri/T02NE0241-F02NE8H54ET/giphy-scream.gif"
   },
   "disgusted": {
     "title": "disgust",
@@ -37,13 +39,14 @@ const tipsHash = {
     "tips": [
       "Did you say something uncomfortable? Maybe clarify your intent.",
       "Did they get offended? Maybe you need to apologize for their discomfort.",
-      "Perhaps you need to change the topic of conversation."]
+      "Perhaps you need to change the topic of conversation."],
+      "animation": "https://emojis.slackmojis.com/emojis/images/1542340473/4983/yuck.gif?1542340473"
   },
   "happy": {
     "title": "happiness",
     "emoji": "🤩",
     "tips": [],
-    // "animation": ""
+    "animation": "https://emojis.slackmojis.com/emojis/images/1542340468/4973/lol.gif?1542340468"
   },
   "neutral": {
     "title": "no siginificant emotions",
@@ -54,7 +57,8 @@ const tipsHash = {
   "surprised": {
     "title": "surprise",
     "emoji": "🤯",
-    "tips": []
+    "tips": [],
+    "animation": "https://emojis.slackmojis.com/emojis/images/1542340471/4978/surprise.gif?1542340471"
   }
 }
 
@@ -142,8 +146,8 @@ const displayResults = (emotion, participantId) => {
   const backgroundColor = tipsHash[emotion].backgroundcolor
 
   const emojiVar = `<span>${tipsEmoji}</span>`
-  const animatedEmoji =`<span><img src="${tipsHash[emotion].animation}"></span>`
-  console.log(animatedEmoji);
+  const animatedEmoji = `<div><img src="${tipsHash[emotion].animation}" style="width: 35px; height: 35px"></div>`
+  // console.log(animatedEmoji);
   const messageVar = `<p style="width: 150px; word-break: normal; white-space: normal; overflow-wrap: normal; font-size:12px; margin=0px"><span id="displayed-message">${tipsMessage}</p>`;
 
 
@@ -151,10 +155,10 @@ const displayResults = (emotion, participantId) => {
   const commonStyle = `top:10px; left:10px; font-size:2rem; color:black; z-index: 9999; position: absolute;`
   const negativeEmotionStyle = `padding: 5px; border-radius: 5px; border: 0.5px solid grey; background-color:${backgroundColor}; min-width:250px; min-height:70px; display:flex; justify-content:space-around; align-items: center;`
 
-  console.log(negativeEmotion.includes(emotion));
+  // console.log(negativeEmotion.includes(emotion));
 
   if (negativeEmotion.includes(emotion)) {
-    const displayDiv = `<div id='emotion-participant-${participantId}' class='insertedContent' style="${commonStyle} ${negativeEmotionStyle}">${emojiVar} ${messageVar}</div>`
+    const displayDiv = `<div id='emotion-participant-${participantId}' class='insertedContent' style="${commonStyle} ${negativeEmotionStyle}">${animatedEmoji} ${messageVar}</div>`
     screen_location.parentNode.insertAdjacentHTML('afterend', displayDiv);
   } else {
     const displayDiv = `<div id='emotion-participant-${participantId}' class='insertedContent' style="${commonStyle}">${animatedEmoji}</div>`
