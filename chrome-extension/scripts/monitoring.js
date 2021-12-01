@@ -2,6 +2,7 @@ const tipsHash = {
   "sad": {
     "title": "sadness",
     "emoji": "🥲",
+    "backgroundcolor": "rgba(88,88,255,0.25)",
     "tips": [
       "Signs of disappointment? Would you like to hear what is on their mind?",
       "Did something make this participant unhappy? Would you like to ask what is bothering them?",
@@ -11,6 +12,7 @@ const tipsHash = {
   "angry": {
     "title": "anger",
     "emoji": "😡",
+    "backgroundcolor": "rgba(255,0,0,0.25)",
     "tips": [
       "Did you say something provocative? Maybe qualify your statement.",
       "Did anyone say something upsetting? Perhaps identify the conflict and address it.",
@@ -20,6 +22,7 @@ const tipsHash = {
   "fearful": {
     "title": "fear",
     "emoji": "😟",
+    "backgroundcolor": "rgba(135,0,135,0.25)",
     "tips": [
       "Did your posture intimidate them? Maybe adjust your posture.",
       "Did you scare them? Pay attention to the tone of your voice.",
@@ -29,6 +32,7 @@ const tipsHash = {
   "disgusted": {
     "title": "disgust",
     "emoji": "🤮",
+    "backgroundcolor": "rgba(0,255,0,0.25)",
     "tips": [
       "Did you say something uncomfortable? Maybe clarify your intent.",
       "Did they get offended? Maybe you need to apologize for their discomfort.",
@@ -36,15 +40,18 @@ const tipsHash = {
   },
   "happy": {
     "title": "happiness",
-    "emoji": "🤩"
+    "emoji": "🤩",
+    "tips": []
   },
   "neutral": {
     "title": "no siginificant emotions",
-    "emoji": "😶"
+    "emoji": "😶",
+    "tips": []
   },
   "surprised": {
     "title": "surprise",
-    "emoji": "🤯"
+    "emoji": "🤯",
+    "tips": []
   }
 }
 
@@ -125,9 +132,30 @@ const displayResults = (emotion, participantId) => {
   if (insertedContent) {
     insertedContent.parentNode.removeChild(insertedContent);
   }
-  const emojiVar = `<span id='emotion-participant-${participantId}' class ='insertedContent' style="top:10px; left:10px; font-size:4rem; color:black; z-index: 9999; position: absolute;">${tipsHash[emotion].emoji}</span>`
+  // const emojiVar = `<span id='emotion-participant-${participantId}' class ='insertedContent' style="top:10px; left:10px; font-size:4rem; color:black; z-index: 9999; position: absolute;">${tipsHash[emotion].emoji}</span>`
+  const numberOfAvailableTips = tipsHash[emotion].tips.length
+  const tipsMessage = tipsHash[emotion].tips[Math.floor(Math.random() * (numberOfAvailableTips))]
+  const tipsEmoji = tipsHash[emotion].emoji
+  const backgroundColor = tipsHash[emotion].backgroundcolor
 
-  screen_location.parentNode.insertAdjacentHTML('afterend', emojiVar);
+  const emojiVar = `<span>${tipsEmoji}</span>`
+  const messageVar = `<p style="width: 150px; word-break: normal; white-space: normal; overflow-wrap: normal; font-size:12px; margin=0px"><span id="displayed-message">${tipsMessage}</p>`;
+
+
+  const negativeEmotion = ["sad", "angry", "disgusted", "fearful"]
+  const commonStyle = `top:10px; left:10px; font-size:2rem; color:black; z-index: 9999; position: absolute;`
+  const negativeEmotionStyle = `padding: 5px; border-radius: 5px; border: 0.5px solid grey; background-color:${backgroundColor}; min-width:250px; min-height:70px; display:flex; justify-content:space-around; align-items: center;`
+
+  console.log(negativeEmotion.includes(emotion));
+
+  if (negativeEmotion.includes(emotion)) {
+    const displayDiv = `<div id='emotion-participant-${participantId}' class='insertedContent' style="${commonStyle} ${negativeEmotionStyle}">${emojiVar} ${messageVar}</div>`
+    screen_location.parentNode.insertAdjacentHTML('afterend', displayDiv);
+  } else {
+    const displayDiv = `<div id='emotion-participant-${participantId}' class='insertedContent' style="${commonStyle}">${emojiVar}</div>`
+    screen_location.parentNode.insertAdjacentHTML('afterend', displayDiv);
+  }
+  // screen_location.parentNode.insertAdjacentHTML('afterend', displayDiv);
 }
 
 
