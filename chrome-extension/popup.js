@@ -20,11 +20,10 @@ function listenClick_two() {
       chrome.tabs.executeScript({
         file: 'scripts/end-meeting.js'
       });
-      window.open("http://www.traineq.site/dashboard");
+      // Tentatively connect to local
+      // window.open("http://www.traineq.site/dashboard");
+      window.open("http://localhost:3000/dashboard");
     }
-
-
-
   })
 }
 

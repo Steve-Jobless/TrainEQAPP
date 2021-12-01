@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   def dashboard
     authorize current_user
     @meetings = Meeting.all.where(user_id: current_user)
-    # @bookings_as_owner = current_user.bookings_as_owner
+    @meeting = Meeting.all.where(user_id: current_user).last
+    @participants = Participant.all.where(meeting_id: 63)
     @expressions = Expression.all.where(user_id: current_user)
     # @participant = Participant.find(1)
     # @happy = Expression.all.where(participant_id:1).where(emotion:"happy").count
@@ -13,7 +14,7 @@ class UsersController < ApplicationController
     # @suprised = Expression.all.where(participant_id:1).where(emotion:"suprised").count
     # @fearful = Expression.all.where(participant_id:1).where(emotion:"fearful").count
     # @emotions = [ @happy, @sad, @neutral, @angry, @disgusted, @surprised, @fearful]
-    @emotions = [
+    @id_1_emotions = [
       Expression.all.where(participant_id:1).where(emotion:"happy").count,
       Expression.all.where(participant_id:1).where(emotion:"sad").count,
       Expression.all.where(participant_id:1).where(emotion:"neutral").count,
