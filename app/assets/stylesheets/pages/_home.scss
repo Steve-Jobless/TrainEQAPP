@@ -24,8 +24,12 @@ a {
   padding-top: 40px;
 }
 
-.pic {
+.pic_container {
   padding-right: 0;
+}
+
+.img {
+  object-fit: cover;
 }
 
 .col-md-7 {

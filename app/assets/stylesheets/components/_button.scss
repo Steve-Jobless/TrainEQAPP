@@ -15,9 +15,11 @@
   display: inline-block;
   color: white;
   border-radius: 4px;
-  padding: 16px 150px;
+  padding: 8px 120px;
   background-color: rgba(11, 72, 112, 0.8);
-  box-shadow: 0 5px 5px rgba(11, 11, 15, 0.2);;
+  box-shadow: 0 5px 5px rgba(11, 11, 15, 0.2);
+  font-family: open sans;
+  font-size: 48px;
 }
 
 .btn-blue:hover {
@@ -86,4 +88,27 @@
   -webkit-transform: translateY(5px);
   transform: translateY(5px);
   /* move the element down by 5px (it will stay in place because it's attached to the element that also moves up 5px) */
+}
+
+
+.btn-grad {background-image: linear-gradient(to right, #4BAEEF 0%, #9361C3  49%, #EB038D  100%)}
+.btn-grad {
+  margin: 10px;
+  padding: 8px 26px;
+  font-family: 'Quattrocento', serif;
+  font-size: 40px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
 }
