@@ -1,3 +1,53 @@
+const tipsHash = {
+  "sad": {
+    "title": "sadness",
+    "emoji": "🥲",
+    "tips": [
+      "Signs of disappointment? Would you like to hear what is on their mind?",
+      "Did something make this participant unhappy? Would you like to ask what is bothering them?",
+      "Perhaps you need to say something encouraging."
+    ]
+  },
+  "angry": {
+    "title": "anger",
+    "emoji": "😡",
+    "tips": [
+      "Did you say something provocative? Maybe qualify your statement.",
+      "Did anyone say something upsetting? Perhaps identify the conflict and address it.",
+      "Maybe ask what is on their mind."
+    ]
+  },
+  "fearful": {
+    "title": "fear",
+    "emoji": "😟",
+    "tips": [
+      "Did your posture intimidate them? Maybe adjust your posture.",
+      "Did you scare them? Pay attention to the tone of your voice.",
+      "Maybe be friendlier! Being a kind person helps you with doing business, too."
+    ]
+  },
+  "disgusted": {
+    "title": "disgust",
+    "emoji": "🤮",
+    "tips": [
+      "Did you say something uncomfortable? Maybe clarify your intent.",
+      "Did they get offended? Maybe you need to apologize for their discomfort.",
+      "Perhaps you need to change the topic of conversation."]
+  },
+  "happy": {
+    "title": "happiness",
+    "emoji": "🤩"
+  },
+  "neutral": {
+    "title": "no siginificant emotions",
+    "emoji": "😶"
+  },
+  "surprised": {
+    "title": "surprise",
+    "emoji": "🤯"
+  }
+}
+
 // const screenShot = document.getElementsByTagName('img')[0]
 console.log("Hello!")
 // console.log($test)
@@ -72,8 +122,9 @@ const displayResults = (emotion, participantId) => {
   if (insertedContent) {
     insertedContent.parentNode.removeChild(insertedContent);
   }
-  screen_location.insertAdjacentHTML('afterend', `<h1 id='emotion-participant-${participantId}' class ='insertedContent' style="font-size: 28; color:black; z-index: 9999; position: absolute;">${emotion}</h1>`);
+  const emojiVar = `<span id='emotion-participant-${participantId}' class ='insertedContent' style="top:10px; left:10px; font-size:4rem; color:black; z-index: 9999; position: absolute;">${tipsHash[emotion].emoji}</span>`
 
+  screen_location.parentNode.insertAdjacentHTML('afterend', emojiVar);
 }
 
 
