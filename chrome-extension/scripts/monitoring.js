@@ -7,7 +7,8 @@ const tipsHash = {
       "Signs of disappointment? Would you like to hear what is on their mind?",
       "Did something make this participant unhappy? Would you like to ask what is bothering them?",
       "Perhaps you need to say something encouraging."
-    ]
+    ],
+    // "animation": "file_path"
   },
   "angry": {
     "title": "anger",
@@ -41,12 +42,14 @@ const tipsHash = {
   "happy": {
     "title": "happiness",
     "emoji": "🤩",
-    "tips": []
+    "tips": [],
+    // "animation": ""
   },
   "neutral": {
     "title": "no siginificant emotions",
     "emoji": "😶",
-    "tips": []
+    "tips": [],
+    "animation": "https://emojis.slackmojis.com/emojis/images/1542340471/4979/thinking.gif?1542340471"
   },
   "surprised": {
     "title": "surprise",
@@ -139,6 +142,8 @@ const displayResults = (emotion, participantId) => {
   const backgroundColor = tipsHash[emotion].backgroundcolor
 
   const emojiVar = `<span>${tipsEmoji}</span>`
+  const animatedEmoji =`<span><img src="${tipsHash[emotion].animation}"></span>`
+  console.log(animatedEmoji);
   const messageVar = `<p style="width: 150px; word-break: normal; white-space: normal; overflow-wrap: normal; font-size:12px; margin=0px"><span id="displayed-message">${tipsMessage}</p>`;
 
 
@@ -152,7 +157,7 @@ const displayResults = (emotion, participantId) => {
     const displayDiv = `<div id='emotion-participant-${participantId}' class='insertedContent' style="${commonStyle} ${negativeEmotionStyle}">${emojiVar} ${messageVar}</div>`
     screen_location.parentNode.insertAdjacentHTML('afterend', displayDiv);
   } else {
-    const displayDiv = `<div id='emotion-participant-${participantId}' class='insertedContent' style="${commonStyle}">${emojiVar}</div>`
+    const displayDiv = `<div id='emotion-participant-${participantId}' class='insertedContent' style="${commonStyle}">${animatedEmoji}</div>`
     screen_location.parentNode.insertAdjacentHTML('afterend', displayDiv);
   }
   // screen_location.parentNode.insertAdjacentHTML('afterend', displayDiv);
