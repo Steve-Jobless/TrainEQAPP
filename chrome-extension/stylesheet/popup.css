@@ -4,15 +4,15 @@
 
 body {
   width: 200px;
-  height: 200px;
-  background-image: linear-gradient(0deg, rgba(241,241,241,1) 0%, rgba(255,255,255,0) 50%), url("../images/video-meeting.jpg");
+  height: 240px;
+  /* background-image: linear-gradient(0deg, rgba(241,241,241,1) 0%, rgba(255,255,255,0) 50%), url("../images/video-meeting.jpg"); */
   background-size: cover;
   margin: 0px;
 }
 
 .btn-container {
   width: 100%;
-  height: 100%;
+  height: 50%;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -25,7 +25,72 @@ body {
   margin: none;
 }
 
-#power-btn {
+.monitor {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+  font-family: 'Quattrocento', serif;
+  font-size: 16px;
+}
+
+.switch-case {
+  display: flex;
+  justify-content: center;
+  /* padding-bottom: 20px; */
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center
+}
+
+#eq-logo {
+  height: auto;
+  width: 100px;
+  /* margin-bottom: 16px; */
+}
+
+.btn-grad {background-image: linear-gradient(to right, #4BAEEF 0%, #9361C3  49%, #EB038D  100%)}
+.btn-grad {
+  margin: 30px;
+  padding: 8px 8px;
+  font-family: 'Quattrocento', serif;
+  font-size: 16px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+  text-decoration: none;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+/* .footer {
+  background-color: white;
+  text-align: center;
+  font-style: oblique;
+  /* width: 100%; */
+  /* padding: 8px 0px;
+  min-width: 100%;
+} */
+
+/* .footer p {
+  margin: 0px;
+  font-size: 16px;
+  font-family: 'Questrial', sans-serif;
+} */
+
+/* #power-btn {
  background-color: aliceblue;
  min-width: 100px;
  align-self: center;
@@ -43,37 +108,4 @@ body {
  box-shadow: 1px 1px 1px rgba(10, 10, 10, 0.5);
  margin-top: 10px;
  color: white;
-}
-
-.icon-container {
-  display: flex;
-  justify-content: center;
-}
-
-.icon-container {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center
-}
-
-#eq-logo {
-  height: auto;
-  width: 100px;
-  margin-bottom: 16px;
-}
-
-.footer {
-  background-color: white;
-  text-align: center;
-  font-style: oblique;
-  /* width: 100%; */
-  padding: 8px 0px;
-  min-width: 100%;
-}
-
-.footer p {
-  margin: 0px;
-  font-size: 16px;
-  font-family: 'Questrial', sans-serif;
-}
+} */

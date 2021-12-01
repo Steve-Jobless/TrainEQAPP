@@ -1,22 +1,20 @@
-  <!-- code a Hero / Banner section -->
-<%# <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(images/background.png);"> %>
+<!-- code a Hero / Banner section -->
 <div class='banner' style="background-image: url(<%= "background.png" %>) no-repeat">
   <div class="container">
     <div class="row">
-      <%# <span id="ityped" style="font-size: 3.5em; font-family: 'Space Mono', monospace;"></span> %>
       <div class="col-md-5">
-        <div class="pic">
+        <div class="pic_container">
           <%= image_tag "trainEQ_logotype_128x.png" %>
         </div>
         <div class="text">
           <h1 class="animate__animated animate__bounce">For ambitious professionals having trouble feeling all the feels</h1>
           <p>Instantly understand your online team more clearly and more deeply to get ahead and boost your communication skills.</p>
-          <a href="https://www.lewagon.com/" class="btn btn-blue hvr-float-shadow">Download</a>
+          <%# <a href="https://www.lewagon.com/" class="btn btn-blue hvr-float-shadow">Download</a> %>
+          <a href="https://www.lewagon.com/" class="btn btn-grad">Download</a>
         </div>
       </div>
       <div class="col-md-7">
         <div>
-          <%# <img src="../../assets/images/screen.png" alt="" class="mac"> %>
           <%= image_tag "combined_images.png", class:"mac" %>
         </div>
       </div>
@@ -31,40 +29,32 @@
   <h2 class="sub-section animate__animated animate__backInDown">How it works</h2>
   <div id="works">
     <div class="card-trip">
-      <%# <img src="images/tech.png" alt="mone" class="trip-img"> %>
       <%= image_tag "uspeed.svg", class:"trip-img" %>
       <div class="card-trip-infos">
         <div>
           <h2>Real-time</h2>
           <p>Provides useful in-meeting feedback</p>
         </div>
-        <%# <img src="images/check.png" class="card-trip-user avatar-bordered"> %>
         <%= image_tag "check.png", class:"card-trip-user avatar-bordered" %>
       </div>
     </div>
     <div class="card-trip">
-      <%# <img src="images/map.png" alt="mone" class="trip-img"> %>
       <%= image_tag "uanalysis.svg", class:"trip-img" %>
       <div class="card-trip-infos">
         <div>
           <h2>Intuitive</h2>
           <p>Super easy to understand</p>
         </div>
-        <!-- <h2 class="card-trip-pricing">£99.99</h2> -->
-        <%# <img src="images/check.png" class="card-trip-user avatar-bordered"> %>
         <%= image_tag "check.png", class:"card-trip-user avatar-bordered" %>
       </div>
     </div>
     <div class="card-trip">
-      <%# <img src="images/people.png" alt="mone" class="trip-img"> %>
       <%= image_tag "ugoals.svg", class:"trip-img" %>
       <div class="card-trip-infos">
         <div>
           <h2>Stat-keeping</h2>
           <p>Track your communication progress over time</p>
         </div>
-        <!-- <h2 class="card-trip-pricing">£99.99</h2> -->
-        <%# <img src="images/check.png" class="card-trip-user avatar-bordered"> %>
         <%= image_tag "check.png", class:"card-trip-user avatar-bordered" %>
       </div>
     </div>
