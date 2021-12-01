@@ -147,8 +147,13 @@ const displayResults = (emotion, participantId) => {
   const backgroundColor = tipsHash[emotion].backgroundcolor
 
   const emojiVar = `<span>${tipsEmoji}</span>`
-  const animatedEmoji = `<div><img src="${tipsHash[emotion].animation}" style="width: 35px; height: 35px"></div>`
+
+  const gifUrl = chrome.runtime.getURL(`images/animated_emoji/${emotion}.gif`)
+  const animatedEmoji = `<div><img src="${gifUrl}" style="width: 35px; height: 35px"></div>`
   // console.log(animatedEmoji);
+
+
+
   const messageVar = `<p style="width: 150px; word-break: normal; white-space: normal; overflow-wrap: normal; font-size:12px; margin=0px"><span id="displayed-message">${tipsMessage}</p>`;
 
 
