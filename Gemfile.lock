@@ -89,6 +89,10 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise_token_auth (1.2.0)
+      bcrypt (~> 3.0)
+      devise (> 3.5.2, < 5)
+      rails (>= 4.2.0, < 6.2)
     dotenv (2.7.6)
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
@@ -257,6 +261,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   devise
+  devise_token_auth
   dotenv-rails
   font-awesome-sass
   jbuilder (~> 2.7)
@@ -285,4 +290,4 @@ RUBY VERSION
    ruby 2.7.4p191
 
 BUNDLED WITH
-   2.2.31
+   2.2.32

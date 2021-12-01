@@ -5,5 +5,6 @@ class User < ApplicationRecord
   :recoverable, :rememberable, :validatable
   has_many :meetings
 
+  include DeviseTokenAuth::Concerns::User
   acts_as_token_authenticatable
 end
