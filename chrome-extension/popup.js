@@ -45,6 +45,7 @@ function checkBoxtoggle() {
       // Tentatively connect to local
       // window.open("http://www.traineq.site/dashboard");
       window.open("http://localhost:3000/dashboard");
+      window.sessionActive = false;
     }
   })
 

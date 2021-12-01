@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     authorize current_user
     @meetings = Meeting.all.where(user_id: current_user)
     @meeting = Meeting.all.where(user_id: current_user).last
-    @participants = Participant.all.where(meeting_id: 63)
+    @participants = Participant.all.where(meeting_id: @meeting.id)
     @expressions = Expression.all.where(user_id: current_user)
     # @participant = Participant.find(1)
     # @happy = Expression.all.where(participant_id:1).where(emotion:"happy").count
