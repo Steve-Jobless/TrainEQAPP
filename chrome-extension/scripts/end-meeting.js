@@ -29,3 +29,4 @@ async function endMeeting(end_time) {
 }
 
 endMeeting(time_date)
+clearInterval(window.monitor)

@@ -5,6 +5,7 @@ console.log("Hello!")
 
 let port_emotion
 
+
 setTimeout(() => {
   port_emotion = chrome.runtime.connect({ name: "emotionDetector" });
   port_emotion.onMessage.addListener(function ({ emotion, participantId }) {
@@ -44,7 +45,7 @@ const startMonitoring =  () => {
   //create a meeting
 
   //every 10 seconds:
-  setInterval(async () => {
+  return setInterval(async () => {
     console.log("inside of the interval")
     //take screenshot of the canvas
     const screenShots = await takeScreenShots()
@@ -108,4 +109,4 @@ function createMeeting() {
 }
 
 createMeeting()
-startMonitoring()
+window.monitor = startMonitoring()
