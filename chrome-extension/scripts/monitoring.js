@@ -8,7 +8,7 @@ const tipsHash = {
       "Did something make this participant unhappy? Would you like to ask what is bothering them?",
       "Perhaps you need to say something encouraging."
     ],
-    "animation": "https://emojis.slackmojis.com/emojis/images/1542340461/4964/cry.gif?1542340461"
+    "animation": "https://github.com/Steve-Jobless/TrainEQAPP/blob/c56877341296eeeb8c5e49d6c6468c0868305a49/chrome-extension/images/animated_emoji/sad.gif"
   },
   "angry": {
     "title": "anger",
@@ -19,7 +19,7 @@ const tipsHash = {
       "Did anyone say something upsetting? Perhaps identify the conflict and address it.",
       "Maybe ask what is on their mind."
     ],
-    "animation": "https://emojis.slackmojis.com/emojis/images/1542340458/4962/anger.gif?1542340458"
+    "animation": "https://github.com/Steve-Jobless/TrainEQAPP/blob/c56877341296eeeb8c5e49d6c6468c0868305a49/chrome-extension/images/animated_emoji/angry.gif"
   },
   "fearful": {
     "title": "fear",
@@ -30,7 +30,7 @@ const tipsHash = {
       "Did you scare them? Pay attention to the tone of your voice.",
       "Maybe be friendlier! Being a kind person helps you with doing business, too."
     ],
-    "animation": "https://files.slack.com/files-pri/T02NE0241-F02NE8H54ET/giphy-scream.gif"
+    "animation": "https://github.com/Steve-Jobless/TrainEQAPP/blob/c56877341296eeeb8c5e49d6c6468c0868305a49/chrome-extension/images/animated_emoji/fearful.gif"
   },
   "disgusted": {
     "title": "disgust",
@@ -40,25 +40,25 @@ const tipsHash = {
       "Did you say something uncomfortable? Maybe clarify your intent.",
       "Did they get offended? Maybe you need to apologize for their discomfort.",
       "Perhaps you need to change the topic of conversation."],
-      "animation": "https://emojis.slackmojis.com/emojis/images/1542340473/4983/yuck.gif?1542340473"
+    "animation": "https://github.com/Steve-Jobless/TrainEQAPP/blob/c56877341296eeeb8c5e49d6c6468c0868305a49/chrome-extension/images/animated_emoji/disgusted.gif"
   },
   "happy": {
     "title": "happiness",
     "emoji": "🤩",
     "tips": [],
-    "animation": "https://emojis.slackmojis.com/emojis/images/1542340468/4973/lol.gif?1542340468"
+    "animation": "https://github.com/Steve-Jobless/TrainEQAPP/blob/c56877341296eeeb8c5e49d6c6468c0868305a49/chrome-extension/images/animated_emoji/happy.gif"
   },
   "neutral": {
     "title": "no siginificant emotions",
     "emoji": "😶",
     "tips": [],
-    "animation": "https://emojis.slackmojis.com/emojis/images/1542340471/4979/thinking.gif?1542340471"
+    "animation": "https://github.com/Steve-Jobless/TrainEQAPP/blob/c56877341296eeeb8c5e49d6c6468c0868305a49/chrome-extension/images/animated_emoji/neutral.gif"
   },
   "surprised": {
     "title": "surprise",
     "emoji": "🤯",
     "tips": [],
-    "animation": "https://emojis.slackmojis.com/emojis/images/1542340471/4978/surprise.gif?1542340471"
+    "animation": "https://github.com/Steve-Jobless/TrainEQAPP/blob/c56877341296eeeb8c5e49d6c6468c0868305a49/chrome-extension/images/animated_emoji/surprised.gif"
   }
 }
 
