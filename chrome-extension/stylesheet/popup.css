@@ -28,7 +28,7 @@ body {
 .monitor {
   display: flex;
   justify-content: center;
-  margin-top: 60px;
+  margin-top: 30px;
   font-family: 'Quattrocento', serif;
   font-size: 16px;
 }
@@ -50,6 +50,7 @@ body {
   height: auto;
   width: 100px;
   /* margin-bottom: 16px; */
+  padding-top: 20px;
 }
 
 .btn-grad {background-image: linear-gradient(to right, #4BAEEF 0%, #9361C3  49%, #EB038D  100%)}
