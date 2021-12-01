@@ -1,16 +1,21 @@
+body {
+  font-family: $body-font;
+}
+
 .subtitle {
   color:rgba(11, 72, 112, 0.8);
   padding: 0 0 20px 0;
   font-size: 18px;
   font-weight: bold;
-  font-family: 'Old Standard TT', serif;
+  // font-family: 'Old Standard TT', serif;
+  font-family: $headers-font;
   text-align: left;
 }
 
 .title {
   padding: 20px 0 0 0;
   font-size: 30px;
-  font-family: 'Questrial', sans-serif;
+  // font-family: 'Questrial', sans-serif;
   text-align: left;
 }
 
