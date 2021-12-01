@@ -92,7 +92,7 @@ const takeScreenShots = () => {
 
 
 
-const startMonitoring =  () => {
+const startMonitoring = () => {
   console.log("The start monitor is being called")
   //create a meeting
 
@@ -122,46 +122,50 @@ const displayResults = (emotion, participantId) => {
   const screen_location = video
 
   const insertedContent = document.querySelector(`#emotion-participant-${participantId}`);
-    if (insertedContent) {
-      insertedContent.parentNode.removeChild(insertedContent);
-    }
-
+  if (insertedContent) {
+    insertedContent.parentNode.removeChild(insertedContent);
+  }
   const emojiVar = `<span id='emotion-participant-${participantId}' class ='insertedContent' style="top:10px; left:10px; font-size:4rem; color:black; z-index: 9999; position: absolute;">${tipsHash[emotion].emoji}</span>`
 
   screen_location.parentNode.insertAdjacentHTML('afterend', emojiVar);
-  // old code below changed as of November 30:
-  // screen_location.insertAdjacentHTML('afterend', emojiVar);
 }
 
 
 
-function createMeeting() {
+async function createMeeting() {
   const url = 'http://localhost:3000/api/v1/meetings';
-  fetch(url, {
-    method: 'POST',
-    headers: {
-      "Content-Type": "application/json",
-      "X-User-Email": "example@example.com",
-      "X-User-Token": "_XNbsrvpVFHKXuXv19zk"
-    },
-    body: JSON.stringify({
-      "number_of_participants": document.querySelectorAll("video").length
-    }) ,
-  }).then(response => response.json())
-    .then((data) => {
+  await chrome.storage.local.get(['email', 'token'], async function (result) {
+    console.log('Email is ' + result.email);
+    console.log('Token is ' + result.token);
+    const email = result.email;
+    const token = result.token;
+    // const email = '20@gmail.com';
+    // const token = 'uZopBdGrsuk4-wNxGJBg';
 
-      console.log(data)
-      // const screen_location = document.querySelector(".pHsCke")
-      // chrome.storage.local.set({ meeting_id: data.id, participant_id: data.meeting.participant  }, function () {
-      // });
-      // meeting_id = data.id
-      const videos = document.querySelectorAll("video")
-
-
-      data.participants.forEach((participantId, index)=> {
-        videos[index].setAttribute("data-participant-id", participantId)
-      });
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        "X-User-Email": email,
+        "X-User-Token": token
+      },
+      body: JSON.stringify({
+        "number_of_participants": document.querySelectorAll("video").length
+      }),
     })
+    const data = await response.json()
+    console.log(data)
+    // const screen_location = document.querySelector(".pHsCke")
+    // chrome.storage.local.set({ meeting_id: data.id, participant_id: data.meeting.participant  }, function () {
+    // });
+    // meeting_id = data.id
+    const videos = document.querySelectorAll("video")
+
+
+    data.participants.forEach((participantId, index) => {
+      videos[index].setAttribute("data-participant-id", participantId)
+    });
+  })
 }
 
 createMeeting()
