@@ -28,34 +28,44 @@
 
 
 
-
 function checkBoxtoggle() {
   const button = document.getElementById('checkbox-btn');
-  button.checked = window.sessionActive
+
+  chrome.storage.local.get(['key'], function (result) {
+    button.checked = result.key;
+    console.log(result.key)
+  });
+  // localStorage.setItem('sessionActive', button.checked = true );
+
+  // button.checked = window.sessionActive
+  // console.log(button.checked)
+
   button.addEventListener('change', function () {
     if (this.checked) {
       chrome.tabs.executeScript({
         file: 'scripts/monitoring.js'
       });
-      window.sessionActive = true;
+      chrome.storage.local.set({ key: true }, function () {
+        key = button.checked
+        console.log(button.checked)
+      });
+      // window.sessionActive = true;
+      // console.log(button.checked)
     } else {
       chrome.tabs.executeScript({
         file: 'scripts/end-meeting.js'
       });
-      // Tentatively connect to local
-      // window.open("http://www.traineq.site/dashboard");
-      window.open("http://localhost:3000/dashboard");
-      window.sessionActive = false;
+      chrome.storage.local.set({ key: false }, function () {
+        key = button.checked
+        console.log(button.checked)
+
+
+      });      // window.open("http://www.traineq.site/dashboard");
+      // window.sessionActive = false;
+      // console.log(button.checked)
     }
-  })
 
-
-//       window.open("http://www.traineq.site/dashboard");
-//       window.sessionActive = false;
-//     }
-
-//   });
-
+  });
 
 }
 
