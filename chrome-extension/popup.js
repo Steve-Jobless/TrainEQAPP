@@ -23,10 +23,25 @@ function listenClick_two() {
       window.open("http://www.traineq.site/dashboard");
     }
 
+  })
+}
 
+
+
+function checkBoxtoggle() {
+  const button = document.getElementById('checkbox-btn');
+  button.addEventListener('click', event => {
+    // if event.target.innerText === 'start' {
+    if (event.target.checked === 'true') {
+      // const $test = 1
+      chrome.tabs.executeScript({
+        file: 'scripts/monitoring.js'
+      });
+    }
 
   })
 }
 
 listenClick();
 listenClick_two();
+checkBoxtoggle();
