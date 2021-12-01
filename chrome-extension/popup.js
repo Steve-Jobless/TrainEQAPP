@@ -30,16 +30,19 @@ function listenClick_two() {
 
 function checkBoxtoggle() {
   const button = document.getElementById('checkbox-btn');
-  button.addEventListener('click', event => {
-    // if event.target.innerText === 'start' {
-    if (event.target.checked === 'true') {
-      // const $test = 1
+  button.addEventListener('change', function () {
+    if (this.checked) {
       chrome.tabs.executeScript({
         file: 'scripts/monitoring.js'
       });
-    }
+    } else {
+      chrome.tabs.executeScript({
+        file: 'scripts/end-meeting.js'
+      });
+      window.open("http://www.traineq.site/dashboard");
 
-  })
+    }
+  });
 }
 
 listenClick();
