@@ -7,8 +7,7 @@ const tipsHash = {
       "Signs of disappointment? Would you like to hear what is on their mind?",
       "Did something make this participant unhappy? Would you like to ask what is bothering them?",
       "Perhaps you need to say something encouraging."
-    ],
-    "animation": "https://github.com/Steve-Jobless/TrainEQAPP/blob/c56877341296eeeb8c5e49d6c6468c0868305a49/chrome-extension/images/animated_emoji/sad.gif"
+    ]
   },
   "angry": {
     "title": "anger",
@@ -18,8 +17,7 @@ const tipsHash = {
       "Did you say something provocative? Maybe qualify your statement.",
       "Did anyone say something upsetting? Perhaps identify the conflict and address it.",
       "Maybe ask what is on their mind."
-    ],
-    "animation": "https://github.com/Steve-Jobless/TrainEQAPP/blob/c56877341296eeeb8c5e49d6c6468c0868305a49/chrome-extension/images/animated_emoji/angry.gif"
+    ]
   },
   "fearful": {
     "title": "fear",
@@ -29,8 +27,7 @@ const tipsHash = {
       "Did your posture intimidate them? Maybe adjust your posture.",
       "Did you scare them? Pay attention to the tone of your voice.",
       "Maybe be friendlier! Being a kind person helps you with doing business, too."
-    ],
-    "animation": "https://github.com/Steve-Jobless/TrainEQAPP/blob/c56877341296eeeb8c5e49d6c6468c0868305a49/chrome-extension/images/animated_emoji/fearful.gif"
+    ]
   },
   "disgusted": {
     "title": "disgust",
@@ -39,26 +36,22 @@ const tipsHash = {
     "tips": [
       "Did you say something uncomfortable? Maybe clarify your intent.",
       "Did they get offended? Maybe you need to apologize for their discomfort.",
-      "Perhaps you need to change the topic of conversation."],
-    "animation": "https://github.com/Steve-Jobless/TrainEQAPP/blob/c56877341296eeeb8c5e49d6c6468c0868305a49/chrome-extension/images/animated_emoji/disgusted.gif"
+      "Perhaps you need to change the topic of conversation."]
   },
   "happy": {
     "title": "happiness",
     "emoji": "🤩",
-    "tips": [],
-    "animation": "https://github.com/Steve-Jobless/TrainEQAPP/blob/c56877341296eeeb8c5e49d6c6468c0868305a49/chrome-extension/images/animated_emoji/happy.gif"
+    "tips": []
   },
   "neutral": {
     "title": "no siginificant emotions",
     "emoji": "😶",
-    "tips": [],
-    "animation": "https://github.com/Steve-Jobless/TrainEQAPP/blob/c56877341296eeeb8c5e49d6c6468c0868305a49/chrome-extension/images/animated_emoji/neutral.gif"
+    "tips": []
   },
   "surprised": {
     "title": "surprise",
     "emoji": "🤯",
-    "tips": [],
-    "animation": "https://github.com/Steve-Jobless/TrainEQAPP/blob/c56877341296eeeb8c5e49d6c6468c0868305a49/chrome-extension/images/animated_emoji/surprised.gif"
+    "tips": []
   }
 }
 
