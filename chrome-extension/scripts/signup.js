@@ -78,7 +78,6 @@ function submitForm() {
         console.log(data)
         const email = data.data.email
         const token = data.data.authentication_token
-        console.log(chrome.storage.local);
         chrome.storage.local.set({ email: email }, function () {
         });
         chrome.storage.local.set({ token: token }, function () {

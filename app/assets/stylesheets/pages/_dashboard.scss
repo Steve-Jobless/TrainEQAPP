@@ -1,13 +1,17 @@
 .subtitle {
-  color:rgb(126, 110, 110);
-  padding-bottom: 20px;
+  color:rgba(11, 72, 112, 0.8);
+  padding: 0 0 20px 0;
   font-size: 18px;
   font-weight: bold;
+  font-family: 'Old Standard TT', serif;
+  text-align: left;
 }
 
 .title {
-  padding-top: 20px;
+  padding: 20px 0 0 0;
   font-size: 30px;
+  font-family: 'Questrial', sans-serif;
+  text-align: left;
 }
 
 .chart {
@@ -16,18 +20,21 @@
 }
 
 .chTitle {
-  padding: 20px 0 5px 220px;
-  color:rgb(126, 110, 110);
+  padding: 20px 0 5px 20px;
+  color:rgba(11, 72, 112, 0.8);
+  font-family: 'Old Standard TT', serif;
 }
 
 .chsubTitle {
   padding: 20px 0 0 0;
-  color:rgb(126, 110, 110);
+  color:rgba(11, 72, 112, 0.8);
+  font-family: 'Old Standard TT', serif;
 }
 
 .chsubTitle1 {
   padding: 0 0 20px 0;
-  color:rgb(126, 110, 110);
+  color:rgba(11, 72, 112, 0.8);
+  font-family: 'Old Standard TT', serif;
 }
 
 .tabs-underlined {
@@ -52,4 +59,9 @@
     opacity: 1;
     border-bottom: 3px solid #555555;
   }
+}
+
+.col-md-4 {
+  padding: 20px 10px 10px 10px;
+  margin: 80px 0 200px 0;
 }

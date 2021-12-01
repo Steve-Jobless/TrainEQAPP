@@ -1,11 +1,11 @@
 // Specific CSS for your home-page
 body {
   margin: 0;
-  font-family: Open Sans;
+  font-family: 'Old Standard TT', serif;
 }
 
 h1, h2, h3, h4 {
-font-family: 'Fugaz One', cursive;
+font-family: 'Questrial', sans-serif;
 font-size: 32px;
 color: black;
 }
@@ -16,8 +16,25 @@ a {
 
 /* Custom design below! */
 
+// .col-md-5 {
+//   padding-top: 200px;
+// }
+
+.text {
+  padding-top: 40px;
+}
+
+.pic {
+  padding-right: 0;
+}
+
+.col-md-7 {
+  padding-top: 60px;
+
+}
+
 .container {
-  width: 900px;
+  width: 1100px;
   margin: 0 auto;
   text-align: center;
 }
@@ -25,10 +42,10 @@ a {
 .sub-section {
   padding: 150px 0 20px 0;
   text-align: center;
-  font-size: 32px;
+  font-size: 48px;
 }
 #works {
-  padding: 10px 0 50px 0;
+  padding: 10px 0 250px 0;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -39,21 +56,23 @@ a {
   background-size: cover;
   background-position: center;
   color: white;
-  padding: 100px 0 0 0;
+  padding: 40px 0 0 0;
 }
 
 .banner h1 {
-  text-align: center;
-  font-size: 32px;
+  text-align: right;
+  font-size: 36px;
   color: black;
+  font-family: 'Questrial', sans-serif;
 }
 
 .banner p {
-  text-align: center;
+  text-align: left;
   font-size: 18px;
   color: black;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-family: 'Old Standard TT', serif;
 }
 
 .img-float {
@@ -71,21 +90,21 @@ a {
 
 .mac {
   position: relative;
-  width: 70%;
-  top: 90px;
+  width: 100%;
+  // top: 90px;
 }
 
-.footer {
-  padding: 100px;
-  background-color:slategray;
-  color: white;
-  text-align: center;
-}
+// .footer {
+//   padding: 100px;
+//   background-color:slategray;
+//   color: white;
+//   text-align: center;
+// }
 
-.links a{
-  font-size: 32px;
-  color: #80c044;
-}
+// .links a{
+//   font-size: 32px;
+//   color: #80c044;
+// }
 
 @media (max-width: 960px) {
   .container {

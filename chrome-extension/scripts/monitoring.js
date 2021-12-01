@@ -52,6 +52,9 @@ const tipsHash = {
 console.log("Hello!")
 // console.log($test)
 // console.log(screenShot)
+// console.log(tipsHash);
+// console.log(tipsHash.sad);
+// console.log(tipsHash.sad.emoji);
 
 let port_emotion
 
