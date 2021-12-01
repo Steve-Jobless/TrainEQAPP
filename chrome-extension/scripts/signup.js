@@ -1,37 +1,83 @@
-// function submitForm() {
-  const submit = document.getElementById('sign-up');
-  submit.addEventListener('click', event => {
-    event.preventDefault();
-    const email = document.getElementById('email-input').value;
-    const password = document.getElementById('password-input').value;
-    const passwordConfirmation = document.getElementById('password-confirmation-input').value;
+// chrome.cookies.get({ url: 'https://www.traineq.site/', name: 'someone' },
+//   function (cookie) {
+//     if (cookie) {
+//       console.log(cookie.value);
+//       window.location.href = '../popup.html';
+//     }
+//     else {
+//       console.log('Can\'t get cookie! Check the name!');
+//       window.location.href = '../login.html';
+//     }
+//   });
 
-    const url = 'http://localhost:3000/api/v1/auth/';
-    console.log("fetching...")
-    fetch(url, {
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        "email": email,
-        "password": password,
-        "password_confirmation": passwordConfirmation
-      })
-    }).then(response => response.json())
-      .then((data) => {
-        console.log(data)
-        const email = data.data.email
-        const token = data.data.authentication_token
-        console.log(token, email, window, window.localStorage);
-        chrome.storage.local.set({ email: email }, function () {
-        });
-        chrome.storage.local.set({ token: token }, function () {
-        });
+// For log-in-----------------------
+const login = document.getElementById('log-in');
+login.addEventListener('click', event => {
+  event.preventDefault();
+  const email = document.getElementById('email-input').value;
+  const password = document.getElementById('password-input').value;
+  console.log(email, password);
+  const url = 'http://localhost:3000/api/v1/auth/sign_in';
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      "email": email,
+      "password": password,
+    })
+  }).then(response => response.json())
+    .then((data) => {
+      console.log(data)
+      const email = data.data.email
+      const token = data.data.authentication_token
+      chrome.storage.local.set({ email: email }, function () {
+        console.log('Value is set to ' + email);
+      });
+      chrome.storage.local.set({ token: token }, function () {
+      });
+      window.location.href = '../popup.html';
+    });
+});
+
+// For sign up-----------------------
+function submitForm() {
+const submit = document.getElementById('sign-up');
+submit.addEventListener('click', event => {
+  event.preventDefault();
+  const email = document.getElementById('email-input').value;
+  const password = document.getElementById('password-input').value;
+  const passwordConfirmation = document.getElementById('password-confirmation-input').value;
+
+  const url = 'http://localhost:3000/api/v1/auth/';
+  console.log("fetching...")
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      "email": email,
+      "password": password,
+      "password_confirmation": passwordConfirmation
+    })
+  }).then(response => response.json())
+    .then((data) => {
+      console.log(data)
+      const email = data.data.email
+      const token = data.data.authentication_token
+      console.log(chrome.storage.local);
+      chrome.storage.local.set({ email: email }, function () {
+      });
+      chrome.storage.local.set({ token: token }, function () {
       });
     });
   window.location.href = '../popup.html';
-// }
+});
+}
+
+
 
 // function submitForm() {
 

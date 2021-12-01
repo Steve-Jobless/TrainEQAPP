@@ -7,7 +7,8 @@ Rails.application.routes.draw do
       resources :expressions, only: [ :index, :show, :create ]
       resources :meetings, only: [ :create, :update, :show ]
       mount_devise_token_auth_for 'User', at: 'auth', controllers: {
-        registrations: 'v1/auth/registrations'
+        registrations: 'v1/auth/registrations',
+        sessions: 'v1/auth/sessions'
       }
     end
   end

@@ -1,14 +1,13 @@
 function listenClick() {
   const button = document.getElementById('power-btn');
-  button.addEventListener('click', event => {
-    // if event.target.innerText === 'start' {
-    if (event.target.innerText === 'Start') {
-      // const $test = 1
+  button.addEventListener('click', e => {
+    console.log(e)
+    if (e.target.innerText === 'Start') {
       chrome.tabs.executeScript({
         file: 'scripts/monitoring.js'
       });
+      console.log("start")
     }
-
   })
 }
 function listenClick_two() {

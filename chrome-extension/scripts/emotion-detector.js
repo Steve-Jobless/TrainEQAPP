@@ -11,6 +11,7 @@ chrome.runtime.onConnect.addListener(function (port) {
       const emotion = getMax(result[0])
       port.postMessage({ participantId: msg.participantId, emotion: emotion });
         await createExpression({ emotion, participantId: msg.participantId})
+        console.log(result);
     }}
 
   });
@@ -43,29 +44,30 @@ const getMax = ({ expressions }) => {
 
 async function createExpression({emotion, participantId}) {
   let meeting_id;
+  console.log(emotion);
   chrome.storage.local.get(['meeting_id'], async function(result) {
-  meeting_id = result.meeting_id;
-  console.log(meeting_id)
-
-  const url = 'http://localhost:3000/api/v1/expressions';
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: {
-      "Content-Type": "application/json",
-      "X-User-Email": "etiennewortham@gmail.com",
-      "X-User-Token": "YdzYQscnTHDzWpuY9_zi"
-    },
-    body: JSON.stringify({
-      "expression": {
-        emotion,
-        "confidence": 0.7
+    meeting_id = result.meeting_id;
+    console.log(meeting_id)
+    chrome.storage.local.get(['email', 'token'], function (result) {
+      const email = result.email;
+      const token = result.token;
+      const url = 'http://localhost:3000/api/v1/expressions';
+      const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        "X-User-Email": email,
+        "X-User-Token": token
       },
-      "participant_id": participantId
-    })
-  })
-  console.log({ response })
-
-});
-
-
+      body: JSON.stringify({
+        "expression": {
+          emotion,
+          "confidence": 0.7
+        },
+        "participant_id": participantId
+      })
+      })
+      console.log({ response })
+    });
+  });
 }

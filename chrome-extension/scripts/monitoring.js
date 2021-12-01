@@ -58,13 +58,16 @@ console.log("Hello!")
 
 let port_emotion
 
-setTimeout(() => {
-  port_emotion = chrome.runtime.connect({ name: "emotionDetector" });
-  port_emotion.onMessage.addListener(function ({ emotion, participantId }) {
+setTimeout(async () => {
+  port_emotion = await chrome.runtime.connect({ name: "emotionDetector" });
+  await port_emotion.onMessage.addListener(function ({ emotion, participantId }) {
     console.log(emotion, participantId)
     displayResults(emotion, participantId)
 
   });
+
+  createMeeting();
+  startMonitoring();
 }, 1000);
 
 let canvas_height = window.screen.height;
@@ -104,6 +107,7 @@ const startMonitoring =  () => {
     screenShots.forEach(screenShot => {
       //feed the screenshot into the emotion-detector
       // participantId?
+      console.log(port_emotion);
       port_emotion.postMessage({ participantId: screenShot.dataset.participantId, screenShot: screenShot.toDataURL() });
     });
 
@@ -137,32 +141,33 @@ const displayResults = (emotion, participantId) => {
 
 function createMeeting() {
   const url = 'http://localhost:3000/api/v1/meetings';
-  fetch(url, {
-    method: 'POST',
-    headers: {
-      "Content-Type": "application/json",
-      "X-User-Email": "example@example.com",
-      "X-User-Token": "_XNbsrvpVFHKXuXv19zk"
-    },
-    body: JSON.stringify({
-      "number_of_participants": document.querySelectorAll("video").length
-    }) ,
-  }).then(response => response.json())
+  console.log("Meeting creating...");
+  chrome.storage.local.get(['email', 'token'], function (result) {
+    console.log('Email is ' + result.email);
+    console.log('Token is ' + result.token);
+    const email = result.email;
+    const token = result.token;
+
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        "X-User-Email": email,
+        "X-User-Token": token
+      },
+      body: JSON.stringify({
+        "number_of_participants": document.querySelectorAll("video").length
+      }) ,
+    }).then(response => response.json())
     .then((data) => {
 
       console.log(data)
-      // const screen_location = document.querySelector(".pHsCke")
-      // chrome.storage.local.set({ meeting_id: data.id, participant_id: data.meeting.participant  }, function () {
-      // });
-      // meeting_id = data.id
-      const videos = document.querySelectorAll("video")
 
+      const videos = document.querySelectorAll("video")
 
       data.participants.forEach((participantId, index)=> {
         videos[index].setAttribute("data-participant-id", participantId)
       });
     })
+  })
 }
-
-createMeeting()
-startMonitoring()
