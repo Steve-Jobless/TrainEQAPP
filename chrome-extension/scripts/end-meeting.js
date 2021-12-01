@@ -19,8 +19,7 @@ async function endMeeting(end_time) {
       },
       body: JSON.stringify({
         "end_at":
-          end_time,
-        "participant_id": 1
+          end_time
       })
     })
     window.localStorage.setItem('email', email);

@@ -193,10 +193,11 @@ async function createMeeting() {
     })
     const data = await response.json()
     console.log(data)
-    // const screen_location = document.querySelector(".pHsCke")
-    // chrome.storage.local.set({ meeting_id: data.id, participant_id: data.meeting.participant  }, function () {
-    // });
-    // meeting_id = data.id
+    chrome.storage.local.set({ meeting_id: data.id }, function () {
+      meeting_id = data.id
+      console.log(meeting_id)
+    });
+
     const videos = document.querySelectorAll("video")
 
 
