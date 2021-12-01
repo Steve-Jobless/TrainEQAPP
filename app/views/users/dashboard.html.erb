@@ -4,7 +4,7 @@
   <%# Each person's expressions %>
   <p>User id: <%= current_user.id %></p>
   <p>Meeting id: <%= @meeting.id %></p>
-  <div class="container-person d-flex flex-nowrap">
+  <div class="container d-flex">
     <% @participants.each_with_index do |participant, index| %>
       <div class="col-md-4 border">
         <% @each_emotions = Expression.all.where(participant_id: participant.id) %>

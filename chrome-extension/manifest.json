@@ -36,5 +36,14 @@
       "/scripts/signup.js"
     ],
     "persistent": false
-  }
+  },
+  "web_accessible_resources": [
+    "images/animated_emoji/angry.gif",
+    "images/animated_emoji/disgusted.gif",
+    "images/animated_emoji/fearful.gif",
+    "images/animated_emoji/happy.gif",
+    "images/animated_emoji/neutral.gif",
+    "images/animated_emoji/sad.gif",
+    "images/animated_emoji/surprised.gif"
+  ]
 }

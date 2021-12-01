@@ -59,6 +59,7 @@ function checkBoxtoggle() {
         key = button.checked
         console.log(button.checked)
 
+
       });      // window.open("http://www.traineq.site/dashboard");
       // window.sessionActive = false;
       // console.log(button.checked)
