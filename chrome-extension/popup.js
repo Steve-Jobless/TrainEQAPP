@@ -69,6 +69,16 @@ function checkBoxtoggle() {
 
 }
 
+
+function listenClickDashboard() {
+  const button = document.getElementById('dashboardBtn');
+  button.addEventListener("click", function () {
+    window.open("http://www.traineq.site/dashboard");
+  });
+}
+
 // listenClick();
 // listenClick_two();
 checkBoxtoggle();
+listenClickDashboard();
+
