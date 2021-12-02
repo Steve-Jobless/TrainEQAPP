@@ -169,7 +169,7 @@ const displayResults = (emotion, participantId) => {
 
 
 async function createMeeting() {
-  const url = 'http://localhost:3000/api/v1/meetings';
+  const url = 'http://traineq.site/api/v1/meetings';
   await chrome.storage.local.get(['email', 'token'], async function (result) {
     console.log('Email is ' + result.email);
     console.log('Token is ' + result.token);
