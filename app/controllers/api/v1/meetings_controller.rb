@@ -9,7 +9,11 @@ class Api::V1::MeetingsController < Api::V1::BaseController
     @user = current_user
     @meeting = Meeting.find(params[:id])
     @meeting.end_at = meeting_params[:end_at]
-    @meeting.save!
+    if @meeting.save!
+      redirect_to dashboard_path
+    else
+      render_error
+    end
   end
 
   def create

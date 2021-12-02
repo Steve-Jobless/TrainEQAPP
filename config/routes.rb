@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   end
 
   get "/dashboard", to: "users#dashboard", as: :dashboard
+  patch "/dashboard", to: "users#dashboard"
 
 
 end
