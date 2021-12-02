@@ -2,53 +2,47 @@ const tipsHash = {
   "sad": {
     "title": "sadness",
     "emoji": "🥲",
-    "backgroundcolor": "rgba(88,88,255,0.75)",
+    "backgroundcolor": "rgba(88,88,255,0.65)",
     "tips": [
-      "Disappointed? Ask what is on their mind?",
-      "Are they unhappy? Ask what bothers them?",
-      "Say something encouraging."
+      "Disappointed? Ask what they think.",
+      "Are they unhappy? What bothers them?",
+      "Encourage them."
     ]
   },
   "angry": {
     "title": "anger",
     "emoji": "😡",
-    "backgroundcolor": "rgba(255,0,0,0.75)",
+    "backgroundcolor": "rgba(255,0,0,0.65)",
     "tips": [
-      "Did you say something provocative?",
-      "Are they upset? Address the conflict.",
-      "Ask what is on their mind."
+      "Are they angry?",
+      "Are they upset?",
+      "Ask what they think."
     ]
   },
   "fearful": {
     "title": "fear",
     "emoji": "😟",
-    "backgroundcolor": "rgba(135,0,135,0.75)",
+    "backgroundcolor": "rgba(135,0,135,0.65)",
     "tips": [
-      "Did your posture intimidate them?",
-      "Did you scare them? Check the tone of your voice.",
+      "Is your posture intimidating?",
+      "Check the tone of your voice.",
       "Be friendlier!"
     ]
   },
   "disgusted": {
     "title": "disgust",
     "emoji": "🤮",
-    "backgroundcolor": "rgba(0,255,0,0.75)",
+    "backgroundcolor": "rgba(0,175,0,0.65)",
     "tips": [
       "Clarify your intent.",
-      "Did they get offended?",
-      "Change the topic of conversation."
+      "Did you offend them?",
+      "Change the topic."
     ]
   },
   "happy": {
     "title": "happiness",
     "emoji": "🤩",
-    "tips": [],
-    "backgroundcolor": "rgba(135,0,135,0.75)",
-    "tips": [
-      "Did your posture intimidate them?",
-      "Did you scare them? Check the tone of your voice.",
-      "Be friendlier!"
-    ]
+    "tips": []
   },
   "neutral": {
     "title": "no siginificant emotions",
@@ -150,15 +144,15 @@ const displayResults = (emotion, participantId) => {
   const emojiVar = `<span>${tipsEmoji}</span>`
 
   const gifUrl = chrome.runtime.getURL(`images/animated_emoji/${emotion}.gif`)
-  const animatedEmoji = `<div><img src="${gifUrl}" style="width: 65px; height: 65px"></div>`
+  const animatedEmoji = `<div><img src="${gifUrl}" style="width: 60px; height: 60px"></div>`
   // console.log(animatedEmoji);
 
 
 
-  const messageVar = `<div style="width: 70%; max-height: 85%; display: flex; align-items: center; justify-content: space-around; border-radius: 5px;"><p style="width: 150px; color: white; word-break: normal; white-space: normal; overflow-wrap: normal; font-size:18px; margin=0px"><span id="displayed-message">${tipsMessage}</p></div>`;
+  const messageVar = `<div style="width: 70%; max-height: 85%; display: flex; align-items: center; justify-content: space-around; border-radius: 5px;"><p style="width: 150px; font-weight: bolder; color: white; word-break: normal; white-space: normal; overflow-wrap: normal; font-size:18px; margin=0px"><span id="displayed-message">${tipsMessage}</p></div>`;
 
 
-  const negativeEmotion = ["sad", "angry", "disgusted", "fearful", "happy"]
+  const negativeEmotion = ["sad", "angry", "disgusted", "fearful"]
   const commonStyle = `top:10px; left:10px; z-index: 9999; position: absolute;`
   const negativeEmotionStyle = `padding: 5px; border-radius: 5px; border: 0.5px solid grey; background-color:${backgroundColor}; min-width:250px; min-height:70px; display:flex; justify-content:space-around; align-items: center;`
 
