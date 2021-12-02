@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     scores
     expression_array = expressions(@participants)
     @most_disengaged_expression = most_disengaged(expression_array)
-    @message = advice(@most_disengaged_expression[0])
+    @message = advice(@most_disengaged_expression)
   end
 
   def comparison
@@ -37,7 +37,11 @@ class UsersController < ApplicationController
           @five_meetings_engaged << @engaged_count
           @five_meetings_disengaged << @disengaged_count
           @total_engages = @disengaged_count + @engaged_count
-          @five_meetings_results << (@engaged_count* 100 / @total_engages).to_i
+          if !@total_engages.zero?
+            @five_meetings_results << (@engaged_count* 100 / @total_engages).to_i
+          else
+            @five_meetings_results << 0
+          end
       end
   end
 
@@ -130,7 +134,7 @@ class UsersController < ApplicationController
       "happy": {
         "title": "happiness",
         "emoji": "🤩",
-        "tips": []
+        "tips": ["You did a great job! Keep up the good work!",]
       },
       "neutral": {
         "title": "no siginificant emotions",
@@ -142,7 +146,12 @@ class UsersController < ApplicationController
         "emoji": "🤯",
         "tips": []
       }
+
     }
-    tips_hash[emotion.to_sym]
+    if emotion[1].zero?
+      tips_hash[:happy]
+    else
+      tips_hash[emotion[0].to_sym]
+    end
   end
 end
