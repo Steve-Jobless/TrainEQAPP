@@ -10,6 +10,9 @@ class UsersController < ApplicationController
     @all_emotions = []
     comparison
     scores
+    expression_array = expressions(@participants)
+    @most_disengaged_expression = most_disengaged(expression_array)
+    @message = advice(@most_disengaged_expression[0])
   end
 
   def comparison
@@ -61,5 +64,85 @@ class UsersController < ApplicationController
       end
     end
     @total_happys = @all_expressions_score.count('happy')
+  end
+
+  def expressions(participants)
+    @meeting_expressions = []
+    participants.each do |participant|
+      @all_expressions = Expression.all.where(participant_id: participant.id)
+      @all_expressions.each do |expression|
+        @meeting_expressions << expression.emotion
+      end
+    end
+    @meeting_expressions
+  end
+
+  def most_disengaged(expressions)
+    @disengaged_expression = {}
+    @disengaged_expression['sad'] = expressions.count('sad')
+    @disengaged_expression['disgusted'] = expressions.count('disgusted')
+    @disengaged_expression['angry'] = expressions.count('angry')
+    @disengaged_expression['fearful'] = expressions.count('fearful')
+    return most_disengaged_expression = @disengaged_expression.sort.last
+  end
+
+  def advice(emotion)
+    tips_hash = {
+      "sad": {
+        "title": "sadness",
+        "emoji": "🥲",
+        "backgroundcolor": "rgba(88,88,255,0.25)",
+        "tips": [
+          "Signs of disappointment? Would you like to hear what is on their mind?",
+          "Did something make this participant unhappy? Would you like to ask what is bothering them?",
+          "Perhaps you need to say something encouraging."
+        ]
+      },
+      "angry": {
+        "title": "anger",
+        "emoji": "😡",
+        "backgroundcolor": "rgba(255,0,0,0.25)",
+        "tips": [
+          "Did you say something provocative? Maybe qualify your statement.",
+          "Did anyone say something upsetting? Perhaps identify the conflict and address it.",
+          "Maybe ask what is on their mind."
+        ]
+      },
+      "fearful": {
+        "title": "fear",
+        "emoji": "😟",
+        "backgroundcolor": "rgba(135,0,135,0.25)",
+        "tips": [
+          "Did your posture intimidate them? Maybe adjust your posture.",
+          "Did you scare them? Pay attention to the tone of your voice.",
+          "Maybe be friendlier! Being a kind person helps you with doing business, too."
+        ]
+      },
+      "disgusted": {
+        "title": "disgust",
+        "emoji": "🤮",
+        "backgroundcolor": "rgba(0,255,0,0.25)",
+        "tips": [
+          "Did you say something uncomfortable? Maybe clarify your intent.",
+          "Did they get offended? Maybe you need to apologize for their discomfort.",
+          "Perhaps you need to change the topic of conversation."]
+      },
+      "happy": {
+        "title": "happiness",
+        "emoji": "🤩",
+        "tips": []
+      },
+      "neutral": {
+        "title": "no siginificant emotions",
+        "emoji": "😶",
+        "tips": []
+      },
+      "surprised": {
+        "title": "surprise",
+        "emoji": "🤯",
+        "tips": []
+      }
+    }
+    tips_hash[emotion.to_sym]
   end
 end
