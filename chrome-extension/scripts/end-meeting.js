@@ -9,7 +9,7 @@ async function endMeeting(end_time) {
     token = result.token;
     console.log(meeting_id, email, token);
 
-    const url = `http://localhost:3000/api/v1/meetings/${meeting_id}`;
+    const url = `http://www.traineq.site/api/v1/meetings/${meeting_id}`;
     const test = await fetch(url, {
       method: 'PATCH',
       headers: {
