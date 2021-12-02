@@ -5,7 +5,7 @@
         <div class="d-flex align-items-center">
           <div>
             <p class="mb-0 text-secondary">Total Engaged</p>
-            <h4 class="my-1 text-info">4805</h4>
+            <h4 class="my-1 text-info"><%= @total_engaged_count %></h4>
             <p class="mb-0 font-13">+25% from last week</p>
           </div>
           <div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto"><i class="fas fa-handshake"></i>
@@ -20,7 +20,7 @@
         <div class="d-flex align-items-center">
           <div>
             <p class="mb-0 text-secondary">Total Disangaged</p>
-            <h4 class="my-1 text-danger">280</h4>
+            <h4 class="my-1 text-danger"><%= @total_disengaged_count %></h4>
             <p class="mb-0 font-13">-12% from last week</p>
           </div>
           <div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto"><i class="fas fa-exclamation-triangle"></i>
@@ -35,7 +35,7 @@
         <div class="d-flex align-items-center">
           <div>
             <p class="mb-0 text-secondary">Total Happys</p>
-            <h4 class="my-1 text-success">1680</h4>
+            <h4 class="my-1 text-success"><%= @total_happys %></h4>
             <p class="mb-0 font-13">+25% from last week</p>
           </div>
           <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class="far fa-laugh-squint"></i>
@@ -50,7 +50,7 @@
         <div class="d-flex align-items-center">
           <div>
             <p class="mb-0 text-secondary">Total Meetings</p>
-            <h4 class="my-1 text-warning">2</h4>
+            <h4 class="my-1 text-warning"><%= @number_of_meetings %></h4>
             <p class="mb-0 font-13">+2 from last week</p>
           </div>
           <div class="widgets-icons-2 rounded-circle bg-gradient-blooker text-white ms-auto"><i class="fas fa-calendar-times"></i>
