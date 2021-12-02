@@ -19,9 +19,6 @@ chrome.storage.local.get(['email', 'token'], function (result) {
   if (email && token) {
     window.location.href = '../popup.html';
   }
-  // else {
-  //   window.location.href = '../signup.html';
-  // }
 })
 
 
