@@ -144,12 +144,12 @@ const displayResults = (emotion, participantId) => {
   const emojiVar = `<span>${tipsEmoji}</span>`
 
   const gifUrl = chrome.runtime.getURL(`images/animated_emoji/${emotion}.gif`)
-  const animatedEmoji = `<div><img src="${gifUrl}" style="width: 60px; height: 60px"></div>`
+  const animatedEmoji = `<div><img src="${gifUrl}" style="width: 70px; height: 70px"></div>`
   // console.log(animatedEmoji);
 
 
 
-  const messageVar = `<div style="width: 70%; max-height: 85%; display: flex; align-items: center; justify-content: space-around; border-radius: 5px;"><p style="width: 150px; font-weight: bolder; color: white; word-break: normal; white-space: normal; overflow-wrap: normal; font-size:18px; margin=0px"><span id="displayed-message">${tipsMessage}</p></div>`;
+  const messageVar = `<div style="width: 70%; max-height: 85%; display: flex; align-items: center; justify-content: space-around; border-radius: 5px;"><p style="width: 150px; color: white; word-break: normal; white-space: normal; overflow-wrap: normal; font-size:18px; margin=0px"><span id="displayed-message">${tipsMessage}</p></div>`;
 
 
   const negativeEmotion = ["sad", "angry", "disgusted", "fearful"]
