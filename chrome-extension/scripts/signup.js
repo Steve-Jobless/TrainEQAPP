@@ -19,9 +19,6 @@ chrome.storage.local.get(['email', 'token'], function (result) {
   if (email && token) {
     window.location.href = '../popup.html';
   }
-  // else {
-  //   window.location.href = '../signup.html';
-  // }
 })
 
 
@@ -31,7 +28,7 @@ login.addEventListener('click', event => {
   const email = document.getElementById('email-input').value;
   const password = document.getElementById('password-input').value;
   console.log(email, password);
-  const url = 'http://localhost:3000/api/v1/auth/sign_in';
+  const url = 'http://www.traineq.site/api/v1/auth/sign_in';
   fetch(url, {
     method: 'POST',
     headers: {
