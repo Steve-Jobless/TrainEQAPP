@@ -2,8 +2,7 @@ const tipsHash = {
   "sad": {
     "title": "sadness",
     "emoji": "🥲",
-    "backgroundcolor": "rgba(88,88,255,0.25)",
-    "textbackgroundcolor": "rgba(88,88,255,0.75)",
+    "backgroundcolor": "rgba(88,88,255,0.75)",
     "tips": [
       "Disappointed? Ask what is on their mind?",
       "Are they unhappy? Ask what bothers them?",
@@ -13,8 +12,7 @@ const tipsHash = {
   "angry": {
     "title": "anger",
     "emoji": "😡",
-    "backgroundcolor": "rgba(255,0,0,0.25)",
-    "textbackgroundcolor": "rgba(255,0,0,0.75)",
+    "backgroundcolor": "rgba(255,0,0,0.75)",
     "tips": [
       "Did you say something provocative?",
       "Are they upset? Address the conflict.",
@@ -24,8 +22,7 @@ const tipsHash = {
   "fearful": {
     "title": "fear",
     "emoji": "😟",
-    "backgroundcolor": "rgba(135,0,135,0.25)",
-    "textbackgroundcolor": "rgba(135,0,135,0.75)",
+    "backgroundcolor": "rgba(135,0,135,0.75)",
     "tips": [
       "Did your posture intimidate them?",
       "Did you scare them? Check the tone of your voice.",
@@ -35,8 +32,7 @@ const tipsHash = {
   "disgusted": {
     "title": "disgust",
     "emoji": "🤮",
-    "backgroundcolor": "rgba(0,255,0,0.25)",
-    "textbackgroundcolor": "rgba(0,255,0,0.75)",
+    "backgroundcolor": "rgba(0,255,0,0.75)",
     "tips": [
       "Clarify your intent.",
       "Did they get offended?",
@@ -47,7 +43,6 @@ const tipsHash = {
     "title": "happiness",
     "emoji": "🤩",
     "tips": [],
-    "backgroundcolor": "rgba(135,0,135,0.25)",
     "backgroundcolor": "rgba(135,0,135,0.75)",
     "tips": [
       "Did your posture intimidate them?",
@@ -150,7 +145,7 @@ const displayResults = (emotion, participantId) => {
   const tipsMessage = tipsHash[emotion].tips[Math.floor(Math.random() * (numberOfAvailableTips))]
   const tipsEmoji = tipsHash[emotion].emoji
   const backgroundColor = tipsHash[emotion].backgroundcolor
-  const textBackgroundColor = tipsHash[emotion].textbackgroundcolor
+
 
   const emojiVar = `<span>${tipsEmoji}</span>`
 
@@ -160,11 +155,11 @@ const displayResults = (emotion, participantId) => {
 
 
 
-  const messageVar = `<div style="width: 70%; max-height: 85%; display: flex; align-items: center; justify-content: space-around; background:radial-gradient(circle, ${textBackgroundColor} 0%, ${backgroundColor} 70%); border-radius: 5px;"><p style="width: 150px; color: white; word-break: normal; white-space: normal; overflow-wrap: normal; font-size:18px; margin=0px"><span id="displayed-message">${tipsMessage}</p></div>`;
+  const messageVar = `<div style="width: 70%; max-height: 85%; display: flex; align-items: center; justify-content: space-around; border-radius: 5px;"><p style="width: 150px; color: white; word-break: normal; white-space: normal; overflow-wrap: normal; font-size:18px; margin=0px"><span id="displayed-message">${tipsMessage}</p></div>`;
 
 
   const negativeEmotion = ["sad", "angry", "disgusted", "fearful", "happy"]
-  const commonStyle = `top:10px; left:10px; color:black; z-index: 9999; position: absolute;`
+  const commonStyle = `top:10px; left:10px; z-index: 9999; position: absolute;`
   const negativeEmotionStyle = `padding: 5px; border-radius: 5px; border: 0.5px solid grey; background-color:${backgroundColor}; min-width:250px; min-height:70px; display:flex; justify-content:space-around; align-items: center;`
 
   // console.log(negativeEmotion.includes(emotion));
