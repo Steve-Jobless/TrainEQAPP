@@ -24,4 +24,9 @@ Rails.application.routes.draw do
   end
 
   get "/dashboard", to: "users#dashboard", as: :dashboard
+
+  get '/404', to: "errors#not_found"
+  get '/422', to: "errors#unacceptable"
+  get '/500', to: "errors#internal_error"
+
 end
