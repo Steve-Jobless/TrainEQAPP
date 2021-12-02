@@ -7,7 +7,7 @@ export default class extends Controller {
 
   connect() {
     // console.log(this.contentTarget);
-    console.log('Hello');
+    console.log('HEllo');
   }
 
   update() {

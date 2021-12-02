@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     @expressions = Expression.all.where(user_id: current_user)
     @disengaged = ["sad", "angry", "disgusted", "fearful"]
     @engaged = ["happy", "neutral", "surprised"]
-    @all_emotions = []
+    @disengaged_count = 0
+    @engaged_count = 0
   end
 end
