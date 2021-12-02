@@ -20,7 +20,8 @@ class UsersController < ApplicationController
     @five_meetings_engaged = []
     @five_meetings_disengaged = []
     @last_meetings = Meeting.all.where(user_id: current_user).last(5)
-    @last_meetings.each do |meeting|
+    if !@last_meetings.nil?
+      @last_meetings.each do |meeting|
       @disengaged_count = 0
       @engaged_count = 0
         @each_meeting_participants = Participant.all.where(meeting_id: meeting.id)
@@ -43,6 +44,9 @@ class UsersController < ApplicationController
             @five_meetings_results << 0
           end
       end
+    else
+      @five_meetings_results << [0, 0, 0, 0, 0]
+    end
   end
 
   def scores
