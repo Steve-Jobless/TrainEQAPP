@@ -60,7 +60,7 @@
       <div class="card radius-10 p-4">
         <p class="d-flex align-items-center">
           <i class="fas fa-clock mr-2" style="font-size: 40px;color: #54a4e4;"></i>
-          <%= @meeting.start_at %> 〜 <%= @meeting.end_at %>
+          <%= @meeting.start_at.strftime('%Y/%m/%d %H:%M:%S') %> 〜 <%= @meeting.end_at.strftime('%Y/%m/%d %H:%M:%S') if !@meeting.end_at.nil?%>
         </p>
       </div>
     </div>
