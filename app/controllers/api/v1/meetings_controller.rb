@@ -7,12 +7,9 @@ class Api::V1::MeetingsController < Api::V1::BaseController
 
   def update
     @user = current_user
-    @meeting.end_at = Time.new
-     if @meeting.save!
-       redirect_to dashboard_path
-     else
-      render_error
-    end
+    @meeting = Meeting.find(params[:id])
+    @meeting.end_at = meeting_params[:end_at]
+    @meeting.save!
   end
 
   def create
@@ -30,7 +27,7 @@ class Api::V1::MeetingsController < Api::V1::BaseController
       number_of_participants = params[:number_of_participants]
       number_of_participants.times do
         Participant.create(meeting: @meeting)
-        
+
       end
       #store ids of participants
       #render the ids in the show
