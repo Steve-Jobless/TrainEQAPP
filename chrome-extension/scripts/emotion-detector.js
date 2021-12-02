@@ -48,7 +48,7 @@ async function createExpression({ emotion, participantId }) {
     meeting_id = result.meeting_id;
     console.log(meeting_id)
 
-    const url = 'http://www.traineq.site/api/v1/expressions';
+    const url = 'http://localhost:3000/api/v1/expressions';
     chrome.storage.local.get(['email', 'token'], async function (result) {
       console.log('Email is ' + result.email);
       console.log('Token is ' + result.token);
