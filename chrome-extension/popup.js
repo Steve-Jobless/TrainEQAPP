@@ -25,6 +25,17 @@
 
 //   })
 // }
+function logOut() {
+  const button = document.getElementById('logoutBtn');
+  button.addEventListener('click', event => {
+    chrome.storage.local.remove(["email", "token"], function () {
+      console.log('logging out');
+      location.reload();
+    });
+
+  })
+};
+
 
 
 
@@ -81,4 +92,4 @@ function listenClickDashboard() {
 // listenClick_two();
 checkBoxtoggle();
 listenClickDashboard();
-
+logOut();
