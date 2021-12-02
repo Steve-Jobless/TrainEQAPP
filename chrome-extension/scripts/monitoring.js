@@ -150,6 +150,7 @@ const displayResults = (emotion, participantId) => {
   const tipsMessage = tipsHash[emotion].tips[Math.floor(Math.random() * (numberOfAvailableTips))]
   const tipsEmoji = tipsHash[emotion].emoji
   const backgroundColor = tipsHash[emotion].backgroundcolor
+  const textBackgroundColor = tipsHash[emotion].textbackgroundcolor
 
   const emojiVar = `<span>${tipsEmoji}</span>`
 
@@ -159,7 +160,7 @@ const displayResults = (emotion, participantId) => {
 
 
 
-  const messageVar = `<div style="width: 70%; max-height: 85%; display: flex; align-items: center; justify-content: space-around; background-color:rgba(135,0,135,0.75);  border-radius: 5px;"><p style="width: 150px; color: white; word-break: normal; white-space: normal; overflow-wrap: normal; font-size:18px; margin=0px"><span id="displayed-message">${tipsMessage}</p></div>`;
+  const messageVar = `<div style="width: 70%; max-height: 85%; display: flex; align-items: center; justify-content: space-around; background:radial-gradient(circle, ${textBackgroundColor} 0%, ${backgroundColor} 70%); border-radius: 5px;"><p style="width: 150px; color: white; word-break: normal; white-space: normal; overflow-wrap: normal; font-size:18px; margin=0px"><span id="displayed-message">${tipsMessage}</p></div>`;
 
 
   const negativeEmotion = ["sad", "angry", "disgusted", "fearful", "happy"]
