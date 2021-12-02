@@ -55,7 +55,7 @@ body {
 
 .btn-grad {background-image: linear-gradient(to right, #4BAEEF 0%, #9361C3  49%, #EB038D  100%)}
 .btn-grad {
-  margin: 30px;
+  margin: 30px 30px 15px 30px;
   padding: 8px 8px;
   font-family: 'Work Sans', 'Helvetica', 'sans-serif';
   font-size: 16px;
@@ -76,20 +76,25 @@ body {
   text-decoration: none;
 }
 
-/* .footer {
-  background-color: white;
-  text-align: center;
-  font-style: oblique;
-  /* width: 100%; */
-  /* padding: 8px 0px;
-  min-width: 100%;
-} */
+#logout-icon {
+  height: 20px;
+  width: auto;
+}
 
-/* .footer p {
+.footer {
+  background-color: white;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 8px 0px;
+  min-width: 100%;
+  /* border-top: 0.25px solid rgba(110,110,110, 0.5); */
+}
+
+.footer p {
   margin: 0px;
   font-size: 16px;
-  font-family: 'Questrial', sans-serif;
-} */
+}
 
 /* #power-btn {
  background-color: aliceblue;
