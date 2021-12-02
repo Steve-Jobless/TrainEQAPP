@@ -3,45 +3,57 @@ const tipsHash = {
     "title": "sadness",
     "emoji": "🥲",
     "backgroundcolor": "rgba(88,88,255,0.25)",
+    "textbackgroundcolor": "rgba(88,88,255,0.75)",
     "tips": [
-      "Signs of disappointment? Would you like to hear what is on their mind?",
-      "Did something make this participant unhappy? Would you like to ask what is bothering them?",
-      "Perhaps you need to say something encouraging."
+      "Disappointed? Ask what is on their mind?",
+      "Are they unhappy? Ask what bothers them?",
+      "Say something encouraging."
     ]
   },
   "angry": {
     "title": "anger",
     "emoji": "😡",
     "backgroundcolor": "rgba(255,0,0,0.25)",
+    "textbackgroundcolor": "rgba(255,0,0,0.75)",
     "tips": [
-      "Did you say something provocative? Maybe qualify your statement.",
-      "Did anyone say something upsetting? Perhaps identify the conflict and address it.",
-      "Maybe ask what is on their mind."
+      "Did you say something provocative?",
+      "Are they upset? Address the conflict.",
+      "Ask what is on their mind."
     ]
   },
   "fearful": {
     "title": "fear",
     "emoji": "😟",
     "backgroundcolor": "rgba(135,0,135,0.25)",
+    "textbackgroundcolor": "rgba(135,0,135,0.75)",
     "tips": [
-      "Did your posture intimidate them? Maybe adjust your posture.",
-      "Did you scare them? Pay attention to the tone of your voice.",
-      "Maybe be friendlier! Being a kind person helps you with doing business, too."
+      "Did your posture intimidate them?",
+      "Did you scare them? Check the tone of your voice.",
+      "Be friendlier!"
     ]
   },
   "disgusted": {
     "title": "disgust",
     "emoji": "🤮",
     "backgroundcolor": "rgba(0,255,0,0.25)",
+    "textbackgroundcolor": "rgba(0,255,0,0.75)",
     "tips": [
-      "Did you say something uncomfortable? Maybe clarify your intent.",
-      "Did they get offended? Maybe you need to apologize for their discomfort.",
-      "Perhaps you need to change the topic of conversation."]
+      "Clarify your intent.",
+      "Did they get offended?",
+      "Change the topic of conversation."
+    ]
   },
   "happy": {
     "title": "happiness",
     "emoji": "🤩",
-    "tips": []
+    "tips": [],
+    "backgroundcolor": "rgba(135,0,135,0.25)",
+    "backgroundcolor": "rgba(135,0,135,0.75)",
+    "tips": [
+      "Did your posture intimidate them?",
+      "Did you scare them? Check the tone of your voice.",
+      "Be friendlier!"
+    ]
   },
   "neutral": {
     "title": "no siginificant emotions",
@@ -142,16 +154,16 @@ const displayResults = (emotion, participantId) => {
   const emojiVar = `<span>${tipsEmoji}</span>`
 
   const gifUrl = chrome.runtime.getURL(`images/animated_emoji/${emotion}.gif`)
-  const animatedEmoji = `<div><img src="${gifUrl}" style="width: 35px; height: 35px"></div>`
+  const animatedEmoji = `<div><img src="${gifUrl}" style="width: 65px; height: 65px"></div>`
   // console.log(animatedEmoji);
 
 
 
-  const messageVar = `<p style="width: 150px; word-break: normal; white-space: normal; overflow-wrap: normal; font-size:12px; margin=0px"><span id="displayed-message">${tipsMessage}</p>`;
+  const messageVar = `<div style="width: 70%; max-height: 85%; display: flex; align-items: center; justify-content: space-around; background-color:rgba(135,0,135,0.75);  border-radius: 5px;"><p style="width: 150px; color: white; word-break: normal; white-space: normal; overflow-wrap: normal; font-size:18px; margin=0px"><span id="displayed-message">${tipsMessage}</p></div>`;
 
 
-  const negativeEmotion = ["sad", "angry", "disgusted", "fearful"]
-  const commonStyle = `top:10px; left:10px; font-size:2rem; color:black; z-index: 9999; position: absolute;`
+  const negativeEmotion = ["sad", "angry", "disgusted", "fearful", "happy"]
+  const commonStyle = `top:10px; left:10px; color:black; z-index: 9999; position: absolute;`
   const negativeEmotionStyle = `padding: 5px; border-radius: 5px; border: 0.5px solid grey; background-color:${backgroundColor}; min-width:250px; min-height:70px; display:flex; justify-content:space-around; align-items: center;`
 
   // console.log(negativeEmotion.includes(emotion));
