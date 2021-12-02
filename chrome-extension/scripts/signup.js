@@ -28,7 +28,7 @@ login.addEventListener('click', event => {
   const email = document.getElementById('email-input').value;
   const password = document.getElementById('password-input').value;
   console.log(email, password);
-  const url = 'http://traineq.site/api/v1/auth/sign_in';
+  const url = 'https://traineq.site/api/v1/auth/sign_in';
   fetch(url, {
     method: 'POST',
     headers: {
@@ -61,7 +61,7 @@ function submitForm() {
     const password = document.getElementById('password-input').value;
     const passwordConfirmation = document.getElementById('password-confirmation-input').value;
 
-    const url = 'http://traineq.site/api/v1/auth/';
+    const url = 'https://traineq.site/api/v1/auth/';
     console.log("fetching...")
     fetch(url, {
       method: 'POST',
