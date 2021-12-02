@@ -30,7 +30,6 @@ function logOut() {
   button.addEventListener('click', event => {
     chrome.storage.local.remove(["email", "token"], function () {
       console.log('logging out');
-      location.reload();
     });
 
   })
