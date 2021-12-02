@@ -7,6 +7,11 @@ const tipsHash = {
       "Disappointed? Ask what they think.",
       "Are they unhappy? What bothers them?",
       "Encourage them."
+    ],
+    "fulltips": [
+      "They may have shown signs of disappointment. It may be a great idea to hear what was on their mind.",
+      "The trainEQ app detected that something made a participant unhappy. Would you like to ask what was bothering them?",
+      "Perhaps you need to say something encouraging next time."
     ]
   },
   "angry": {
@@ -17,6 +22,11 @@ const tipsHash = {
       "Are they angry?",
       "Are they upset?",
       "Ask what they think."
+    ],
+    "fulltips": [
+      "You may have said something provocative. The trainEQ detected the participant felt offended. You may have needed to qualify your statement.",
+      "Did anyone say something upsetting? Perhaps you may have to be better at identifying and addressing the conflict.",
+      "Next time, you may want to ask what is on the mind of your fellow meeting participants."
     ]
   },
   "fearful": {
@@ -27,6 +37,11 @@ const tipsHash = {
       "Is your posture intimidating?",
       "Check the tone of your voice.",
       "Be friendlier!"
+    ],
+    "fulltips": [
+      "The trainEQ detected some fear among your meeting participants. Did your posture intimidate them? Maybe be more mindful of your posture.",
+      "Did you scare them? Pay attention to the tone of your voice.",
+      "Maybe be friendlier! Being a kind person helps you with doing business, too."
     ]
   },
   "disgusted": {
@@ -37,6 +52,11 @@ const tipsHash = {
       "Clarify your intent.",
       "Did you offend them?",
       "Change the topic."
+    ],
+    "fulltips": [
+      "Did you say something uncomfortable? Maybe you may have needed to clarify your intent.",
+      "Did they get offended? Maybe considering the need to apologize for their discomfort.",
+      "Perhaps you may have needed to change the topic of conversation."
     ]
   },
   "happy": {
