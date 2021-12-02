@@ -1,0 +1,22 @@
+<% @disengaged_count = 0 %>
+<% @engaged_count = 0 %>
+<% @each_emotions = Expression.all.where(participant_id: participant.id) %>
+<p><i class="fas fa-user mr-2"></i>Partipant# : <%= index +1 %></p>
+<% @each_emotions.each do |emotion| %>
+  <% if @disengaged.include?(emotion.emotion) %>
+    <% @disengaged_count += 1 %>
+  <% else %>
+    <% @engaged_count += 1 %>
+  <% end %>
+<% end %>
+<canvas
+    data-controller="chart"
+    data-chart-type-value="bar"
+    data-chart-data-value='{ "labels": ["Engaged", "Diengaged"],
+                          "datasets": [{ "label": "participant <%= index +1 %> engagement",
+                          "backgroundColor": ["rgba(143, 100, 197, 0.7)",
+                                              "rgba(229, 8, 144, 0.7)"],
+                          "borderColor": "#3B82F6",
+                            "data": [<%= @engaged_count %>,<%= @disengaged_count %>]}] }'
+></canvas>
+<p><%= @engaged_count %> : <%= @disengaged_count %></p>
