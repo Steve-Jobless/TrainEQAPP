@@ -171,7 +171,7 @@ const displayResults = (emotion, participantId) => {
 
 
 async function createMeeting() {
-  const url = 'http://localhost:3000/api/v1/meetings';
+  const url = 'https://www.traineq.site/api/v1/meetings';
   await chrome.storage.local.get(['email', 'token'], async function (result) {
     console.log('Email is ' + result.email);
     console.log('Token is ' + result.token);
@@ -194,9 +194,10 @@ async function createMeeting() {
     const data = await response.json()
     console.log(data)
     // const screen_location = document.querySelector(".pHsCke")
-    // chrome.storage.local.set({ meeting_id: data.id, participant_id: data.meeting.participant  }, function () {
-    // });
-    // meeting_id = data.id
+    chrome.storage.local.set({ meeting_id: data.id}, function () {
+      console.log(data.id)
+    });
+
     const videos = document.querySelectorAll("video")
 
 
