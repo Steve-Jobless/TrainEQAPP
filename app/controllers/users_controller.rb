@@ -4,15 +4,24 @@ class UsersController < ApplicationController
     @meetings = Meeting.all.where(user_id: current_user)
     @meeting = Meeting.all.where(user_id: current_user).last
     @participants = Participant.all.where(meeting_id: @meeting.id)
-    @expressions = Expression.all.where(user_id: current_user)
     @disengaged = ["sad", "angry", "disgusted", "fearful"]
     @engaged = ["happy", "neutral", "surprised"]
     @all_emotions = []
     comparison
-    scores
-    expression_array = expressions(@participants)
-    @most_disengaged_expression = most_disengaged(expression_array)
+    scores(@meetings)
+    @expression_array = expressions(@participants)
+    @most_disengaged_expression = most_disengaged(@expression_array)
     @message = advice(@most_disengaged_expression)
+    @number_of_meetings =@meetings.size
+    @chart_options = {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
   end
 
   def comparison
@@ -22,8 +31,8 @@ class UsersController < ApplicationController
     @last_meetings = Meeting.all.where(user_id: current_user).last(5)
     if !@last_meetings.nil?
       @last_meetings.each do |meeting|
-      @disengaged_count = 0
-      @engaged_count = 0
+        @disengaged_count = 0
+        @engaged_count = 0
         @each_meeting_participants = Participant.all.where(meeting_id: meeting.id)
           @each_meeting_participants.each do |participant|
             @each_participant_expressions = Expression.all.where(participant_id: participant.id)
@@ -49,44 +58,49 @@ class UsersController < ApplicationController
     end
   end
 
-  def scores
-    @meetings = Meeting.all.where(user_id: current_user)
+  def scores(meetings)
     @all_expressions_score = []
+    @total_participants = []
     @total_disengaged_count = 0
     @total_engaged_count = 0
-    @number_of_meetings = Meeting.all.where(user_id: current_user).count
-    @meetings.each do |meeting|
+    meetings.each do |meeting|
       @all_participants = Participant.all.where(meeting_id: meeting.id)
       if !@all_participants.nil?
-        @all_participants.each do |participant|
-          @all_expressions = Expression.all.where(participant_id: participant.id)
-          @all_expressions.each do |expression|
-            @all_expressions_score << expression.emotion
-              if @disengaged.include?(expression.emotion)
-                @total_disengaged_count += 1
-              else
-                @total_engaged_count += 1
-              end
+        @total_participants << @all_participants
+        expressions(@all_participants).flatten.each do |expression|
+          @all_expressions_score << expression
+          if @disengaged.include?(expression)
+            @total_disengaged_count += 1
+          else
+            @total_engaged_count += 1
           end
         end
       end
     end
+    @total_participants.flatten!
     @total_happys = @all_expressions_score.count('happy')
   end
 
   def expressions(participants)
-    @meeting_expressions = []
+    @expressions = []
     participants.each do |participant|
       @all_expressions = Expression.all.where(participant_id: participant.id)
-      @all_expressions.each do |expression|
-        @meeting_expressions << expression.emotion
+      @expressions << @all_expressions.map do |expression|
+        expression.emotion
       end
     end
-    @meeting_expressions
+    @expressions
+  end
+
+  def participant(meetings)
+    meetings.each do |meeting|
+      @all_participants = Participant.all.where(meeting_id: meeting.id)
+    end
   end
 
   def most_disengaged(expressions)
     @disengaged_expression = {}
+    expressions.flatten!
     @disengaged_expression['sad'] = expressions.count('sad')
     @disengaged_expression['disgusted'] = expressions.count('disgusted')
     @disengaged_expression['angry'] = expressions.count('angry')

@@ -18,5 +18,6 @@
                                               "rgba(229, 8, 144, 0.7)"],
                           "borderColor": "#3B82F6",
                             "data": [<%= @engaged_count %>,<%= @disengaged_count %>]}] }'
+                          data-chart-options-value="<%= @chart_options.to_json %>"
 ></canvas>
 <p><%= @engaged_count %> : <%= @disengaged_count %></p>

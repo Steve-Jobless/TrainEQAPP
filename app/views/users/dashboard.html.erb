@@ -6,7 +6,6 @@
   <%= render 'shared/scores' %>
   <%# //Total scores %>
 
-
   <%# Average %>
   <div class="row mb-4">
     <div class="col-lg-7 col-md-12 ">
@@ -56,6 +55,7 @@
                                     "backgroundColor": ["rgba(255, 99, 132, 0.9)", "rgba(255, 159, 64, 0.9)", "rgba(255, 205, 86, 0.9)", "rgba(75, 192, 192, 0.9)", "rgba(54, 162, 235, 0.9)", "rgba(153, 102, 255, 0.9)", "rgba(153, 132, 131, 0.9)"],
                                     "borderColor": "rgba(54, 162, 235, 0.2)",
                                     "data":<%= @all_emotions_array %>}] }'
+            data-chart-options-value="<%= @chart_options.to_json %>"
         ></canvas>
       </div>
       <div class="card radius-10 p-4">
@@ -122,6 +122,7 @@
                                                   "rgba(229, 8, 144, 0.7)"],
                                         "borderColor": "rgba(54, 162, 235, 0.2)",
                                         "data": <%= @five_meetings_results %>}] }'
+                data-chart-options-value="<%= @chart_options.to_json %>"
                 ></canvas>
             </div>
         </div>
