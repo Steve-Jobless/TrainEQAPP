@@ -30,7 +30,7 @@ export default class extends Chart {
       maintainAspectRatio: false,
       legend: {
         display: false
-      }
+      },
     }
   }
 }
