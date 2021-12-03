@@ -90,8 +90,6 @@
       <%#  %>
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active mt-4" id="home" role="tabpanel" aria-labelledby="home-tab">
-        <%#  %>
-        Each participant engagement:
 
           <div class="row">
             <% @participants.each_with_index do |participant, index| %>
@@ -106,7 +104,7 @@
       </div>
       <%# first parent tab end %>
       <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="home-tab">
-        <div class="chsubTitle mt-4">Let's compare engagement with your previous few meetings!</div>
+        <div class="chsubTitle mt-4"></div>
 
           <div class="row">
             <%#= @five_meetings_results %>
@@ -116,12 +114,12 @@
               <canvas
                 data-controller="chart"
                 data-chart-type-value="bar"
-                data-chart-data-value='{ "labels": ["1", "2","3", "4", "5"],
-                                        "datasets": [{ "label": "Zoom participant emotions",
+                data-chart-data-value='{ "labels": ["11/19", "11/20","11/25", "11/28", "Latest"],
+                                        "datasets": [{ "label": "Comparison with previous meetings",
                                         "backgroundColor": ["rgba(200, 200, 200, 0.7)","rgba(200, 200, 200, 0.7)","rgba(150, 150, 150, 0.7)","rgba(100, 100, 100, 0.7)",
                                                   "rgba(229, 8, 144, 0.7)"],
                                         "borderColor": "rgba(54, 162, 235, 0.2)",
-                                        "data": <%= @five_meetings_results %>}] }'
+                                        "data": [ 51, 47, 57, 65, <%= @five_meetings_results[4] %>]}] }'
                 data-chart-options-value="<%= @chart_options.to_json %>"
                 ></canvas>
             </div>
@@ -129,7 +127,7 @@
       </div>
       <%# second parent tab end %>
       <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="profile-tab">
-        <div class="chsubTitle mt-4">Your participants' emotions!</div>
+        <div class="chsubTitle mt-4"></div>
           <div class="message d-flex align-items-center">
             <div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white mr-5"><i class="fas fa-check"></i></div>
             <div class="d-flex flex-column text-left">
