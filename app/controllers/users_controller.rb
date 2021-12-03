@@ -8,7 +8,8 @@ class UsersController < ApplicationController
     @engaged = ["happy", "neutral", "surprised"]
     @all_emotions = []
     comparison
-    scores(@meetings)
+    # scores(@meetings)
+    scores(@meeting)
     @expression_array = expressions(@participants)
     @most_disengaged_expression = most_disengaged(@expression_array)
     @message = advice(@most_disengaged_expression)
@@ -58,12 +59,12 @@ class UsersController < ApplicationController
     end
   end
 
-  def scores(meetings)
+  def scores(meeting)
     @all_expressions_score = []
     @total_participants = []
     @total_disengaged_count = 0
     @total_engaged_count = 0
-    meetings.each do |meeting|
+    # meetings.each do |meeting|
       @all_participants = Participant.all.where(meeting_id: meeting.id)
       if !@all_participants.nil?
         @total_participants << @all_participants
@@ -76,7 +77,7 @@ class UsersController < ApplicationController
           end
         end
       end
-    end
+    # end
     @total_participants.flatten!
     @total_happys = @all_expressions_score.count('happy')
   end

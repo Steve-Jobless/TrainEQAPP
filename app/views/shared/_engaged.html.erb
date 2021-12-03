@@ -14,10 +14,10 @@
     data-chart-type-value="bar"
     data-chart-data-value='{ "labels": ["Engaged", "Diengaged"],
                           "datasets": [{ "label": "participant <%= index +1 %> engagement",
-                          "backgroundColor": ["rgba(143, 100, 197, 0.7)",
+                          "backgroundColor": ["rgba(73, 200, 200, 0.7)",
                                               "rgba(229, 8, 144, 0.7)"],
                           "borderColor": "#3B82F6",
                             "data": [<%= @engaged_count %>,<%= @disengaged_count %>]}] }'
                           data-chart-options-value="<%= @chart_options.to_json %>"
 ></canvas>
-<p><%= @engaged_count %> : <%= @disengaged_count %></p>
+<p>Engaged <%= @engaged_count %> : Disengaged <%= @disengaged_count %></p>
