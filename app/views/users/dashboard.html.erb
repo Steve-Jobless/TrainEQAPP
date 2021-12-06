@@ -1,5 +1,4 @@
 <div class="container p-3 my-3">
-  <!--p class="subtitle">Hey, <%= current_user.email %>!</p-->
   <h1 class="title"><i class="fas fa-chart-line mr-2"></i>Dashboard</h1>
   <p>User id: <%= current_user.id %>   Meeting id: <%= @meeting.id %></p>
   <%# Total scores %>
@@ -10,29 +9,6 @@
   <div class="row mb-4">
     <div class="col-lg-7 col-md-12 ">
       <div class="card radius-10">
-      <% @disengaged_count = 0 %>
-      <% @engaged_count = 0 %>
-        <% @participants.each do |participant| %>
-          <% @each_emotions = Expression.all.where(participant_id: participant.id) %>
-          <% @each_emotions.each do |emotion| %>
-            <% if @disengaged.include?(emotion.emotion) %>
-              <% @disengaged_count += 1 %>
-            <% else %>
-              <% @engaged_count += 1 %>
-            <% end %>
-          <% @all_emotions << emotion.emotion %>
-          <% end %>
-        <% end %>
-        <% @all_emotions %>
-        <% @all_emotions_array = [
-          @all_emotions.count("happy"),
-          @all_emotions.count("neutral"),
-          @all_emotions.count("sad"),
-          @all_emotions.count("angry"),
-          @all_emotions.count("disgusted"),
-          @all_emotions.count("fearful"),
-        ] %>
-        <% @total = @disengaged_count + @engaged_count %>
         <canvas
             data-controller="chart"
             data-chart-type-value="doughnut"
@@ -54,7 +30,7 @@
                                     "datasets": [{ "label": "Zoom participant emotions",
                                     "backgroundColor": ["rgba(255, 99, 132, 0.9)", "rgba(255, 159, 64, 0.9)", "rgba(255, 205, 86, 0.9)", "rgba(75, 192, 192, 0.9)", "rgba(54, 162, 235, 0.9)", "rgba(153, 102, 255, 0.9)", "rgba(153, 132, 131, 0.9)"],
                                     "borderColor": "rgba(54, 162, 235, 0.2)",
-                                    "data":<%= @all_emotions_array %>}] }'
+                                    "data":<%= @emotions_array %>}] }'
             data-chart-options-value="<%= @chart_options.to_json %>"
         ></canvas>
       </div>
@@ -107,9 +83,6 @@
         <div class="chsubTitle mt-4"></div>
 
           <div class="row">
-            <%#= @five_meetings_results %>
-            <%#= @five_meetings_engaged %>
-            <%#= @five_meetings_disengaged %>
             <div class="col-lg-12 p-5">
               <canvas
                 data-controller="chart"
@@ -120,7 +93,7 @@
                                                   "rgba(229, 8, 144, 0.7)"],
                                         "borderColor": "rgba(54, 162, 235, 0.2)",
                                         "data": [ 51, 47, 57, 65, 66]}] }'
-                data-chart-options-value="<%= @chart_options.to_json %>"
+                data-chart-options-value="<%= @chart_options_step.to_json %>"
                 ></canvas>
             </div>
         </div>
