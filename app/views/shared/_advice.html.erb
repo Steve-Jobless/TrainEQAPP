@@ -1,15 +1,14 @@
-<% @each_emotions = Expression.all.where(participant_id: participant.id) %>
 <p><i class="fas fa-user mr-2"></i>Partipant# : <%= index +1 %></p>
 <% @emotions = [
-  Expression.all.where(participant_id:participant.id).where(emotion:"happy").count,
-  Expression.all.where(participant_id:participant.id).where(emotion:"neutral").count,
-  Expression.all.where(participant_id:participant.id).where(emotion:"surprised").count,
-  Expression.all.where(participant_id:participant.id).where(emotion:"sad").count,
-  Expression.all.where(participant_id:participant.id).where(emotion:"angry").count,
-  Expression.all.where(participant_id:participant.id).where(emotion:"disgusted").count,
-  Expression.all.where(participant_id:participant.id).where(emotion:"fearful").count
+  Expression.all.where(participant_id: participant.id).where(emotion: "happy").count,
+  Expression.all.where(participant_id: participant.id).where(emotion: "neutral").count,
+  Expression.all.where(participant_id: participant.id).where(emotion: "surprised").count,
+  Expression.all.where(participant_id: participant.id).where(emotion: "sad").count,
+  Expression.all.where(participant_id: participant.id).where(emotion: "angry").count,
+  Expression.all.where(participant_id: participant.id).where(emotion: "disgusted").count,
+  Expression.all.where(participant_id: participant.id).where(emotion: "fearful").count
 ] %>
-<%#= @emotions %>
+<%= @emotions %>
 <canvas
     data-controller="chart"
     data-chart-type-value="bar"
