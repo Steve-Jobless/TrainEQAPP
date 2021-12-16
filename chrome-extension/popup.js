@@ -29,13 +29,27 @@ function logOut() {
   const button = document.getElementById('logoutBtn');
   button.addEventListener('click', event => {
     chrome.storage.local.remove(["email", "token"], function () {
+      // Set icon to logged out if user logs out
+      toggleIcon("loggedOut");
       console.log('logging out');
     });
-
   })
 };
 
-
+// Toggles between logged in, logged out and recording chrome icon images
+function toggleIcon(state) {
+  switch (state) {
+    case "loggedIn":
+      chrome.browserAction.setIcon({path: "images/trainEQ_logo_16x.png"});
+      break;
+    case "loggedOut":
+      chrome.browserAction.setIcon({path: "images/trainEQ_logo_16x_grey.png"});
+      break;
+    case "recording":
+      chrome.browserAction.setIcon({path: "images/trainEQ_logo_16x_recording.png"});
+      break;
+  }
+}
 
 
 function checkBoxtoggle() {
@@ -51,7 +65,12 @@ function checkBoxtoggle() {
   // console.log(button.checked)
 
   button.addEventListener('change', function () {
+
     if (this.checked) {
+
+      // Set icon to 'recording' if checkbox is switched on
+      toggleIcon("recording");
+
       chrome.tabs.executeScript({
         file: 'scripts/monitoring.js'
       });
@@ -62,6 +81,10 @@ function checkBoxtoggle() {
       // window.sessionActive = true;
       // console.log(button.checked)
     } else {
+
+      // Set icon to logged on but inactive (standard logo) if checkbox is switched off
+      toggleIcon("loggedIn");
+
       chrome.tabs.executeScript({
         file: 'scripts/end-meeting.js'
       });
