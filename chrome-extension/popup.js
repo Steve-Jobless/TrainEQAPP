@@ -46,7 +46,7 @@ function toggleIcon(state) {
       chrome.browserAction.setIcon({path: "images/trainEQ_logo_16x_grey.png"});
       break;
     case "recording":
-      chrome.browserAction.setIcon({path: "images/icon-recording16px.png"});
+      chrome.browserAction.setIcon({path: "images/trainEQ_logo_16x_recording.png"});
       break;
   }
 }
