@@ -18,10 +18,14 @@
           <%= link_to "Google Meet", "https://meet.google.com/", class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
-          <%= image_tag "Etienne.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= image_tag "user-icon.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
+            <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
+            <%#= link_to "Another action", "#", class: "dropdown-item" %>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal1">
+              Bootstrap modal
+            </button>
+
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>

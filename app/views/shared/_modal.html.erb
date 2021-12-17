@@ -1,0 +1,25 @@
+<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalLabelId">Upload photo</h3>
+            </div>
+            <div class="modal-body">
+            <%= simple_form_for @user do |f| %>
+              <%= f.input :photo, as: :file %>
+              <%= f.submit class: 'btn btn-secondary btn-submit py-3 my-3', value: 'Upload!' %>
+            <% end %>
+                <form>
+                    <div class="form-group">
+                        <label for="title-text" class="col-form-label">photo:</label>
+                        <input type="text" class="form-control" id="recipient-name">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Upload!</button>
+            </div>
+        </div>
+    </div>
+</div>
