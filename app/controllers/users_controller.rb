@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def dashboard
     authorize current_user
+    @user = current_user
     @meetings = Meeting.all.where(user_id: current_user)
     # @meeting = Meeting.all.where(user_id: current_user).last
     @meeting = Meeting.find(81)
@@ -33,10 +34,21 @@ class UsersController < ApplicationController
   def show
     authorize current_user
     @meeting = Meeting.find(params[:id])
+    @user = current_user
   end
+
+  # def edit
+  #   authorize current_user
+  #   @user = current_user
+  # end
+  # def update
+  #   authorize current_user
+  #   @user = current_user
+  # end
 
   def comparison(latest_meeting)
     @five_meetings_results = []
+    @five_meetings_dates = []
     @last_meetings = Meeting.all.where(user_id: current_user).where('id <= ?', latest_meeting.id).last(5)
     if !@last_meetings.nil?
       @last_meetings.each do |meeting|
@@ -59,6 +71,7 @@ class UsersController < ApplicationController
           else
             @five_meetings_results << 0
           end
+          @five_meetings_dates << meeting.created_at.strftime("%-m/%-d %T")
       end
     else
       @five_meetings_results << [0, 0, 0, 0, 0]

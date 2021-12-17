@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
   get "/dashboard", to: "users#dashboard", as: :dashboard
   patch "/dashboard", to: "users#dashboard"
+  patch '/users/:id', :to => 'users#show', :as => :user
   get "/meetings/:id/show", to: "users#show", as: :meeting_show
 
 end

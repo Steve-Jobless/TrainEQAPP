@@ -22,18 +22,13 @@ chrome.storage.local.get(['email', 'token'], function (result) {
 })
 
 
-// For sign up-----------------------
-console.log("fetching...1")
-
-const submit = document.getElementById('sign-up');
-submit.addEventListener('click', event => {
+const login = document.getElementById('log-in');
+login.addEventListener('click', event => {
   event.preventDefault();
   const email = document.getElementById('email-input').value;
   const password = document.getElementById('password-input').value;
-  const passwordConfirmation = document.getElementById('password-confirmation-input').value;
-
-  const url = 'https://www.traineq.site/api/v1/auth/';
-  console.log("fetching...")
+  console.log(email, password);
+  const url = 'https://www.traineq.site/api/v1/auth/sign_in';
   fetch(url, {
     method: 'POST',
     headers: {
@@ -42,7 +37,6 @@ submit.addEventListener('click', event => {
     body: JSON.stringify({
       "email": email,
       "password": password,
-      "password_confirmation": passwordConfirmation
     })
   }).then(response => response.json())
     .then((data) => {
@@ -50,6 +44,7 @@ submit.addEventListener('click', event => {
       const email = data.data.email
       const token = data.data.authentication_token
       chrome.storage.local.set({ email: email }, function () {
+        console.log('Value is set to ' + email);
       });
       chrome.storage.local.set({ token: token }, function () {
       });

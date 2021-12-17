@@ -8,4 +8,5 @@ class User < ApplicationRecord
 
   include DeviseTokenAuth::Concerns::User
   acts_as_token_authenticatable
+  has_one_attached :avatar
 end
