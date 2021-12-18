@@ -11,7 +11,7 @@ This app was created as a final project for the Le Wagon fullstack bootcamp, bat
 ## How to use the app
 The app works as an extension for chrome, and currently only works for google meets. In order to run the app, the extension needs to be downloaded (the link below) , and loaded as an extension on chrome. The user will need to register and login before turning on the app. 
 
-Once the user is registered, and the zoom meeting is set up, the user needs to click the toggle button on the extension. The app is now ON. It will give live feedbacks on the emotions of the participants. Once the meeting is done, the toggle botton needs to be clicked one more time, and now the app is off. To get the full report on the meeting, dashboard button needs to be pressed in the extension. The user is redirected to the app dashboard, and the full report the past meeting can be viewed. 
+Once the user is registered, and the google meets  is set up, the user needs to click the toggle button on the extension. The app is now ON. It will give live feedbacks on the emotions of the participants. Once the meeting is done, the toggle botton needs to be clicked one more time, and now the app is off. To get the full report on the meeting, dashboard button needs to be pressed in the extension. The user is redirected to the app dashboard, and the full report the past meeting can be viewed. 
 
 ## How does the app work? 
 The app runs face-api.js library in the background script. The screenshots of the video are taken once every 3 seconds(can be adjusted). Then the screenshots are fed to the face-api.js library to be analyses, and the resutls are sent as a display and sent to the back-end api for storing. The screenshots are not stored in the process. 
