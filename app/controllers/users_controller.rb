@@ -4,8 +4,7 @@ class UsersController < ApplicationController
     authorize current_user
     @user = current_user
     @meetings = Meeting.all.where(user_id: current_user)
-    # @meeting = Meeting.all.where(user_id: current_user).last
-    @meeting = Meeting.find(81)
+    @meeting = Meeting.all.where(user_id: current_user).last
     @participants = Participant.all.where(meeting_id: @meeting.id)
     @disengaged = ["sad", "angry", "disgusted", "fearful"]
     @engaged = ["happy", "neutral", "surprised"]
