@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def dashboard
     authorize current_user
     @user = current_user
@@ -34,17 +35,17 @@ class UsersController < ApplicationController
   def show
     authorize current_user
     @meeting = Meeting.find(params[:id])
-    @user = current_user
   end
 
-  # def edit
-  #   authorize current_user
-  #   @user = current_user
-  # end
-  # def update
-  #   authorize current_user
-  #   @user = current_user
-  # end
+  def update
+    @user = current_user
+    authorize @user
+    if @user.update(user_params)
+      redirect_to dashboard_path
+    else
+      render :update
+    end
+  end
 
   def comparison(latest_meeting)
     @five_meetings_results = []
@@ -197,4 +198,10 @@ class UsersController < ApplicationController
       tips_hash[emotion[0].to_sym]
     end
   end
+end
+
+private
+
+def user_params
+  params.require(:user).permit(:avatar)
 end

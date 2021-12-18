@@ -1,1 +1,7 @@
 show meeting id w
+            <%= cl_image_tag current_user.avatar.key, width: 150, height: 150, crop: :thumb, gravity: :face, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false   %>
+
+            <%= simple_form_for @user do |f| %>
+              <%= f.input :avatar, as: :file %>
+              <%= f.submit class: 'btn btn-secondary btn-submit py-3 my-3', value: 'Upload!' %>
+            <% end %>
